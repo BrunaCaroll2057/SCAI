@@ -14,7 +14,8 @@
     <?php
         include 'menuinclude.php'
     ?>
-    <br><br>
+  
+<h1 id="sobre">Cadastro</h1>
 
     <form>
 <fieldset>
@@ -79,7 +80,7 @@
       <input id="input2" type="password" name="senha" id="senha" placeholder="Senha">
     </div>
 <br>
-  <button type="submit" class="button"><a href="paglogin.php" style="color: black;">Cadastrar</button></a>
+  <button type="submit" class="button"><a href="login.php" style="color: black;">Cadastrar</button></a>
 </fieldset>
 </form>
 

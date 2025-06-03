@@ -22,7 +22,7 @@
               Opções
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="Animal/form_cad_animal.php">Cadastrar Animal</a></li>
+              <li><a class="dropdown-item" href="Animal/index.php">Cadastrar Animal</a></li>
               <li><a class="dropdown-item" href="perfil.php">Perfil</a></li>
               <li>
                 <hr class="dropdown-divider">

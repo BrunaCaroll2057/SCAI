@@ -1,6 +1,6 @@
 <?php
 require_once("../Classes/Animal.class.php");
-
+//ggg
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $id = isset($_POST['id'])?$_POST['id']:0;
     $genero = isset($_POST['genero'])?$_POST['genero']:"";

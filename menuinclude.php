@@ -24,10 +24,6 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="login.php">Logar</a></li>
               <li><a class="dropdown-item" href="cadastro.php">Cadastrar</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="principal.php">Sair da conta</a></li>
             </ul>
           </li>
         </ul>
