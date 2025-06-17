@@ -292,7 +292,8 @@ span {
 #sobre{
   margin-top: 50px;
   font-size: 27px;
-  margin-left: 20px;}
+  margin-left: 20px;
+}
 
 #txtsobre1{
   margin-left: 380px;
@@ -426,7 +427,11 @@ font{
   
 }
 .form{
-   margin-top: 50px;
-  font-size: 20px
+  margin-top: 50px;
+  font-size: 20px;
   margin-left: 20px;
+}
+
+#tit_registro{
+  height: 40px;
 }

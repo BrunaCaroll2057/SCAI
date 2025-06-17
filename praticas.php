@@ -13,35 +13,30 @@
     <?php
         include 'menuinclude.php'
     ?>
-<br><br><br>
+<br>
+
+<h1 class="pg">Registros de aulas práticas</h1>
+<br>
 
 <div class="container text-center">
   <div class="row">
     <div class="col"><img src="img/coelho.png" height="350px" alt=""></div>
-    <div class="col"><img src="img/ovelha.png" width="250px" height="350px" alt=""></div>
+    <div class="col"><img src="img/ovelha.png" height="350px" width="240px" alt=""></div>
     <div class="col"><img src="img/toelho3.png"  height="350px" alt=""></div>
-    <div class="col"><img src="img/vaca.png" width="288px" height="350px" alt=""></div>
-  </div><br>
-  <div class="row">
-    <div class="col-8"><img src="img/porcos.png" height="610px" alt=""></div>
-    <div class="col-4"><img src="img/coelinho.png" width="400x" height="615px" alt=""></div>
+    <div class="col"><img src="img/vaca.png" height="350px" alt=""></div>
   </div><br>
 </div><div class="container text-center">
   <div class="row">
-    <div class="col"><img src="img/meninas.png" width="264px" height="350px" alt=""></div>
+    <div class="col"><img src="img/meninas.png" width="220px" height="350px" alt=""></div>
     <div class="col"><img src="img/toelho2.png" height="350px" alt=""></div>
     <div class="col"><img src="img/bovino2.png" height="350px" alt=""></div>
-    <div class="col"><img src="img/toelho4.png"  width="288px" height="350px" alt=""></div>
-  </div><br>
-  <div class="row">
-    <div class="col-8"><img src="img/porquinhos.png" height="555px" alt=""></div>
-    <div class="col-4"><img src="img/bovino.png" width="400x" height="557px" alt=""></div>
+    <div class="col"><img src="img/toelho4.png" height="350px" alt=""></div>
   </div><br>
 <div class="row">
-    <div class="col"><img src="img/toelho1.png" width="264px" height="350px" alt=""></div>
-    <div class="col"><img src="img/bovino3.png" height="350px" alt=""></div>
-    <div class="col"><img src="img/ave.png" height="350px" alt=""></div>
-    <div class="col"><img src="img/suino.png"  width="288px" height="350px" alt=""></div>
+    <div class="col"><img src="img/toelho1.png" height="330px" alt=""></div>
+    <div class="col"><img src="img/bovino3.png" height="330px" alt=""></div>
+    <div class="col"><img src="img/ave.png" height="330px" alt=""></div>
+    <div class="col"><img src="img/suino.png" height="330px" alt=""></div>
   </div><br>
 </div>
 

@@ -71,7 +71,7 @@
 
 <br><br>
 
-<p class="pg">Confira também: </p>
+<p class="pg">Confira também:</p>
 
 <br>
 <div class="container text-center">

@@ -9,7 +9,6 @@
     <title>Cadastro de Animais</title>
 </head>
 <body>
-
     <?php
         include '../menuinclude2.php';
     ?>

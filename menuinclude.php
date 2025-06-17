@@ -1,10 +1,10 @@
 <nav class="navbar bg-body-tertiary fixed-top">
-  <div class="container-fluid">
+  <div class="container-fluid" style="height: 70px;">
     <a class="navbar-brand" href="principal.php">SCAI - Sistema de Cadastro de Animais</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="width: 70px; height: 37px;">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 300px;">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -21,7 +21,7 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Opções
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" style="text-align: center; width: 10px; margin-left: 50px;">
               <li><a class="dropdown-item" href="login.php">Logar</a></li>
               <li><a class="dropdown-item" href="cadastro.php">Cadastrar</a></li>
             </ul>
