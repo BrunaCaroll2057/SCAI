@@ -10,9 +10,15 @@
 
 </head>
 <body>
-    <?php
-        include 'menuinclude2.php';
-    ?>
-    
+<?php
+    include 'menuinclude2.php';
+?>
+
+
+
+
+<?php
+  include "rodapeinclude.php"
+?>    
 </body>
 </html>

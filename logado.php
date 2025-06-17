@@ -104,16 +104,9 @@
   </div>
 </div>
 
-<br><br>
-<footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 SCAI. Todos os direitos reservados.</p>
-            <nav class="footer-nav">
-                <a href="principal.php">Início</a>
-                <a href="sobre.php">Sobre</a>
-            </nav>
-        </div>
-    </footer>
+<?php
+  include "rodapeinclude.php"
+?>
 </body>
 </html>
 

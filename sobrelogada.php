@@ -61,16 +61,9 @@ do mercado por profissionais capacitados em práticas agrícolas sustentáveis e
 Sul disponibiliza infraestrutura adequada e corpo docente qualificado para proporcionar uma formação de 
 excelência aos estudantes interessados nessas áreas.
 </p>
-<br><br><br>
 
-<footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 SCAI. Todos os direitos reservados.</p>
-            <nav class="footer-nav">
-                <a href="principal.php">Início</a>
-                <a href="sobre.php">Sobre</a>
-            </nav>
-        </div>
-    </footer>
+<?php
+  include "rodapeinclude.php"
+?>
 </body>
 </html>

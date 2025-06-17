@@ -84,5 +84,8 @@
 </fieldset>
 </form>
 
+<?php
+  include "rodapeinclude.php"
+?>
 </body>
 </html>

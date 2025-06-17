@@ -35,5 +35,9 @@
 <br>
 <a href="cadastro.php" h6 class="sans serif" style="text-align: center; color: rgb(80, 94, 71);">Esqueceu sua senha?</h6></a>
 
+
+<?php
+  include "rodapeinclude.php"
+?>
 </body>
 </html>
