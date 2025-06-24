@@ -1,6 +1,6 @@
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid" style="height: 70px;">
-    <a class="navbar-brand" href="principal.php">SCAI - Sistema de Cadastro de Animais</a>
+    <a class="navbar-brand" href="index.php">SCAI - Sistema de Cadastro de Animais</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="width: 70px; height: 37px;">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,7 +21,7 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Opções
             </a>
-            <ul class="dropdown-menu" style="text-align: center; width: 10px; margin-left: 50px;">
+            <ul class="dropdown-menu" style="text-align: center;">
               <li><a class="dropdown-item" href="login.php">Logar</a></li>
               <li><a class="dropdown-item" href="cadastro.php">Cadastrar</a></li>
             </ul>
