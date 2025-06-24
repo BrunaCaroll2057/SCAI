@@ -289,7 +289,7 @@ span {
   }
 }
 
-#sobre{
+#tit_principal_pagina{
   margin-top: 50px;
   font-size: 27px;
   margin-left: 20px;
@@ -309,12 +309,6 @@ span {
 .pg{
   margin-left: 700px;
   font-size: 35px;
-}
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 /* Estilização da página */
@@ -384,7 +378,8 @@ body{
   justify-content: center;
   text-align: center;
 }
-#input1{
+
+#inputlog{
   margin-top: 90px;
   border-radius: 10px;
   margin-left: 15px;
@@ -393,18 +388,8 @@ body{
   background-color: #fff;
   border: 1px solid rgb(0, 0, 0);
   box-shadow: 0.5px 0.5px 0.5px 2px rgb(220, 240, 207);
-
 }
-#input2{
-  border-radius: 10px;
-  margin-left: 15px;
-  height: 45px;
-  width: 30%;
-  background-color: #fff;
-  border: 1px solid rgb(0, 0, 0);
-  box-shadow: 0.5px 0.5px 0.5px 2px rgb(220, 240, 207);
 
-}
 button{
   border-radius: 10px;
   margin-left: 15px;
@@ -424,7 +409,6 @@ fieldset.grupo.campo{
 }
 font{
   color: black;
-  
 }
 .form{
   margin-top: 50px;

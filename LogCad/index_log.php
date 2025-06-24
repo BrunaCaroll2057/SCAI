@@ -1,3 +1,12 @@
+<?php
+
+  session_start();
+  if(!isset($_SESSION['logado']))
+  {
+    header("Location: login.php");
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,25 +24,6 @@
         include 'menuinclude.php'
     ?>
 
-<h1 id="sobre">Login</h1>
-
-<form>
-<fieldset>
-    <div>
-      <input id="input1" type="text" nome="nome" id="nome" placeholder="E-mail/nome de usuário">
-    </div>
-  
-<br>
-    <div>
-      <input id="input2" type="password" nome="senha" id="senha" placeholder="Senha">
-    </div>
-  <br>
-    <button type="submit" class="button"><a href="principallogada.php" style="color: black;">Logar</button></a>
-</fieldset>
-</form>
-
-<br>
-<a href="cadastro.php" h6 class="sans serif" style="text-align: center; color: rgb(80, 94, 71);">Esqueceu sua senha?</h6></a>
 
 
 <?php

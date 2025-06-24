@@ -22,8 +22,8 @@
               Opções
             </a>
             <ul class="dropdown-menu" style="text-align: center;">
-              <li><a class="dropdown-item" href="login.php">Logar</a></li>
-              <li><a class="dropdown-item" href="cadastro.php">Cadastrar</a></li>
+              <li><a class="dropdown-item" href="LogCad/login.php">Logar</a></li>
+              <li><a class="dropdown-item" href="LogCad/cadastro.php">Cadastrar</a></li>
             </ul>
           </li>
         </ul>
