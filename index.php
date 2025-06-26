@@ -16,7 +16,7 @@
 <body>
 
     <?php
-        include 'menuinclude.php'
+        include 'Includes/menuinclude.php';
     ?>
 
 
@@ -106,7 +106,7 @@
 </div>
 
 <?php
-  include "rodapeinclude.php"
+  include "Includes/rodapeinclude.php";
 ?>
 </body>
 </html>

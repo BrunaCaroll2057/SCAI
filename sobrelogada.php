@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php
-        include 'menuinclude2.php'
+        include 'Includes/menuinclude2.php';
     ?>
 
 <h1 id="sobre">Sobre o Instituto Federal Catarinense - campus Rio do Sul, Unidade Sede</h1>
@@ -62,8 +62,8 @@ Sul disponibiliza infraestrutura adequada e corpo docente qualificado para propo
 excelência aos estudantes interessados nessas áreas.
 </p>
 
-<?php
-  include "rodapeinclude.php"
-?>
+    <?php
+        include "Includes/rodapeinclude.php";
+    ?>
 </body>
 </html>

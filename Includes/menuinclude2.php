@@ -27,7 +27,7 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="principal.php">Sair da conta</a></li>
+              <li><a class="dropdown-item" href="index.php">Sair da conta</a></li>
             </ul>
           </li>
         </ul>

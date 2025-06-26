@@ -11,14 +11,14 @@
 </head>
 <body>
 <?php
-    include 'menuinclude2.php';
+    include 'Includes/menuinclude2.php';
 ?>
 
 
 
 
 <?php
-  include "rodapeinclude.php"
+  include "Includes/rodapeinclude.php";
 ?>    
 </body>
 </html>

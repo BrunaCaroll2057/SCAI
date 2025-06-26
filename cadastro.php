@@ -10,20 +10,21 @@
     <title>SCAI-Sistema de Cadastro de Animais do Instituto</title>
 </head>
 <body>
-    <?php
-        include '../menuinclude.php';
-    ?>
+  <?php
+    include '../Includes/menuinclude.php';
+  ?>
   
-<h1 id="sobre">Cadastro</h1>
+<h1 class="titulocadlog">Cadastro</h1>
+<br><br>
 
     <form>
       <fieldset>
           <div>
-            <input id="input1" type="text" nome="nome" id="nome" placeholder="Nome de usuário">
+            <input id="input1" type="text" nome="NOME" id="NOME" placeholder="Nome de usuário">
           </div>
           <br>
           <div>
-            <input id="input2" type="text" nome="email" id="email" placeholder="E-mail">
+            <input id="input2" type="text" nome="EMAIL" id="EMAIL" placeholder="E-mail">
           </div>
           <br>
           <div>
@@ -39,15 +40,15 @@
           </div>
           <br>
           <div>
-            <input id="input2" type="password" name="senha" id="senha" placeholder="Senha">
+            <input id="input2" type="password" name="SENHA" id="SENHA" placeholder="Senha">
           </div>
           <br>
-        <button type="submit" class="button"><a href="login.php" style="color: black;">Cadastrar</button></a>
+        <button type="submit" class="button"><a href="registro1.php" style="color: black;">Cadastrar</button></a>
     </fieldset>
 </form>
 
-<?php
-  include "../rodapeinclude.php";
-?>
+  <?php
+    include '../Includes/rodapeinclude.php';
+  ?>
 </body>
 </html>

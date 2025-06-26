@@ -12,7 +12,7 @@
 </head>
 <body>
     <?php
-        include 'menuinclude2.php'
+        include 'Includes/menuinclude.php';
     ?>
     <br><br><br>
 
@@ -87,7 +87,7 @@
 </form>
 
 <?php
-  include "rodapeinclude.php"
+  include "Includes/rodapeinclude.php";
 ?>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<footer class="footer" style="margin-bottom: -60px;margin-top: 60px;">
+<footer class="footer" style="margin-bottom: -500%;margin-top: 70px;">
         <div class="footer-content">
             <p>&copy; 2025 SCAI. Todos os direitos reservados.</p>
             <nav class="footer-nav">

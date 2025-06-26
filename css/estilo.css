@@ -289,10 +289,9 @@ span {
   }
 }
 
-#tit_principal_pagina{
-  margin-top: 50px;
-  font-size: 27px;
-  margin-left: 20px;
+.titulocadlog{
+  margin-top: 60px;
+  font-size: 50px;
 }
 
 #txtsobre1{
