@@ -14,9 +14,10 @@
         include 'Includes/menuinclude.php';
     ?>
     
-<h1 id="tit_principal_pagina">Sobre o Instituto Federal Catarinense - campus Rio do Sul, Unidade Sede</h1>
+<h1 id="tit_sobre">Sobre o Instituto Federal Catarinense - campus Rio do Sul, Unidade Sede</h1>
 <br><br>
-<img src="img/sobre.png" alt="" style="height: 400px; margin-left:-900px; border-radius: 20px;">
+
+<img src="img/sobre.png" alt="" style="height: 400px; margin-left:-70%; border-radius: 20px;">
 
 <p id="txtsobre1">
 O atual IFC Campus Rio do Sul foi fundado em 1968 como Colégio Agrícola de Rio do Sul, com foco na 
@@ -29,7 +30,7 @@ ciências agrárias e compromisso com o desenvolvimento rural sustentável.
 O Instituto Federal Catarinense (IFC), Campus Rio do Sul, Unidade Sede, oferece dois cursos técnicos 
 integrados ao ensino médio na área agrícola: Agropecuária e Agroecologia.
 <br><br>
-Curso Técnico em Agropecuária Integrado ao Ensino Médio:
+<b>Curso Técnico em Agropecuária Integrado ao Ensino Médio:</b>
 <br><br>
 Este curso tem duração de três anos, com carga horária total de 3.600 horas, incluindo 160 horas destinadas 
 ao estágio curricular supervisionado obrigatório. 
@@ -42,11 +43,11 @@ ao estágio curricular supervisionado obrigatório.
 
 </p>
 
-<img src="img/alojamento-sede.png" alt="" style="height: 400px; margin-right: -850px; border-radius: 20px;">
+<img src="img/alojamento-sede.png" alt="" style="height: 400px; margin-right: -65%; border-radius: 20px;">
 
 <p id="txtsobre2">
 <br>
-Curso Técnico em Agroecologia Integrado ao Ensino Médio:
+<b>Curso Técnico em Agroecologia Integrado ao Ensino Médio:</b>
 <br><br>
 Com duração de três anos e carga horária total de 3.620 horas, incluindo 160 horas de estágio curricular 
 supervisionado obrigatório, este curso visa formar profissionais cidadãos para atuarem em sistemas de produção 
