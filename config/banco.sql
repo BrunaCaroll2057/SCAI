@@ -101,14 +101,19 @@ CREATE TABLE IF NOT EXISTS `scai`.`FUNCIONARIO` (
   `ESTADO` VARCHAR(45) NOT NULL, -- tirar da tabela
   `CIDADE` VARCHAR(45) NOT NULL,
   `SENHA` VARCHAR(45) NOT NULL);
-
+  
 select * from FUNCIONARIO;
 
-CREATE TABLE USUARIOS(
-	id int not null primary key,
-    nome varchar(50),
-    usuario varchar(50),
-    email varchar(50),
-    senha varchar(50));
-    
-    select * from USUARIOS;
+DROP TABLE IF EXISTS USUARIOS;
+CREATE TABLE IF NOT EXISTS USUARIOS (
+  id int NOT NULL AUTO_INCREMENT,
+  nome varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  usuario varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  email varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  senha varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO usuarios (id, nome, usuario, email, senha) VALUES
+(1, 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$rGBzXp8W.L2CSzcIJ5zi2.iQXnDDyjeNiss5PZdTHejedSmPgyk5O');
+COMMIT;
