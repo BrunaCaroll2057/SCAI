@@ -19,7 +19,6 @@
         include 'Includes/menuinclude.php';
     ?>
 
-
 <div id="carousel" class="carousel slide" data-ride="carousel">
 
 <!--   Bullets do carrossel, se aumentar uma imagem, aumente um li e acrescento o próximo número -->
@@ -108,6 +107,7 @@
 <?php
   include "Includes/rodapeinclude.php";
 ?>
+
 </body>
 </html>
 

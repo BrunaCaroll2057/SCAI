@@ -103,3 +103,12 @@ CREATE TABLE IF NOT EXISTS `scai`.`FUNCIONARIO` (
   `SENHA` VARCHAR(45) NOT NULL);
 
 select * from FUNCIONARIO;
+
+CREATE TABLE USUARIOS(
+	id int not null primary key,
+    nome varchar(50),
+    usuario varchar(50),
+    email varchar(50),
+    senha varchar(50));
+    
+    select * from USUARIOS;
