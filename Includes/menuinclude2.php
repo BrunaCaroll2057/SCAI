@@ -1,3 +1,21 @@
+<?php
+
+  include 'processologin/config.php';
+  session_start();
+  $user_id = $_SESSION['user_id'];
+
+  if(!isset($user_id)){
+    header('location:login.php');
+  };
+
+  if(isset($_GET['logout'])){
+    unset($user_id);
+    session_destroy();
+    header('location:login.php');
+  }
+
+?>
+
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid" style="height: 70px;">
     <a class="navbar-brand" href="principallogada.php">SCAI - Sistema de Cadastro de Animais</a>
@@ -23,14 +41,11 @@
             </a>
             <ul class="dropdown-menu" style="text-align: center; width: 10px; margin-left: 50px;">
               <li><a class="dropdown-item" href="Animal/index.php">Cadastrar Animal</a></li>
-              <li><a class="dropdown-item" href="perfil.php">Perfil</a></li>
+              <li><a class="dropdown-item" href="home.php">Perfil</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <?php
-                // Link para sair e apagar cookie token
-                echo "<li><a class='dropdown-item' href='logout.php'>Sair</a></li>  ";
-              ?>
+                <a href="home.php?logout=<?php echo $user_id; ?>" class="delete-btn">Logout</a>
             </ul>
           </li>
         </ul>

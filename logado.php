@@ -1,32 +1,5 @@
-<?php
-
-session_start(); // Iniciar a sessão
-
-// Limpara o buffer de redirecionamento
-ob_start();
-
-// Incluir o arquivo para validar e recuperar dados do token
-include_once 'validar_token.php';
-
-// Chamar a função validar o token, se a função retornar FALSE significa que o token é inválido e acessa o IF
-if(!validarToken()){
-    // Criar a mensagem de erro e atribuir para variável global
-    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Necessário realizar o login para acessar a página!</p>";
-
-    // Redireciona o usuário para o arquivo index.php
-    header("Location: index_login.php");
-
-    // Pausar o processamento da página
-    exit();
-}
-
-
-
-//CÓDIGO DA PÁGINA PRINCIPAL LOGADA, COM MENU ADAPTADO
-?>
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,24 +9,16 @@ if(!validarToken()){
     <link rel="stylesheet" href="css/estilo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="JS/js.js"> </script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
 </head>
 <body>
 
     <?php
-
         include 'Includes/menuinclude2.php';
-
-        // Chamar a função para recuperar o nome salvo no token
-        echo "Bem vindo(a) " . recuperarNomeToken() . "! <br>";
-
-        // Chamar a função para recuperar o e-mail salvo no token
-        echo "E-mail do usuário logado: " . recuperarEmailToken() . ". <br>";
-
     ?>
 
-
-<div id="carousel" class="carousel slide" data-ride="carousel">
+<div id="carousel" class="carousel slide" data-ride="carousel" style="margin-top: 50px;">
 
 <!--   Bullets do carrossel, se aumentar uma imagem, aumente um li e acrescento o próximo número -->
 <ol class="carousel-indicators">
@@ -101,11 +66,10 @@ if(!validarToken()){
   <span class="sr-only"> Next </span>
 </a> 
 </div> <!-- Fim do carrossel -->
+
 <br><br>
 
-
-
-<p class="pg">Confira também: </p>
+<p class="pg">Confira também:</p>
 
 <br>
 <div class="container text-center">
@@ -142,6 +106,7 @@ if(!validarToken()){
 <?php
   include "Includes/rodapeinclude.php";
 ?>
+
 </body>
 </html>
 
