@@ -9,25 +9,37 @@ ob_start();
 include_once 'conexao.php';
 
 ?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Celke - Login com token e cookie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>SCAI-Sistema de Cadastro de Animais do Instituto</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="JS/js.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
 </head>
 <body>
-    <?php
+    
+<?php
+        include 'Includes/menuinclude.php';
+
     // Exemplo criptografar a senha
     // echo password_hash('123456', PASSWORD_DEFAULT);
 ?>
-    <h1>Login</h1>
+    <h1 class="tit_login">Login</h1>
 
     <?php
     // Receber os dados do formulário
-$dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+    $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-// Acessa o IF quando o usuário clicou no botão "Acessar" do formulário
-if (!empty($dados['SendLogin'])) {
+    // Acessa o IF quando o usuário clicou no botão "Acessar" do formulário
+    if (!empty($dados['SendLogin'])) {
     //var_dump($dados);
 
     // QUERY para recuperar o usuário do banco de dados
@@ -147,20 +159,21 @@ if (isset($_SESSION['msg'])) {
     <!-- Início do formulário de login -->
     <form method="POST" action="">
 
-        <?php
-            $usuario = "";
-if (isset($dados['usuario'])) {
-    $usuario = $dados['usuario'];
-}
+<?php
+    $usuario = "";
+    if (isset($dados['usuario'])) {
+        $usuario = $dados['usuario'];
+    }
 ?>
+
         <label>Usuário: </label>
         <input type="text" name="usuario" placeholder="Digite o usuário" value="<?php echo $usuario; ?>"><br><br>
 
-        <?php
+<?php
     $senha = "";
-if (isset($dados['senha'])) {
-    $senha = $dados['senha'];
-}
+    if (isset($dados['senha'])) {
+        $senha = $dados['senha'];
+    }
 ?>        
         <label>Senha: </label>
         <input type="password" name="senha" placeholder="Digite a senha" value="<?php echo $senha; ?>"><br><br>
@@ -173,8 +186,11 @@ if (isset($dados['senha'])) {
     <a href="cadastrar.php">Cadastrar</a>
 
     <br><br>
-    Usuário: cesar@celke.com.br<br>
-    Senha: 123456
-    
+
+<?php
+  echo "<p style= 'margin-top: 7.5%'></p>";
+  include "Includes/rodapeinclude.php";
+?>
+
 </body>
 </html>

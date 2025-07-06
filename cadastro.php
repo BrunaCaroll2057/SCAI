@@ -11,7 +11,7 @@
 </head>
 <body>
   <?php
-    include '../Includes/menuinclude.php';
+    include 'Includes/menuinclude.php';
   ?>
   
 <h1 class="titulocadlog">Cadastro</h1>

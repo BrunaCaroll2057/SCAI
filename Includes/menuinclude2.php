@@ -27,7 +27,10 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="index.php">Sair da conta</a></li>
+              <?php
+                // Link para sair e apagar cookie token
+                echo "<li><a class='dropdown-item' href='logout.php'>Sair</a></li>  ";
+              ?>
             </ul>
           </li>
         </ul>
