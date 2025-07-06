@@ -167,7 +167,7 @@ if (isset($_SESSION['msg'])) {
 ?>
 
         <label>Usuário: </label>
-        <input type="text" name="usuario" placeholder="Digite o usuário" value="<?php echo $usuario; ?>"><br><br>
+        <input type="text" name="usuario" placeholder="Digite o e-mail de usuário" value="<?php echo $usuario; ?>"><br><br>
 
 <?php
     $senha = "";

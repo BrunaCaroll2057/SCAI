@@ -69,7 +69,7 @@ include_once 'conexao.php';
     ?>
 
     <br><br>
-    <h1 id="tit_cadastrar">Cadastrar</h1>
+    <h1 class="tit_cadastrar">Cadastrar</h1>
 
     <!-- Início do formulário cadastrar usuário -->
     <form method="POST" action="">
