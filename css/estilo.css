@@ -289,11 +289,6 @@ span {
   }
 }
 
-.titulocadlog{
-  margin-top: 60px;
-  font-size: 50px;
-}
-
 #txtsobre1{
   margin-left: 380px;
   margin-right: 40px;
@@ -304,10 +299,6 @@ span {
     margin-left: 40px;
     margin-top: -390px;
     margin-right: 440px;
-}
-.pg{
-  margin-left: 700px;
-  font-size: 35px;
 }
 
 /* Estilização da página */
@@ -409,27 +400,26 @@ fieldset.grupo.campo{
 font{
   color: black;
 }
-.form{
-  margin-top: 50px;
-  font-size: 20px;
-  margin-left: 20px;
-}
 
-#tit_registro{
-  height: 40px;
-}
 #tit_sobre{
   margin-top: 40px;
   font-size: 40px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-#tit_login{
-  margin-top: 60px;
-  margin-bottom: 30px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #tit_cadastrar{
   margin-top: 60px;
   margin-bottom: 30px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+/* Estilo para submenu dentro do dropdown do Bootstrap */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
 }

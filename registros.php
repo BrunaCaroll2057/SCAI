@@ -12,10 +12,9 @@
     <?php
         include 'Includes/menuinclude.php';
     ?>
-<br>
 
-<h1 class="pg">Registros do Instituto</h1>
-<br>
+<h2 id="tit_sobre">Registros do Instituto</h2>
+<br><br>
 
 <div class="container text-center">
   <div class="row row-cols-4">

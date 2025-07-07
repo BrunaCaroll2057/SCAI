@@ -1,5 +1,8 @@
 <?php
 require_once("../Classes/Animal.class.php");
+
+    include '../Includes/menuinclude3.php';
+    
 //ggg
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $id = isset($_POST['id'])?$_POST['id']:0;
@@ -68,4 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 }
+
+    include '../Includes/rodapeinclude.php';
+
 ?>

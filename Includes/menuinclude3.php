@@ -1,6 +1,6 @@
 <?php
 
-  include 'processologin/config.php';
+  include '../processologin/config.php';
   session_start();
   $user_id = $_SESSION['user_id'];
 
@@ -18,7 +18,7 @@
 
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid" style="height: 70px;">
-    <a class="navbar-brand" href="logado.php">SCAI - Sistema de Cadastro de Animais</a>
+    <a class="navbar-brand" href="../logado.php">SCAI - Sistema de Cadastro de Animais</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="width: 70px; height: 37px;">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,12 +30,11 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <hr>
-            <a class="nav-link active" aria-current="page" href="logado.php">Home</a>
+            <a class="nav-link active" aria-current="page" href="../logado.php">Home</a>
             <hr>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="sobrelogada.php">Sobre</a>
+            <a class="nav-link" href="../sobrelogada.php">Sobre</a>
             <hr>
           </li>
             <li class="nav-item dropdown">
@@ -43,7 +42,7 @@
                 Cadastrar Animal
               </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="Animal/index.php" style="text-align: center;">Bovinos</a><hr></li>
+                  <li><a class="dropdown-item" href="../Animal/index.php" style="text-align: center;">Bovinos</a><hr></li>
                   <li><a class="dropdown-item" href="Animal/suinos.php" style="text-align: center;">Suínos</a><hr></li>
                   <li><a class="dropdown-item" href="Animal/ovinos.php" style="text-align: center;">Ovinos</a><hr></li>
                   <li><a class="dropdown-item" href="Animal/aves.php" style="text-align: center;">Aves</a><hr></li>
@@ -52,14 +51,14 @@
                 <hr>
             </li>
               <li>
-                <a class="dropdown-item" href="home.php">Perfil</a>
+                <a class="dropdown-item" href="../home.php">Perfil</a>
                 <hr>
               </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li>
-                <a href="home.php?logout=<?php echo $user_id; ?>" style="color: black;">Logout</a>
+                <a href="../home.php?logout=<?php echo $user_id; ?>" style="color: black;">Logout</a>
                 <hr>
               </li>
             </ul>

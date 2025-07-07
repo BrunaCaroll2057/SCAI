@@ -14,7 +14,7 @@
         include 'Includes/menuinclude2.php';
     ?>
 
-<h1 id="sobre">Sobre o Instituto Federal Catarinense - campus Rio do Sul, Unidade Sede</h1>
+<h1 id="tit_sobre">Sobre o Instituto Federal Catarinense - campus Rio do Sul, Unidade Sede</h1>
 <br><br>
 <img src="img/sobre.png" alt="" style="height: 400px; margin-left:-950px; border-radius: 20px;">
 

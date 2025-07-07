@@ -15,8 +15,8 @@
     ?>
 <br>
 
-<h1 class="pg">Registros de aulas práticas</h1>
-<br>
+<h1 id="tit_sobre">Registros de aulas práticas</h1>
+<br><br>
 
 <div class="container text-center">
   <div class="row">

@@ -10,16 +10,16 @@
 </head>
 <body>
     <?php
-        include '../menuinclude2.php';
+        include '../Includes/menuinclude3.php';
     ?>
 
-    <h1 class="form">Manutenção de Animais</h1>
+    <h1 style="margin-left: 1%; margin-bottom: -10px;" id="tit_sobre">Manutenção de Animais</h1>
     <form action="index.php" method="post" enctype="multipart/form-data">
-        <fieldset >
-            <legend>Formulário</legend>
+        <fieldset>
+            <legend id="tit_sobre">Bovinos</legend>
+            <br><br>
             <label for="id">Id:</label>
             <input type="text" name="id" value="{id}" readonly><br><br>
-
 
             <label for="genero">Gênero:</label>
             <input type="text" name="genero" value="{genero}"><br><br>
