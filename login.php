@@ -17,7 +17,6 @@ if(isset($_POST['submit'])){
    }else{
       $message[] = 'Email e/ou senha incorretos!';
    }
-
 }
 
 ?>

@@ -43,7 +43,7 @@ if(isset($_GET['logout'])){
    
 <div class="container" style="background-color: white;">
    
-   <div class="profile" style="background-color: white; margin-top: -3px; margin-bottom: -10px;">   
+   <div class="profile" style="background-color: white; margin-top: -2px; margin-bottom: -10px;">   
       <h3 style="font-size: 40px;">Perfil</h3>
       <br>
 

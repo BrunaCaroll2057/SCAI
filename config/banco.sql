@@ -103,8 +103,8 @@ CREATE TABLE IF NOT EXISTS `scai`.`FUNCIONARIO` (
   `SENHA` VARCHAR(45) NOT NULL);
   
 select * from FUNCIONARIO;
+DROP TABLE IF EXISTS FUNCIONARIO;
 
-DROP TABLE IF EXISTS USUARIOS;
 CREATE TABLE IF NOT EXISTS USUARIOS (
   id int NOT NULL AUTO_INCREMENT,
   nome varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -117,3 +117,21 @@ CREATE TABLE IF NOT EXISTS USUARIOS (
 INSERT INTO usuarios (id, nome, usuario, email, senha) VALUES
 (1, 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$rGBzXp8W.L2CSzcIJ5zi2.iQXnDDyjeNiss5PZdTHejedSmPgyk5O');
 COMMIT;
+
+select * from USUARIOS;
+drop table USUARIOS;
+
+CREATE TABLE `user_form` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+
+alter table user_form
+add column cpf varchar(250),
+add column telefone varchar(250);
+
+select * from user_form;

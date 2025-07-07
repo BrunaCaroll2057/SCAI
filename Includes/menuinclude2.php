@@ -45,7 +45,7 @@
               <li>
                 <hr class="dropdown-divider">
               </li>
-                <a href="home.php?logout=<?php echo $user_id; ?>" class="delete-btn">Logout</a>
+              <li><a href="home.php?logout=<?php echo $user_id; ?>" class="delete-btn" style="color: black;">Logout</a></li>
             </ul>
           </li>
         </ul>
