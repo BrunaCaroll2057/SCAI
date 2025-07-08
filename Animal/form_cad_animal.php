@@ -24,9 +24,6 @@
             <label for="genero">Gênero:</label>
             <input type="text" name="genero" value="{genero}"><br><br>
 
-            <label for="idade">Idade:</label>
-            <input type="number" name="idade" value="{idade}"><br><br>
-
             <label for="dt_nascimento">Data de nascimento:</label>
             <input type="date" name="dt_nascimento" value="{dt_nascimento}"><br><br>
 
