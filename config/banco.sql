@@ -4,16 +4,16 @@ USE `scai` ;
 -- -----------------------------------------------------
 -- Table `mydb`.`SETOR`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `scai`.`SETOR` (
-  `idSETOR` INT NOT NULL,
-  `ZOO` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idSETOR`));
+-- CREATE TABLE IF NOT EXISTS `scai`.`SETOR` (
+-- `idSETOR` INT NOT NULL,
+-- `ZOO` VARCHAR(45) NOT NULL,
+-- PRIMARY KEY (`idSETOR`));
 
-INSERT INTO SETOR VALUES (1,'ZOO 2');
-INSERT INTO SETOR VALUES (2,'ZOO 3');
-INSERT INTO SETOR VALUES (3,'EQUOTERAPIA');
+-- INSERT INTO SETOR VALUES (1,'ZOO 2');
+-- INSERT INTO SETOR VALUES (2,'ZOO 3');
+-- INSERT INTO SETOR VALUES (3,'EQUOTERAPIA');
 
-DROP table SCAI.SETOR;
+DROP table setor;
 -- DELETAR UMA TABELA
 
  SELECT * FROM SETOR;
@@ -135,3 +135,26 @@ add column cpf varchar(250),
 add column telefone varchar(250);
 
 select * from user_form;
+
+-- tabelas de raça
+
+create table raca_bovino (
+	idRaca_bovino int primary key auto_increment,
+    nome varchar(250));
+    
+
+create table raca_ovino (
+	idRaca_ovino int primary key auto_increment,
+    nome varchar(250));
+    
+create table raca_suino (
+	idRaca_suino int primary key auto_increment,
+    nome varchar(250));
+    
+create table raca_coelho (
+	idRaca_coelho int primary key auto_increment,
+    nome varchar(250));
+    
+create table raca_aves (
+	idRaca_aves int primary key auto_increment,
+    nome varchar(250));
