@@ -1,8 +1,20 @@
 <?php
-session_start();
 
-require_once('../valida_login.php');
-require_once("../Classes/Vacina.class.php");
+include '../processologin/config.php';
+session_start();
+$user_id = $_SESSION['user_id'];
+
+if(!isset($user_id)){
+   header('location:login.php');
+};
+
+if(isset($_GET['logout'])){
+   unset($user_id);
+   session_destroy();
+   header('location:login.php');
+}
+
+require_once("../Classes/RacaBovino.class.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $id = isset($_POST['id'])?$_POST['id']:0;
@@ -10,24 +22,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
    
     $acao = isset($_POST['acao'])?$_POST['acao']:"";
 
-    $vacina = new Vacina($id,$nome);
+    $racab = new RacaBovino($id,$nome);
     if ($acao == 'salvar')
         if ($id > 0)
-            $resultado = $vacina->alterar();
+            $resultado = $racab->alterar();
         else
-            $resultado = $vacina->inserir();
+            $resultado = $racab->inserir();
     elseif ($acao == 'excluir')
-        $resultado = $vacina->excluir();
+        $resultado = $racab->excluir();
 
     if ($resultado)
         header("Location: index.php");
     else
-        echo "Erro ao salvar dados: ". $vacina;
+        echo "Erro ao salvar dados: ". $racab;
 }elseif ($_SERVER['REQUEST_METHOD'] == 'GET'){
-    $formulario = file_get_contents('form_cad_vacina.html');
+    $formulario = file_get_contents('form_cad_racabovino.html');
 
     $id = isset($_GET['id'])?$_GET['id']:0;
-    $resultado = Vacina::listar(1,$id);
+    $resultado = RacaBovino::listar(1,$id);
     if ($resultado){
         $usuario = $resultado[0];
         $formulario = str_replace('{id}',$usuario->getId(),$formulario);

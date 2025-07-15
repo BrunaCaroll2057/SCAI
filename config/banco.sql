@@ -136,7 +136,10 @@ add column telefone varchar(250);
 
 select * from user_form;
 
--- tabelas de raça
+
+-- -----------------------------------------------------
+-- Tabelas de raça
+-- -----------------------------------------------------
 
 create table raca_bovino (
 	idRaca_bovino int primary key auto_increment,

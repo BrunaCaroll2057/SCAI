@@ -13,6 +13,7 @@
         include 'Includes/menuinclude.php';
     ?>
 
+<br>
 <h2 id="tit_sobre">Registros do Instituto</h2>
 <br><br>
 
