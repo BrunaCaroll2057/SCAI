@@ -52,7 +52,7 @@
                 <hr>
             </li>
               <li>
-                <a class="dropdown-item" href="perfil.php">Perfil</a>
+                <a class="dropdown-item" href="home.php">Perfil</a>
                 <hr>
               </li>
               <li>
