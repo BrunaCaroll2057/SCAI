@@ -130,11 +130,13 @@ CREATE TABLE `user_form` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
-alter table user_form
-add column cpf varchar(250),
-add column telefone varchar(250);
+alter table `user_form`
+add column tipo varchar(250);
 
+-- add column cpf varchar(250), --
+-- add column telefone varchar(250), --
 select * from user_form;
+
 
 
 -- -----------------------------------------------------
