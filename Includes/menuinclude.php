@@ -1,40 +1,83 @@
+<?php
+include 'processologin/config.php';
+session_start();
+?>
+
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid" style="height: 70px;">
-    <a class="navbar-brand" href="index.php" style="font-family: 'Poppins', sans-serif;">SCAI - Sistema de Cadastro de Animais do Instituto</a>
+    <a class="navbar-brand" href="<?php echo isset($_SESSION['user_id']) ? 'logado.php' : 'index.php'; ?>">
+      SCAI - Sistema de Cadastro de Animais
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="width: 70px; height: 37px;">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 300px;">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
+
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <hr>
-            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-            <hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sobre.php">Sobre</a>
-            <hr>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Opções
-            </a>
-            <ul class="dropdown-menu" style="text-align: center;">
-              <li>
-                <a class="dropdown-item" href="login.php">Logar</a>
-                <hr>
-              </li>
-              <li>
-                <a class="dropdown-item" href="register.php">Cadastrar</a>
-              </li>
-            </ul>
-            <hr>
-          </li>
+
+<?php
+if (isset($_SESSION['user_id'])) {
+$tipo = isset($_SESSION['user_tipo']) ? $_SESSION['user_tipo'] : '';
+
+  echo '
+    <li class="nav-item"><hr><a class="nav-link active" href="logado.php">Home</a><hr></li>
+    <li class="nav-item"><a class="nav-link" href="sobrelogada.php">Sobre</a><hr></li>
+    
+    <li class="nav-item dropdown">
+      <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>
+      <ul class="dropdown-menu" style="text-align: center;">
+        <li><a class="dropdown-item" href="Racabovino/index.php">Bovinos</a><hr></li>
+        <li><a class="dropdown-item" href="Animal/suinos.php">Suínos</a><hr></li>
+        <li><a class="dropdown-item" href="Animal/ovinos.php">Ovinos</a><hr></li>
+        <li><a class="dropdown-item" href="Animal/aves.php">Aves</a><hr></li>
+        <li><a class="dropdown-item" href="Animal/coelhos.php">Coelhos</a></li>
+      </ul>
+      <hr>
+    </li>
+    
+    <li class="nav-item"><a class="nav-link" href="home.php">Perfil</a><hr></li>
+  ';
+
+  // Opções específicas para admin
+  if ($tipo === 'admin') {
+    echo '
+      <li class="nav-item"><a class="nav-link" href="register.php">Cadastrar Funcionário</a><hr></li>
+      <li class="nav-item"><a class="nav-link" href="aprovacoes.php">Aprovar Cadastros</a><hr></li>
+    ';
+  }
+
+  // Funcionários também podem ver a tela de cadastro, mas sem efeito direto
+  if ($tipo === 'funcionario') {
+    echo '
+      <li class="nav-item"><a class="nav-link" href="solicitar_funcionario.php">Solicitar Cadastro de Funcionário</a><hr></li>
+    ';
+  }
+
+  echo '
+    <li class="nav-item"><a class="nav-link" href="home.php?logout=' . $_SESSION['user_id'] . '">Logout</a><hr></li>
+  ';
+} else {
+  // Menu público
+  echo '
+    <li class="nav-item"><hr><a class="nav-link active" href="index.php">Home</a><hr></li>
+    <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a><hr></li>
+    <li class="nav-item dropdown">
+      <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</a>
+      <ul class="dropdown-menu" style="text-align: center;">
+        <li><a class="dropdown-item" href="login.php">Logar</a><hr></li>
+        <li><a class="dropdown-item" href="register.php">Cadastrar</a></li>
+      </ul>
+      <hr>
+    </li>
+  ';
+}
+?>
         </ul>
       </div>
     </div>
