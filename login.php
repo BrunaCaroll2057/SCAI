@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
 
    if(mysqli_num_rows($select) > 0){
       $row = mysqli_fetch_assoc($select);
-      $_SESSION['user_tipo'] = $row['tipo'];
+      $_SESSION['user_id'] = $row['id'];
       $_SESSION['user_email'] = $row['email'];
       $_SESSION['user_tipo'] = $row['tipo']; // <- importante
       header('location:logado.php');
