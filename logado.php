@@ -69,7 +69,7 @@
 
 <br><br>
 
-<p class="pg">Confira também:</p>
+<p id="tit_sobre">Confira também:</p>
 
 <br>
 <div class="container text-center">
