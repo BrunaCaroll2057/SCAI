@@ -1,6 +1,6 @@
 <?php
 
-  include '../processologin/config.php';
+  include __DIR__ . '/../processologin/config.php';
   session_start();
   $user_id = $_SESSION['user_id'];
 
@@ -43,7 +43,7 @@
               </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="../Bovino/index.php" style="text-align: center;">Bovinos</a><hr></li>
-                  <li><a class="dropdown-item" href="Animal/suinos.php" style="text-align: center;">Suínos</a><hr></li>
+                  <li><a class="dropdown-item" href="/SCAI/suino.php" style="text-align:center">Suínos</a><hr></li>
                   <li><a class="dropdown-item" href="Animal/ovinos.php" style="text-align: center;">Ovinos</a><hr></li>
                   <li><a class="dropdown-item" href="Animal/aves.php" style="text-align: center;">Aves</a><hr></li>
                   <li><a class="dropdown-item" href="Animal/coelhos.php" style="text-align: center;">Coelhos</a></li>

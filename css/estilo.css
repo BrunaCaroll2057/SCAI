@@ -423,3 +423,18 @@ font{
   left: 100%;
   margin-top: -1px;
 }
+
+.btn-card {
+  background-color: #d4edda !important;  /* verde clarinho pastel */
+  color: #155724 !important;             /* texto verde escuro */
+  border: 1px solid #c3e6cb !important;  /* borda suave */
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.btn-card:hover {
+  background-color: #c3e6cb !important;  /* verde um pouco mais forte no hover */
+  color: #155724 !important;
+}

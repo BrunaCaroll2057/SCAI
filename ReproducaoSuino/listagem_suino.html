@@ -1,0 +1,41 @@
+  <!-- Filtro -->
+  <form action="lista_animal.php" method="GET">
+    <fieldset>
+        <legend>Busca</legend>
+        <label for="busca">Busca</label>
+        <input type="text" name="busca">
+        <label for="tipo">Tipo</label>
+        <select name="tipo">
+            <option value="0">Selecione</option>
+            <option value="1">ID</option>
+            <option value="2">Gênero</option>
+            <option value="3">Idade</option>
+            <option value="4">Data de Nascimento</option>
+            <option value="5">Última Vermifugação</option>
+            <option value="6">Próxima Vermifugação</option>
+            <option value="7">Medicação</option>
+            <option value="8">Hora da Alimentação</option>
+            <option value="9">Raça</option>
+            <option value="10">Setor</option>
+            <option value="11">Espécie</option>
+        </select>
+        <button type="submit">Buscar</button>
+    </fieldset>
+</form>
+
+<!-- Listagem -->
+<h1>Listagem de Animais</h1>
+<table border="1">
+    <th>Id</th>
+    <th>Gênero</th>
+    <th>Idade</th>
+    <th>Data de Nascimento</th>
+    <th>Última Vermifugação</th>
+    <th>Próxima Vermifugação</th>
+    <th>Medicação</th>
+    <th>Hora da Alimentação</th>
+    <th>Raça</th>
+    <th>Setor</th>
+    <th>Espécie</th>
+    {itens}
+</table>

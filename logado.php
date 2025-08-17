@@ -19,9 +19,6 @@
         include 'Includes/menuinclude2.php';
     ?>
 
-      <h1 id="tit_sobre">SCAI</h1>
-      <p>O SCAI é um sistema voltado para o controle dos animais da Sede, com o objetivo de facilitar o trabalho de gerenciamento.</p>
-
   <div id="carousel" class="carousel slide" data-ride="carousel" style="margin-top: 50px;">
 
   <!--   Bullets do carrossel, se aumentar uma imagem, aumente um li e acrescento o próximo número -->

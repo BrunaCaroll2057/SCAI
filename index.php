@@ -73,6 +73,42 @@ session_start();
 
 <br><br>
 
+  <p id="tit_sobre">Saiba mais:</p>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <div class="card bg-success-subtle text-dark" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Quer estudar no IFC?</h5>
+            <p class="card-text">Se você tem interesse em estudar no IFC, acesse o link abaixo.</p>
+            <a href="https://ifc.edu.br/perfil/servidor" class="card-link text-success-emphasis">Ingresso de estudantes</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card bg-success-subtle text-dark" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">É servidor do IFC?</h5>
+            <p class="card-text">Acesse o link abaixo para acessar a página dos servidores.</p>
+            <a href="https://ingresso.ifc.edu.br/?_gl=1%2Alk2zg3%2A_ga%2AMjI5Nzc1NTQ5LjE3MjUwNTY2OTE.%2A_ga_FM2DQDNX9M%2AczE3NTQ2MDc1MzkkbzEkZzAkdDE3NTQ2MDc1MzkkajYwJGwwJGgw" class="card-link text-success-emphasis">Página dos servidores</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="col">
+        <div class="card bg-success-subtle text-dark" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Já é estudante do IFC?</h5>
+            <p class="card-text">Acesse o link abaixo para acessar a página dos estudantes.</p>
+            <a href="https://ensino.ifc.edu.br/?_gl=1%2An8ozd9%2A_ga%2AMjI5Nzc1NTQ5LjE3MjUwNTY2OTE.%2A_ga_FM2DQDNX9M%2AczE3NTQ2MDc1MzkkbzEkZzEkdDE3NTQ2MDgyMTgkajYwJGwwJGgw" class="card-link text-success-emphasis">Página dos estudantes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <p id="tit_sobre">Confira também:</p>
 
 <br>

@@ -18,17 +18,43 @@
         include 'Includes/menuinclude3.php';
     ?>
     <br><br>
-        <button type="button" class="btn btn-light"> <a href="ReproducaoSuino/form_cad_suino.php">Cadastrar ciclo reprodutivo de cada porca</a></button>
+
+      <p id="tit_sobre">Cadastros de Suínos</p>
         <br><br>
 
-        <button type="button" class="btn btn-light"><a href="ProducaoSuino/form_cad_suino.php">Cadastrar produção dos lotes de porca</a></button>
-        <br><br>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+            <div class="card" style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title">Ciclo reprodutivo de cada porca</h5>
+                <a href="ReproducaoSuino/form_cad_suino.php" class="btn btn-card">Cadastrar</a>
+            </div>
+            </div>
+        </div>
 
-        <button type="button" class="btn btn-light"><a href="Maternidade/form_cad_suino.php">Cadastrar informações da leitegada</a></button>
-        <br><br>
+    <div class="col">
+        <div class="card" style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title">Produção dos lotes de porca</h5>
+                <a href="ProducaoSuino/form_cad_suino.php" class="btn btn-card">Cadastrar</a>
+            </div>
+            </div>
+        </div>
+
+    <div class="col">
+        <div class="card" style="width: 20rem">
+            <div class="card-body">
+                <h5 class="card-title">Informações da leitegada</h5>
+                <a href="Maternidade/form_cad_suino.php" class="btn btn-card">Cadastrar</a>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
 
     <?php
-    include "Includes/rodapeinclude.php";
+        include "Includes/rodapeinclude.php";
     ?>
 
 </body>
