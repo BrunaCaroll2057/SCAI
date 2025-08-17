@@ -253,3 +253,7 @@
       width: 100%;
    }
 }
+.custom-card {
+    background-color: #bfd8c0; /* verde */
+    color: rgb(0, 0, 0); /* texto branco */
+}
