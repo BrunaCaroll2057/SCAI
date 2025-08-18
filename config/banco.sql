@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS USUARIOS (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO usuarios (id, nome, usuario, email, senha) VALUES
-(1, 'Cesar', 'cesar@celke.com.br', 'cesar@celke.com.br', '$2y$10$rGBzXp8W.L2CSzcIJ5zi2.iQXnDDyjeNiss5PZdTHejedSmPgyk5O');
+(1, 'Brenda', 'desouzab211@gmail.com', 'desouzab211@gmail.com', 'brenda2025');
 COMMIT;
 
 select * from USUARIOS;
@@ -130,36 +130,40 @@ CREATE TABLE `user_form` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
-alter table `user_form`
-add column tipo varchar(250);
+alter table user_form
+add column cpf varchar(250),
+add column telefone varchar(250);
 
--- add column cpf varchar(250), --
--- add column telefone varchar(250), --
-select * from user_form; 
-
+select * from user_form;
 
 
 -- -----------------------------------------------------
 -- Tabelas de raça
 -- -----------------------------------------------------
 
-create table raca_bovino (
-	idRaca_bovino int primary key auto_increment,
-    nome varchar(250));
-    
+-- create table raca_bovino (
+-- 	idRaca_bovino int primary key auto_increment,
+--  nome varchar(250));
+--  drop table raca_bovino;
 
-create table raca_ovino (
-	idRaca_ovino int primary key auto_increment,
-    nome varchar(250));
+-- create table raca_ovino (
+-- 	idRaca_ovino int primary key auto_increment,
+--  nome varchar(250));
+--  drop table raca_ovino;
     
 create table raca_suino (
 	idRaca_suino int primary key auto_increment,
     nome varchar(250));
     
-create table raca_coelho (
-	idRaca_coelho int primary key auto_increment,
-    nome varchar(250));
     
-create table raca_aves (
-	idRaca_aves int primary key auto_increment,
-    nome varchar(250));
+-- create table raca_coelho (
+-- 	idRaca_coelho int primary key auto_increment,
+--  nome varchar(250));
+--  drop table raca_coelho;
+    
+-- create table raca_aves (
+-- 	idRaca_aves int primary key auto_increment,
+--  nome varchar(250));
+-- 	drop table raca_aves;
+
+-- cadastro 
