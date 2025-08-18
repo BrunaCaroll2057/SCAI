@@ -162,22 +162,10 @@ class ReproducaoSuino{
     public function getNdesmamas(): int{
         return $this->causa;
     }
-    <td>{nporca}</td>
-<td>{raca}</td>
-<td>{dt_nascimento}</td>
-<td>{macho}</td>
-<td>{dt_provparto}</td>
-<td>{dt_parto}</td>
-<td>{vivos}</td>
-<td>{natimortos}</td>
-<td>{mumificados}</td>
-<td>{causa}</td>
-<td>{dt_desmama}</td>
-<td>{ndesmamas}</td>
 
     // método mágico para imprimir uma atividade
     public function __toString():String{  
-        $str = "Animal: $this->id - $this->nporca
+        $str = "ReproducaoSuino: $this->id - $this->nporca
                  - Raça: $this->raca
                  - Data de nascimento: $this->dt_nascimento
                  - Macho: $this->macho
@@ -195,40 +183,43 @@ class ReproducaoSuino{
     // insere uma animal no banco 
     public function inserir():Bool{
         // montar o sql/ query
-        $sql = "INSERT INTO animal 
-                    (genero, idade, dt_nascimento, ult_vermifugacao, prox_vermifugacao, medicacao, vivos, natimortos, mumificados, ESPECIE)
-                    VALUES(:genero, :idade, :dt_nascimento, :ult_vermifugacao, :prox_vermifugacao, :medicacao, :vivos, :natimortos, :mumificados, :ESPECIE)";
-        
-        $parametros = array(':genero'=>$this->getGenero(),
-                            ':idade'=>$this->getIdade(),
-                            ':dt_nascimento'=>$this->getDt_nascimento(),
-                            ':ult_vermifugacao'=>$this->getUlt_vermifugacao(),
-                            ':prox_vermifugacao'=>$this->getProx_vermifugacao(),
-                            ':medicacao'=>$this->getMedicacao(),
-                            ':hora_alimentacao'=>$this->getHora_alimentacao(),
+        $sql = "INSERT INTO reproducaosuino 
+                    (nporca, raca, dt_nascimento, macho, dt_provparto, dt_parto, vivos, natimortos, mumificados, causa, dt_desmama, ndesmamas)
+                    VALUES(:nporca, :raca, :dt_nascimento, :macho, :dt_provparto, :dt_parto, :vivos, :natimortos, :mumificados, :causa, :dt_desmama, :ndesmamas)";
+        //criar uma table no banco de dados com o nome "reproducaosuino"
+        $parametros = array(':nporca'=>$this->getNporca(),
                             ':raca'=>$this->getRaca(),
-                            ':SETOR_idSETOR'=>$this->getSetor(),
-                            ':ESPECIE_idESPECIE'=>$this->getEspecie());
-        
+                            ':dt_nascimento'=>$this->getDt_nascimento(),
+                            ':macho'=>$this->getMacho(),
+                            ':dt_provparto'=>$this->getDt_provparto(),
+                            ':dt_parto'=>$this->getDt_parto(),
+                            ':vivos'=>$this->getVivos(),
+                            ':natimortos'=>$this->getNatimortos(),
+                            ':mumificados'=>$this->getMumificados(),
+                            ':causa'=>$this->getCausa(),
+                            ':dt_desmama'=>$this->getDt_desmama(),
+                            ':ndesmamas'=>$this->getNdesmamas());
+              
         return (Database::executar($sql, $parametros)== true);
     }
 
     public static function listar($tipo=0, $info=''):Array{
-        $sql = "SELECT * FROM animal";
+        $sql = "SELECT * FROM reproducaosuino";
         switch ($tipo){
             case 0: break;
-            case 1: $sql .= " WHERE idANIMAL = :info ORDER BY idANIMAL"; break; // filtro por ID
-            case 2: $sql .= " WHERE genero like :info ORDER BY genero"; $info = '%'.$info.'%'; break; // filtro por gênero
-            case 3: $sql .= " WHERE idade like :info ORDER BY idade"; $info = '%'.$info.'%'; break; // filtro por idade
+            case 1: $sql .= " WHERE idSUINO = :info ORDER BY idSUINO"; break; // filtro por ID
+            case 2: $sql .= " WHERE nporca like :info ORDER BY nporca"; $info = '%'.$info.'%'; break; // filtro por n° porca
+            case 3: $sql .= " WHERE raca like :info ORDER BY raca"; $info = '%'.$info.'%'; break; // filtro por raca
             case 4: $sql .= " WHERE dt_nascimento like :info ORDER BY dt_nascimento"; $info = '%'.$info.'%'; break; // filtro por data de nascimento
-            case 5: $sql .= " WHERE ult_vermifugacao like :info ORDER BY ult_vermifugacao"; $info = '%'.$info.'%'; break; // filtro por ultima vermifugação
-            case 6: $sql .= " WHERE prox_vermifugacao like :info ORDER BY prox_vermifugacao"; $info = '%'.$info.'%'; break; // filtro por próxima vermifugação
-            case 7: $sql .= " WHERE medicacao like :info ORDER BY medicacao"; $info = '%'.$info.'%'; break; // filtro por medicação
-            case 8: $sql .= " WHERE hora_alimentacao like :info ORDER BY hora_alimentacao"; $info = '%'.$info.'%'; break; // filtro por hora da alimentação
-            case 9: $sql .= " WHERE raca like :info ORDER BY raca"; $info = '%'.$info.'%'; break; // filtro por raça
-            case 10: $sql .= " WHERE SETOR_idSETOR like :info ORDER BY SETOR_idSETOR"; $info = '%'.$info.'%'; break; // filtro por setor
-            case 11: $sql .= " WHERE ESPECIE_idESPECIE like :info ORDER BY ESPECIE_idESPECIE"; $info = '%'.$info.'%'; break; // filtro por espécie
-
+            case 5: $sql .= " WHERE macho like :info ORDER BY macho"; $info = '%'.$info.'%'; break; // filtro por macho
+            case 6: $sql .= " WHERE dt_provparto like :info ORDER BY dt_provparto"; $info = '%'.$info.'%'; break; // filtro por data provável do parto
+            case 7: $sql .= " WHERE dt_parto like :info ORDER BY dt_parto"; $info = '%'.$info.'%'; break; // filtro por medicação
+            case 8: $sql .= " WHERE vivos like :info ORDER BY vivos"; $info = '%'.$info.'%'; break; // filtro por hora da alimentação
+            case 9: $sql .= " WHERE natimortos like :info ORDER BY natimortos"; $info = '%'.$info.'%'; break; // filtro por raça
+            case 10: $sql .= " WHERE mumificados like :info ORDER BY mumificados"; $info = '%'.$info.'%'; break; // filtro por setor
+            case 11: $sql .= " WHERE causa like :info ORDER BY causa"; $info = '%'.$info.'%'; break; // filtro por espécie
+            case 11: $sql .= " WHERE dt_desmama like :info ORDER BY dt_desmama"; $info = '%'.$info.'%'; break; // filtro por espécie
+            case 11: $sql .= " WHERE ndesmamas like :info ORDER BY ndesmamas"; $info = '%'.$info.'%'; break; // filtro por espécie
         }
         $parametros = array();
         if ($tipo > 0)
@@ -236,45 +227,50 @@ class ReproducaoSuino{
 
         $comando = Database::executar($sql, $parametros);
         //$resultado = $comando->fetchAll();
-        $animais = [];
+        $suinos = [];
         while ($registro = $comando->fetch()){
-            $animal = new Animal($registro['idANIMAL'],$registro['GENERO'],$registro['IDADE'],$registro['DT_NASCIMENTO'],$registro['ULT_VERMIFUGACAO'],$registro['PROX_VERMIFUGACAO'],$registro['MEDICACAO'],$registro['HORA_ALIMENTACAO'],$registro['RACA'],$registro['SETOR_idSETOR'],$registro['ESPECIE_idESPECIE']);
-            array_push($animais,$animal);
+            $animal = new ReproducaoSuino($registro['idSUINO'],$registro['NPORCA'],$registro['RACA'],$registro['DT_NASCIMENTO'],$registro['MACHO'],$registro['DT_PROVPARTO'],$registro['DT_PARTO'],$registro['VIVOS'],$registro['NATIMORTOS'],$registro['MUMIFICADOS'],$registro['CAUSA'],$registro['DT_DESMAMA'],$registro['NDESMAMAS']);
+            array_push($suinos,$suino);
         }
-        return $animais;
+        return $suinos;
     }
 
     public function alterar():Bool{       
-       $sql = "UPDATE animal
-                  SET genero = :genero, 
-                      idade = :idade,
-                      dt_nascimento = :dt_nascimento,
-                      ult_vermifugacao = :ult_vermifugacao,
-                      prox_vermifugacao = :prox_vermifugacao,
-                      medicacao = :medicacao,
-                      hora_alimentacao = :hora_alimentacao,
+       $sql = "UPDATE reproducaosuino
+                  SET nporca = :nporca, 
                       raca = :raca,
-                      SETOR_idSETOR = :SETOR_idSETOR,
-                      ESPECIE_idESPECIE = :ESPECIE_idESPECIE
-                WHERE idANIMAL = :idANIMAL";
-         $parametros = array(':idANIMAL'=>$this->getId(),
-                        ':genero'=>$this->getGenero(),
-                        ':idade'=>$this->getIdade(),
-                        ':dt_nascimento'=>$this->getDt_nascimento(),
-                        ':ult_vermifugacao'=>$this->getUlt_vermifugacao(),
-                        ':prox_vermifugacao'=>$this->getProx_vermifugacao(),
-                        ':medicacao'=>$this->getMedicacao(),
-                        ':hora_alimentacao'=>$this->getHora_alimentacao(),
+                      dt_nascimento = :dt_nascimento,
+                      macho = :macho,
+                      dt_provparto = :dt_provparto,
+                      dt_parto = :dt_parto,
+                      vivos = :vivos,
+                      natimortos = :natimortos,
+                      mumificados = :mumificados,
+                      causa = :causa,
+                      dt_desmama = :dt_desmama,
+                      ndesmamas = :ndesmamas
+
+                WHERE idSUINO = :idSUINO";
+         $parametros = array(':idSUINO'=>$this->getId(),
+                        ':nporca'=>$this->getnporca(),
                         ':raca'=>$this->getRaca(),
-                        ':SETOR_idSETOR'=>$this->getSetor(),
-                        ':ESPECIE_idESPECIE'=>$this->getEspecie());
+                        ':dt_nascimento'=>$this->getDt_nascimento(),
+                        ':macho'=>$this->getMacho(),
+                        ':dt_provparto'=>$this->getDt_provparto(),
+                        ':dt_parto'=>$this->getDt_parto(),
+                        ':vivos'=>$this->getVivos(),
+                        ':natimortos'=>$this->getNatimortos(),
+                        ':mumificados'=>$this->getMumificados(),
+                        ':causa'=>$this->getCausa(),
+                        ':dt_desmama'=>$this->getDt_desmama(),
+                        ':ndesmama'=>$this->getNdesmama());
         return Database::executar($sql, $parametros) == true;
     }
 
     public function excluir():Bool{
-        $sql = "DELETE FROM animal
-                      WHERE idANIMAL = :idANIMAL";
-        $parametros = array(':idANIMAL'=>$this->getId());
+        $sql = "DELETE FROM reproducaosuino
+                      WHERE idSUINO = :idSUINO";
+        $parametros = array(':idSUINO'=>$this->getId());
         return Database::executar($sql, $parametros) == true;
      }
 }

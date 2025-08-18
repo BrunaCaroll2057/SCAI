@@ -31,7 +31,7 @@
             <input type="date" name="dt_nascimento" value="{dt_nascimento}">
 
             <label for="macho">Macho:</label>
-            <input type="date" name="macho" value="{macho}"><br><br>
+            <input type="text" name="macho" value="{macho}"><br><br>
 
             <label for="dt_provparto">Data provável do parto:</label>
             <input type="date" name="dt_provparto" value="{dt_provparto}"><br><br>
