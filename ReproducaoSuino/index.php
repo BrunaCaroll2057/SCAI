@@ -1,71 +1,76 @@
 <?php
-require_once("../Classes/Animal.class.php");
+require_once("../Classes/ReproducaoSuino.class.php");
 
     include '../Includes/menuinclude3.php';
     
 //ggg
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $id = isset($_POST['id'])?$_POST['id']:0;
-    $genero = isset($_POST['genero'])?$_POST['genero']:"";
-    $idade = isset($_POST['idade'])?$_POST['idade']:0;
-    $dt_nascimento = isset($_POST['dt_nascimento'])?$_POST['dt_nascimento']:"";
-    $ult_vermifugacao = isset($_POST['ult_vermifugacao'])?$_POST['ult_vermifugacao']:"";
-    $prox_vermifugacao = isset($_POST['prox_vermifugacao'])?$_POST['prox_vermifugacao']:"";
-    $medicacao = isset($_POST['medicacao'])?$_POST['medicacao']:"";
-    $hora_alimentacao = isset($_POST['hora_alimentacao'])?$_POST['hora_alimentacao']:"";
+    $nporca = isset($_POST['nporca'])?$_POST['nporca']:0;
     $raca = isset($_POST['raca'])?$_POST['raca']:"";
-    $setor = isset($_POST['SETOR_idSETOR'])?$_POST['SETOR_idSETOR']:0;
-    $especie = isset($_POST['ESPECIE_idESPECIE'])?$_POST['ESPECIE_idESPECIE']:0;
-
+    $dt_nascimento = isset($_POST['dt_nascimento'])?$_POST['dt_nascimento']:"";
+    $macho = isset($_POST['macho'])?$_POST['macho']:"";
+    $dt_provparto = isset($_POST['dt_provparto'])?$_POST['dt_provparto']:"";
+    $dt_parto = isset($_POST['dt_parto'])?$_POST['dt_parto']:"";
+    $vivos = isset($_POST['vivos'])?$_POST['vivos']:"";
+    $natimortos = isset($_POST['natimortos'])?$_POST['natimortos']:"";
+    $mumificados = isset($_POST['mumificados'])?$_POST['mumificados']:"";
+    $causa = isset($_POST['causa'])?$_POST['causa']:"";
+    $dt_desmama = isset($_POST['dt_desmama'])?$_POST['dt_desmama']:"";
+    $ndesmamas = isset($_POST['ndesmamas'])?$_POST['ndesmamas']:"";
 
     //$anexo = isset($_POST['anexo'])?$_POST['anexo']:"";
     $acao = isset($_POST['acao'])?$_POST['acao']:"";
 
 
-    $animal = new Animal($id,$genero,$idade,$dt_nascimento,$ult_vermifugacao,$prox_vermifugacao,$medicacao,$hora_alimentacao,$raca,$setor,$especie);
+    $suino = new ReproducaoSuino($id,$nporca,$raca,$dt_nascimento,$macho,$dt_provparto,$dt_parto,$vivos,$natimortos,$mumificados,$causa,$dt_desmama,$ndesmamas);
     if ($acao == 'salvar')
         if ($id > 0)
-            $resultado = $animal->alterar();
+            $resultado = $suino->alterar();
         else
-            $resultado = $animal->inserir();
+            $resultado = $suino->inserir();
     elseif ($acao == 'excluir')
-        $resultado = $animal->excluir();
+        $resultado = $suino->excluir();
 
     if ($resultado)
-        header("Location: lista_animal.php");
+        header("Location: lista_suino.php");
     else
-        echo "Erro ao salvar dados: ". $animal;
+        echo "Erro ao salvar dados: ". $suino;
 }elseif ($_SERVER['REQUEST_METHOD'] == 'GET'){
-    $formulario = file_get_contents('form_cad_animal.php');
+    $formulario = file_get_contents('form_cad_suino.php');
 
     $id = isset($_GET['id'])?$_GET['id']:0;
-    $resultado = Animal::listar(1,$id);
+    $resultado = ReproducaoSuino::listar(1,$id);
     if ($resultado){
-        $animal = $resultado[0];
-        $formulario = str_replace('{id}',$animal->getId(),$formulario);
-        $formulario = str_replace('{genero}',$animal->getGenero(),$formulario);
-        $formulario = str_replace('{idade}',$animal->getIdade(),$formulario);
-        $formulario = str_replace('{dt_nascimento}',$animal->getDt_nascimento(),$formulario);
-        $formulario = str_replace('{ult_vermifugacao}',$animal->getUlt_vermifugacao(),$formulario);
-        $formulario = str_replace('{prox_vermifugacao}',$animal->getProx_vermifugacao(),$formulario);
-        $formulario = str_replace('{medicacao}',$animal->getMedicacao(),$formulario);
-        $formulario = str_replace('{hora_alimentacao}',$animal->getHora_alimentacao(),$formulario);
-        $formulario = str_replace('{raca}',$animal->getRaca(),$formulario);
-        $formulario = str_replace('{SETOR_idSETOR}',$animal->getSetor(),$formulario);
-        $formulario = str_replace('{ESPECIE_idESPECIE}',$animal->getEspecie(),$formulario);
+        $suino = $resultado[0];
+        $formulario = str_replace('{id}',$suino->getId(),$formulario);
+        $formulario = str_replace('{nporca}',$suino->getNporca(),$formulario);
+        $formulario = str_replace('{raca}',$suino->getRaca(),$formulario);
+        $formulario = str_replace('{dt_nascimento}',$suino->getDt_nascimento(),$formulario);
+        $formulario = str_replace('{macho}',$suino->getMacho(),$formulario);
+        $formulario = str_replace('{dt_provparto}',$suino->getDt_provparto(),$formulario);
+        $formulario = str_replace('{dt_parto}',$suino->getDt_parto(),$formulario);
+        $formulario = str_replace('{vivos}',$suino->getVivos(),$formulario);
+        $formulario = str_replace('{natimortos}',$suino->getNatimortos(),$formulario);
+        $formulario = str_replace('{mumificados}',$suino->getMumificados(),$formulario);
+        $formulario = str_replace('{causa}',$suino->getCausa(),$formulario);
+        $formulario = str_replace('{dt_desmama}',$suino->getDt_desmama(),$formulario);
+        $formulario = str_replace('{ndesmamas}',$suino->getNdesmamas(),$formulario);
 
     }else{
         $formulario = str_replace('{id}',0,$formulario);
-        $formulario = str_replace('{genero}','',$formulario);
-        $formulario = str_replace('{idade}',0,$formulario);
-        $formulario = str_replace('{dt_nascimento}','',$formulario);
-        $formulario = str_replace('{ult_vermifugacao}','',$formulario);
-        $formulario = str_replace('{prox_vermifugacao}','',$formulario);
-        $formulario = str_replace('{medicacao}','',$formulario);
-        $formulario = str_replace('{hora_alimentacao}','',$formulario);
+        $formulario = str_replace('{nporca}','',$formulario);
         $formulario = str_replace('{raca}','',$formulario);
-        $formulario = str_replace('{SETOR_idSETOR}',0,$formulario);
-        $formulario = str_replace('{ESPECIE_idESPECIE}',0,$formulario);
+        $formulario = str_replace('{dt_nascimento}','',$formulario);
+        $formulario = str_replace('{macho}','',$formulario);
+        $formulario = str_replace('{dt_provparto}','',$formulario);
+        $formulario = str_replace('{dt_parto}','',$formulario);
+        $formulario = str_replace('{vivos}','',$formulario);
+        $formulario = str_replace('{natimortos}','',$formulario);
+        $formulario = str_replace('{mumificados}','',$formulario);
+        $formulario = str_replace('{causa}','',$formulario);
+        $formulario = str_replace('{dt_desmama}','',$formulario);
+        $formulario = str_replace('{ndesmamas}','',$formulario);
     }
     print($formulario); 
 

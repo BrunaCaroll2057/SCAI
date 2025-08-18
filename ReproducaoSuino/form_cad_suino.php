@@ -22,7 +22,7 @@
             <input type="text" name="id" value="{id}" readonly><br><br>
 
             <label for="nporca">N° porca:</label>
-            <input type="number" name="genero" value="{genero}"><br><br>
+            <input type="number" name="nporca" value="{nporca}"><br><br>
 
             <label for="raca">Raça:</label>
             <input type="text" name="raca" value="{raca}"><br><br>
@@ -34,10 +34,10 @@
             <input type="date" name="macho" value="{macho}"><br><br>
 
             <label for="dt_provparto">Data provável do parto:</label>
-            <input type="text" name="dt_provparto" value="{dt_provparto}"><br><br>
+            <input type="date" name="dt_provparto" value="{dt_provparto}"><br><br>
 
             <label for="dt_parto">Data do parto:</label>
-            <input type="text" name="dt_parto" value="{dt_parto}"><br><br>
+            <input type="date" name="dt_parto" value="{dt_parto}"><br><br>
 
             <p class="pg">Nascidos:</p><br>
             <label for="vivos">Vivos:</label>

@@ -1,5 +1,5 @@
   <!-- Filtro -->
-  <form action="lista_animal.php" method="GET">
+  <form action="lista_suino.php" method="GET">
     <fieldset>
         <legend>Busca</legend>
         <label for="busca">Busca</label>
@@ -8,16 +8,18 @@
         <select name="tipo">
             <option value="0">Selecione</option>
             <option value="1">ID</option>
-            <option value="2">Gênero</option>
-            <option value="3">Idade</option>
+            <option value="2">N° Porca</option>
+            <option value="3">Raça</option>
             <option value="4">Data de Nascimento</option>
-            <option value="5">Última Vermifugação</option>
-            <option value="6">Próxima Vermifugação</option>
-            <option value="7">Medicação</option>
-            <option value="8">Hora da Alimentação</option>
-            <option value="9">Raça</option>
-            <option value="10">Setor</option>
-            <option value="11">Espécie</option>
+            <option value="5">Macho</option>
+            <option value="6">Data provável do parto</option>
+            <option value="7">Data do parto</option>
+            <option value="8">Vivos</option>
+            <option value="9">Natimortos</option>
+            <option value="10">Mumificados</option>
+            <option value="11">Causa da morte</option>
+            <option value="11">Data da desmama</option>
+            <option value="11">N° de desmamas</option>
         </select>
         <button type="submit">Buscar</button>
     </fieldset>
@@ -27,15 +29,17 @@
 <h1>Listagem de Animais</h1>
 <table border="1">
     <th>Id</th>
-    <th>Gênero</th>
-    <th>Idade</th>
-    <th>Data de Nascimento</th>
-    <th>Última Vermifugação</th>
-    <th>Próxima Vermifugação</th>
-    <th>Medicação</th>
-    <th>Hora da Alimentação</th>
+    <th>N° Porca</th>
     <th>Raça</th>
-    <th>Setor</th>
-    <th>Espécie</th>
+    <th>Data de Nascimento</th>
+    <th>Macho</th>
+    <th>Data provável do parto</th>
+    <th>Data do parto</th>
+    <th>Vivos</th>
+    <th>Natimortos</th>
+    <th>Mumificados</th>
+    <th>Causa da morte</th>
+    <th>Data da desmama</th>
+    <th>N° de desmamas</th>
     {itens}
 </table>
