@@ -129,46 +129,66 @@ class ReproducaoSuino{
     public function getNporca(): String{
         return $this->nporca;
     }
-    public function getRaca(): int{
+    public function getRaca(): String{
         return $this->raca;
     }
     public function getDt_nascimento(): String{
         return $this->dt_nascimento;
     }
-        public function getUlt_vermifugacao(): String{
-        return $this->ult_vermifugacao;
+        public function getMacho(): String{
+        return $this->macho;
     }
-        public function getProx_vermifugacao(): String{
-        return $this->prox_vermifugacao;
+        public function getDt_provparto(): String{
+        return $this->dt_provparto;
     }
-        public function getMedicacao(): String{
-        return $this->medicacao;
+        public function getDt_parto(): String{
+        return $this->dt_parto;
     }
-        public function getHora_alimentacao(): String{
-        return $this->hora_alimentacao;
+        public function getVivos(): int{
+        return $this->vivos;
     }
-    public function getRaca(): String{
-        return $this->raca;
+    public function getNatimortos(): int{
+        return $this->natimortos;
     }
-        public function getSetor(): int{
-        return $this->setor;
+        public function getMumificados(): int{
+        return $this->mumificados;
     }
-        public function getEspecie(): int{
-        return $this->especie;
+        public function getCausa(): String{
+        return $this->causa;
     }
+    public function getDt_desmama(): String{
+        return $this->causa;
+    }
+    public function getNdesmamas(): int{
+        return $this->causa;
+    }
+    <td>{nporca}</td>
+<td>{raca}</td>
+<td>{dt_nascimento}</td>
+<td>{macho}</td>
+<td>{dt_provparto}</td>
+<td>{dt_parto}</td>
+<td>{vivos}</td>
+<td>{natimortos}</td>
+<td>{mumificados}</td>
+<td>{causa}</td>
+<td>{dt_desmama}</td>
+<td>{ndesmamas}</td>
 
     // método mágico para imprimir uma atividade
     public function __toString():String{  
-        $str = "Animal: $this->id - $this->genero
-                 - Idade: $this->idade
-                 - Data de nascimento: $this->dt_nascimento
-                 - Última vermifugação: $this->ult_vermifugacao
-                 - Próxima vermifugação: $this->prox_vermifugacao
-                 - Medicação: $this->medicacao
-                 - Hora da alimentação: $this->hora_alimentacao
+        $str = "Animal: $this->id - $this->nporca
                  - Raça: $this->raca
-                 - Setor: $this->setor
-                 - Espécie: $this->especie";
+                 - Data de nascimento: $this->dt_nascimento
+                 - Macho: $this->macho
+                 - Data provável do parto: $this->dt_provparto
+                 - Data do parto: $this->dt_parto
+                 - Vivos: $this->vivos
+                 - Natimortos: $this->natimortos
+                 - Mumificados: $this->mumificados
+                 - Causa: $this->causa
+                 - Data da desmama: $this->dt_desmama
+                 - N° de desmamas: $this->ndesmamas";
         return $str;
     }
 
@@ -176,8 +196,8 @@ class ReproducaoSuino{
     public function inserir():Bool{
         // montar o sql/ query
         $sql = "INSERT INTO animal 
-                    (genero, idade, dt_nascimento, ult_vermifugacao, prox_vermifugacao, medicacao, hora_alimentacao, raca, SETOR_idSETOR, ESPECIE_idESPECIE)
-                    VALUES(:genero, :idade, :dt_nascimento, :ult_vermifugacao, :prox_vermifugacao, :medicacao, :hora_alimentacao, :raca, :SETOR_idSETOR, :ESPECIE_idESPECIE)";
+                    (genero, idade, dt_nascimento, ult_vermifugacao, prox_vermifugacao, medicacao, vivos, natimortos, mumificados, ESPECIE)
+                    VALUES(:genero, :idade, :dt_nascimento, :ult_vermifugacao, :prox_vermifugacao, :medicacao, :vivos, :natimortos, :mumificados, :ESPECIE)";
         
         $parametros = array(':genero'=>$this->getGenero(),
                             ':idade'=>$this->getIdade(),
