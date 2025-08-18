@@ -19,56 +19,93 @@
         include 'Includes/menuinclude2.php';
     ?>
 
-<div id="carousel" class="carousel slide" data-ride="carousel" style="margin-top: 50px;">
+  <div id="carousel" class="carousel slide" data-ride="carousel" style="margin-top: 50px;">
 
-<!--   Bullets do carrossel, se aumentar uma imagem, aumente um li e acrescento o próximo número -->
-<ol class="carousel-indicators">
-  <li data-target="#carousel" data-slide-to="0" class="active"></li>
-  <li data-target="#carousel" data-slide-to="1"></li>
-  <li data-target="#carousel" data-slide-to="2"></li>
-  <li data-target="#carousel" data-slide-to="3"></li>
-</ol>
+  <!--   Bullets do carrossel, se aumentar uma imagem, aumente um li e acrescento o próximo número -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel" data-slide-to="1"></li>
+    <li data-target="#carousel" data-slide-to="2"></li>
+    <li data-target="#carousel" data-slide-to="3"></li>
+  </ol>
 
-<div class="carousel-inner">
-  <div class="carousel-item active">
-    <img src="img/ifc.png">
-     <div class="titulo">
-  </div>
-  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/ifc.png">
+      <div class="titulo">
+    </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="img/prediosede.png">
+      <div class="titulo">
+    </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="img/entrada2.png">
+      <div class="titulo">
+    </div>
+    </div>
+
 
   <div class="carousel-item">
-    <img src="img/prediosede.png">
-    <div class="titulo">
-  </div>
-  </div>
+      <img src="img/fetec.png">
+      <div class="titulo">
+    </div>
+    </div>
 
-  <div class="carousel-item">
-    <img src="img/entrada2.png">
-    <div class="titulo">
+  </div> <!-- Fecha elementos dentro do carrossel -->
+
+  <!--   Controladores | Botões -->
+  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only"> Previous </span>
+  </a>
+  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only"> Next </span>
+  </a> 
+  </div> <!-- Fim do carrossel -->
+
+    <br><br>
+  <!-- Começo dos cards -->
+
+  <p id="tit_sobre">Saiba mais:</p>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <div class="card bg-success-subtle text-dark" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Quer estudar no IFC?</h5>
+            <p class="card-text">Se você tem interesse em estudar no IFC, acesse o link abaixo.</p>
+            <a href="https://ifc.edu.br/perfil/servidor" class="card-link text-success-emphasis">Ingresso de estudantes</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card bg-success-subtle text-dark" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">É servidor do IFC?</h5>
+            <p class="card-text">Acesse o link abaixo para acessar a página dos servidores.</p>
+            <a href="https://ingresso.ifc.edu.br/?_gl=1%2Alk2zg3%2A_ga%2AMjI5Nzc1NTQ5LjE3MjUwNTY2OTE.%2A_ga_FM2DQDNX9M%2AczE3NTQ2MDc1MzkkbzEkZzAkdDE3NTQ2MDc1MzkkajYwJGwwJGgw" class="card-link text-success-emphasis">Página dos servidores</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="col">
+        <div class="card bg-success-subtle text-dark" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Já é estudante do IFC?</h5>
+            <p class="card-text">Acesse o link abaixo para acessar a página dos estudantes.</p>
+            <a href="https://ensino.ifc.edu.br/?_gl=1%2An8ozd9%2A_ga%2AMjI5Nzc1NTQ5LjE3MjUwNTY2OTE.%2A_ga_FM2DQDNX9M%2AczE3NTQ2MDc1MzkkbzEkZzEkdDE3NTQ2MDgyMTgkajYwJGwwJGgw" class="card-link text-success-emphasis">Página dos estudantes</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  </div>
-
-
-<div class="carousel-item">
-    <img src="img/fetec.png">
-    <div class="titulo">
-  </div>
-  </div>
-
-</div> <!-- Fecha elementos dentro do carrossel -->
-
-<!--   Controladores | Botões -->
-<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  <span class="sr-only"> Previous </span>
-</a>
-<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  <span class="sr-only"> Next </span>
-</a> 
-</div> <!-- Fim do carrossel -->
-
-<br><br>
 
 <p id="tit_sobre">Confira também:</p>
 
