@@ -135,7 +135,7 @@ add column tipo varchar(250);
 
 -- add column cpf varchar(250), --
 -- add column telefone varchar(250), --
-select * from user_form;
+select * from user_form; 
 
 
 

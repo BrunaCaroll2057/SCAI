@@ -43,11 +43,11 @@
                 Cadastrar Animal
               </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="Racabovino/index.php" style="text-align: center;">Bovinos</a><hr></li>
-                  <li><a class="dropdown-item" href="Animal/suinos.php" style="text-align: center;">Suínos</a><hr></li>
-                  <li><a class="dropdown-item" href="Animal/ovinos.php" style="text-align: center;">Ovinos</a><hr></li>
-                  <li><a class="dropdown-item" href="Animal/aves.php" style="text-align: center;">Aves</a><hr></li>
-                  <li><a class="dropdown-item" href="Animal/coelhos.php" style="text-align: center;">Coelhos</a></li>
+                  <li><a class="dropdown-item" href="menu_bovino.php" style="text-align: center;">Bovinos</a><hr></li>
+                  <li><a class="dropdown-item" href="menu_suino.php" style="text-align: center;">Suínos</a><hr></li>
+                  <li><a class="dropdown-item" href="menu_ovino.php" style="text-align: center;">Ovinos</a><hr></li>
+                  <li><a class="dropdown-item" href="menu_ave.php" style="text-align: center;">Aves</a><hr></li>
+                  <li><a class="dropdown-item" href="menu_coelho.php" style="text-align: center;">Coelhos</a></li>
                 </ul>
                 <hr>
             </li>
