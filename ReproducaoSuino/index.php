@@ -1,4 +1,21 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>SCAI-Sistema de Cadastro de Animais do Instituto</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="JS/js.js"> </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <?php
 require_once("../Classes/ReproducaoSuino.class.php");
 
     include '../Includes/menuinclude3.php';
@@ -11,12 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $macho = isset($_POST['macho'])?$_POST['macho']:"";
     $dt_provparto = isset($_POST['dt_provparto'])?$_POST['dt_provparto']:"";
     $dt_parto = isset($_POST['dt_parto'])?$_POST['dt_parto']:"";
-    $vivos = isset($_POST['vivos'])?$_POST['vivos']:"";
-    $natimortos = isset($_POST['natimortos'])?$_POST['natimortos']:"";
-    $mumificados = isset($_POST['mumificados'])?$_POST['mumificados']:"";
+    $vivos = isset($_POST['vivos'])?$_POST['vivos']:0;
+    $natimortos = isset($_POST['natimortos'])?$_POST['natimortos']:0;
+    $mumificados = isset($_POST['mumificados'])?$_POST['mumificados']:0;
     $causa = isset($_POST['causa'])?$_POST['causa']:"";
     $dt_desmama = isset($_POST['dt_desmama'])?$_POST['dt_desmama']:"";
-    $ndesmamas = isset($_POST['ndesmamas'])?$_POST['ndesmamas']:"";
+    $ndesmamas = isset($_POST['ndesmamas'])?$_POST['ndesmamas']:0;
 
     //$anexo = isset($_POST['anexo'])?$_POST['anexo']:"";
     $acao = isset($_POST['acao'])?$_POST['acao']:"";
@@ -64,12 +81,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $formulario = str_replace('{macho}','',$formulario);
         $formulario = str_replace('{dt_provparto}','',$formulario);
         $formulario = str_replace('{dt_parto}','',$formulario);
-        $formulario = str_replace('{vivos}','',$formulario);
-        $formulario = str_replace('{natimortos}','',$formulario);
-        $formulario = str_replace('{mumificados}','',$formulario);
+        $formulario = str_replace('{vivos}',0,$formulario);
+        $formulario = str_replace('{natimortos}',0,$formulario);
+        $formulario = str_replace('{mumificados}',0,$formulario);
         $formulario = str_replace('{causa}','',$formulario);
         $formulario = str_replace('{dt_desmama}','',$formulario);
-        $formulario = str_replace('{ndesmamas}','',$formulario);
+        $formulario = str_replace('{ndesmamas}',0,$formulario);
     }
     print($formulario); 
 
@@ -79,3 +96,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     include '../Includes/rodapeinclude.php';
 
 ?>
+</body>
+</html>
+
+
+

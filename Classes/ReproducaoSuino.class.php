@@ -59,7 +59,7 @@ class ReproducaoSuino{
             if ($dt_nascimento == "")
                 throw new Exception("Erro, a data de nascimento deve ser informada!");
             else
-                $this->$dt_nascimento = $dt_nascimento;
+                $this->dt_nascimento = $dt_nascimento;
     }
 
     public function setMacho($macho){
@@ -106,7 +106,7 @@ class ReproducaoSuino{
 
     // Anexo pode ser em branco por isso o parâmetro é opcional
     public function setCausa($causa = ''){
-        $this->$causa = $causa;
+                $this->causa = $causa;
     }
 
     public function setDt_desmama($dt_desmama){
@@ -123,48 +123,48 @@ class ReproducaoSuino{
                 $this->ndesmamas = $ndesmamas;
     }
 
-    public function getId(): int{
-        return $this->id;
+    public function getId(): int {
+        return (int) $this->id;
+    }    
+    public function getNporca(): string {
+        return (string) $this->nporca;
+    }   
+    public function getRaca(): string{
+        return (string) $this->raca;
     }
-    public function getNporca(): String{
-        return $this->nporca;
+    public function getDt_nascimento(): string{
+        return (string) $this->dt_nascimento;
     }
-    public function getRaca(): String{
-        return $this->raca;
+    public function getMacho(): string{
+        return (string) $this->macho;
     }
-    public function getDt_nascimento(): String{
-        return $this->dt_nascimento;
+    public function getDt_provparto(): string{
+        return (string) $this->dt_provparto;
     }
-        public function getMacho(): String{
-        return $this->macho;
+        public function getDt_parto(): string{
+        return (string) $this->dt_parto;
     }
-        public function getDt_provparto(): String{
-        return $this->dt_provparto;
-    }
-        public function getDt_parto(): String{
-        return $this->dt_parto;
-    }
-        public function getVivos(): int{
-        return $this->vivos;
-    }
-    public function getNatimortos(): int{
-        return $this->natimortos;
+    public function getVivos(): int {
+        return (int) $this->vivos;
+    } 
+    public function getNatimortos(): int {
+        return (int) $this->natimortos;
     }
         public function getMumificados(): int{
-        return $this->mumificados;
+        return (int) $this->mumificados;
     }
-        public function getCausa(): String{
-        return $this->causa;
+        public function getCausa(): string{
+        return (string) $this->causa;
     }
-    public function getDt_desmama(): String{
-        return $this->causa;
+    public function getDt_desmama(): string{
+        return (string) $this->dt_desmama;
     }
     public function getNdesmamas(): int{
-        return $this->causa;
+        return (int) $this->ndesmamas;
     }
 
     // método mágico para imprimir uma atividade
-    public function __toString():String{  
+    public function __toString():string{  
         $str = "ReproducaoSuino: $this->id - $this->nporca
                  - Raça: $this->raca
                  - Data de nascimento: $this->dt_nascimento
@@ -183,9 +183,9 @@ class ReproducaoSuino{
     // insere uma animal no banco 
     public function inserir():Bool{
         // montar o sql/ query
-        $sql = "INSERT INTO reproducaosuino 
-                    (nporca, raca, dt_nascimento, macho, dt_provparto, dt_parto, vivos, natimortos, mumificados, causa, dt_desmama, ndesmamas)
-                    VALUES(:nporca, :raca, :dt_nascimento, :macho, :dt_provparto, :dt_parto, :vivos, :natimortos, :mumificados, :causa, :dt_desmama, :ndesmamas)";
+    $sql = "INSERT INTO reproducaosuino 
+                (NPORCA, RACA, DT_NASCIMENTO, MACHO, DT_PROVPARTO, DT_PARTO, VIVOS, NATIMORTOS, MUMIFICADOS, CAUSA, DT_DESMAMA, NDESMAMAS)
+            VALUES(:nporca, :raca, :dt_nascimento, :macho, :dt_provparto, :dt_parto, :vivos, :natimortos, :mumificados, :causa, :dt_desmama, :ndesmamas)";
         //criar uma table no banco de dados com o nome "reproducaosuino"
         $parametros = array(':nporca'=>$this->getNporca(),
                             ':raca'=>$this->getRaca(),
@@ -207,7 +207,7 @@ class ReproducaoSuino{
         $sql = "SELECT * FROM reproducaosuino";
         switch ($tipo){
             case 0: break;
-            case 1: $sql .= " WHERE idSUINO = :info ORDER BY idSUINO"; break; // filtro por ID
+            case 1: $sql .= " WHERE id = :info ORDER BY id"; break; // filtro por ID
             case 2: $sql .= " WHERE nporca like :info ORDER BY nporca"; $info = '%'.$info.'%'; break; // filtro por n° porca
             case 3: $sql .= " WHERE raca like :info ORDER BY raca"; $info = '%'.$info.'%'; break; // filtro por raca
             case 4: $sql .= " WHERE dt_nascimento like :info ORDER BY dt_nascimento"; $info = '%'.$info.'%'; break; // filtro por data de nascimento
@@ -218,20 +218,19 @@ class ReproducaoSuino{
             case 9: $sql .= " WHERE natimortos like :info ORDER BY natimortos"; $info = '%'.$info.'%'; break; // filtro por raça
             case 10: $sql .= " WHERE mumificados like :info ORDER BY mumificados"; $info = '%'.$info.'%'; break; // filtro por setor
             case 11: $sql .= " WHERE causa like :info ORDER BY causa"; $info = '%'.$info.'%'; break; // filtro por espécie
-            case 11: $sql .= " WHERE dt_desmama like :info ORDER BY dt_desmama"; $info = '%'.$info.'%'; break; // filtro por espécie
-            case 11: $sql .= " WHERE ndesmamas like :info ORDER BY ndesmamas"; $info = '%'.$info.'%'; break; // filtro por espécie
+            case 12: $sql .= " WHERE dt_desmama like :info ORDER BY dt_desmama"; $info = '%'.$info.'%'; break; // filtro por espécie
+            case 13: $sql .= " WHERE ndesmamas like :info ORDER BY ndesmamas"; $info = '%'.$info.'%'; break; // filtro por espécie
         }
         $parametros = array();
         if ($tipo > 0)
             $parametros = [':info'=>$info];
 
-        $comando = Database::executar($sql, $parametros);
+        $comando = Database::consultar($sql, $parametros);
         //$resultado = $comando->fetchAll();
         $suinos = [];
         while ($registro = $comando->fetch()){
-            $animal = new ReproducaoSuino($registro['idSUINO'],$registro['NPORCA'],$registro['RACA'],$registro['DT_NASCIMENTO'],$registro['MACHO'],$registro['DT_PROVPARTO'],$registro['DT_PARTO'],$registro['VIVOS'],$registro['NATIMORTOS'],$registro['MUMIFICADOS'],$registro['CAUSA'],$registro['DT_DESMAMA'],$registro['NDESMAMAS']);
-            array_push($suinos,$suino);
-        }
+            $animal = new ReproducaoSuino($registro['id'],$registro['nporca'],$registro['raca'],$registro['dt_nascimento'],$registro['macho'],$registro['dt_provparto'],$registro['dt_parto'],$registro['vivos'],$registro['natimortos'],$registro['mumificados'],$registro['causa'],$registro['dt_desmama'],$registro['ndesmamas']);
+            array_push($suinos, $animal);        }
         return $suinos;
     }
 
@@ -250,9 +249,9 @@ class ReproducaoSuino{
                       dt_desmama = :dt_desmama,
                       ndesmamas = :ndesmamas
 
-                WHERE idSUINO = :idSUINO";
-         $parametros = array(':idSUINO'=>$this->getId(),
-                        ':nporca'=>$this->getnporca(),
+                WHERE id = :id";
+         $parametros = array(':id'=>$this->getId(),
+                        ':nporca'=>$this->getNporca(),
                         ':raca'=>$this->getRaca(),
                         ':dt_nascimento'=>$this->getDt_nascimento(),
                         ':macho'=>$this->getMacho(),
@@ -263,14 +262,14 @@ class ReproducaoSuino{
                         ':mumificados'=>$this->getMumificados(),
                         ':causa'=>$this->getCausa(),
                         ':dt_desmama'=>$this->getDt_desmama(),
-                        ':ndesmama'=>$this->getNdesmama());
+                        ':ndesmamas'=>$this->getNdesmamas());
         return Database::executar($sql, $parametros) == true;
     }
 
     public function excluir():Bool{
         $sql = "DELETE FROM reproducaosuino
-                      WHERE idSUINO = :idSUINO";
-        $parametros = array(':idSUINO'=>$this->getId());
+                      WHERE id = :id";
+        $parametros = array(':id'=>$this->getId());
         return Database::executar($sql, $parametros) == true;
      }
 }

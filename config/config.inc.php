@@ -1,7 +1,7 @@
 <?php
 
 define('USUARIO', 'root'); /// usuario de conexão com o banco
-define('SENHA', ''); // senha de conexão com o banco
+define('SENHA', '21010713brendA@'); // senha de conexão com o banco
 define('HOST', 'localhost'); // ip do servidor do banco
 define('PORT', '3306'); // porta do mysql
 define('DB', 'scai'); // nome do banco
