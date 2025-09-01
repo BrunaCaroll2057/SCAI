@@ -88,7 +88,7 @@ session_start();
       </div>
 
       <div class="col">
-        <div class="card bg-success-subtle text-dark" style="width: 18rem;">
+        <div class="card text-dark" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">É servidor do IFC?</h5>
             <p class="card-text">Acesse o link abaixo para acessar a página dos servidores.</p>

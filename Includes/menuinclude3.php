@@ -42,7 +42,7 @@
                 Cadastrar Animal
               </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="../Bovino/index.php" style="text-align: center;">Bovinos</a><hr></li>
+                  <li><a class="dropdown-item" href="../menu_bovino.php" style="text-align: center;">Bovinos</a><hr></li>
                   <li><a class="dropdown-item" href="/SCAI/suino.php" style="text-align:center">Suínos</a><hr></li>
                   <li><a class="dropdown-item" href="Animal/ovinos.php" style="text-align: center;">Ovinos</a><hr></li>
                   <li><a class="dropdown-item" href="Animal/aves.php" style="text-align: center;">Aves</a><hr></li>

@@ -22,19 +22,19 @@
             <input type="text" name="id" value="{id}" readonly><br><br>
 
             <label for="nporca">N° porca:</label>
-            <input type="number" name="nporca" value="{nporca}"><br><br>
+            <input type="number" name="nporca" value="{nporca}">
 
             <label for="raca">Raça:</label>
-            <input type="text" name="raca" value="{raca}"><br><br>
+            <input type="text" name="raca" value="{raca}">
 
             <label for="dt_nascimento">Data de Nascimneto:</label>
-            <input type="date" name="dt_nascimento" value="{dt_nascimento}">
+            <input type="date" name="dt_nascimento" value="{dt_nascimento}"><br><br>
 
             <label for="macho">Macho:</label>
             <input type="text" name="macho" value="{macho}"><br><br>
 
             <label for="dt_provparto">Data provável do parto:</label>
-            <input type="date" name="dt_provparto" value="{dt_provparto}"><br><br>
+            <input type="date" name="dt_provparto" value="{dt_provparto}">
 
             <label for="dt_parto">Data do parto:</label>
             <input type="date" name="dt_parto" value="{dt_parto}"><br><br>
@@ -58,7 +58,7 @@
             <input type="date" name="dt_desmama" value="{dt_desmama}">
 
             <label for="ndesmamas">N° de desmamas:</label>
-            <input type="number" name="ndesmamas" value="{ndesmamas}">
+            <input type="number" name="ndesmamas" value="{ndesmamas}"><br><br>
 
             <button type="submit" name="acao" value="salvar">Salvar</button>
             <button type="submit" name="acao" value="excluir">Excluir</button>
