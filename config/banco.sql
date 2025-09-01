@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS USUARIOS (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO usuarios (id, nome, usuario, email, senha) VALUES
+INSERT INTO usuarios (id, nome, usuario, email, senha) VALUES 
 (1, 'Brenda', 'desouzab211@gmail.com', 'desouzab211@gmail.com', 'brenda2025');
 COMMIT;
 
@@ -141,47 +141,19 @@ select * from user_form;
 -- Tabelas de raça
 -- -----------------------------------------------------
 
--- create table raca_bovino (
--- 	idRaca_bovino int primary key auto_increment,
---  nome varchar(250));
---  drop table raca_bovino;
-
--- create table raca_ovino (
--- 	idRaca_ovino int primary key auto_increment,
---  nome varchar(250));
---  drop table raca_ovino;
-    
-create table raca_suino (
-	idRaca_suino int primary key auto_increment,
-    nome varchar(250));
-    
-    
--- create table raca_coelho (
--- 	idRaca_coelho int primary key auto_increment,
---  nome varchar(250));
---  drop table raca_coelho;
-    
--- create table raca_aves (
--- 	idRaca_aves int primary key auto_increment,
---  nome varchar(250));
--- 	drop table raca_aves;
-
--- cadastro 
-
-create table reproducaosuino (
-  `ID` INT AUTO_INCREMENT primary KEY,
-  `NPORCA` INT NOT NULL,
-  `RACA` VARCHAR(50) NOT NULL,
-  `DT_NASCIMENTO` DATE NOT NULL,
-  `MACHO` VARCHAR(50) NOT NULL,
-  `DT_PROVPARTO` DATE NOT NULL,
-  `DT_PARTO` DATE NOT NULL,
-  `VIVOS` INT NOT NULL,
-  `NATIMORTOS` INT NOT NULL,
-  `MUMIFICADOS` INT NOT NULL,
-  `CAUSA` VARCHAR(50) NULL,
-  `DT_DESMAMA` DATE NOT NULL,
-  `NDESMAMAS` INT NOT NULL);
-
-  
-  SELECT * FROM REPRODUCAOSUINO
+create table reproducao_suino (
+    idReproducao_suino int not null auto_increment,
+    nproca varchar(50) not null,
+    raca varchar(50) not null,
+    dt_nascimento varchar(10) not null,
+    macho varchar(45) not null,
+    dt_provparto varchar(10) not null,
+    dt_parto varchar(10) not null,
+    vivos int not null,
+    natimortos int not null,
+    mumificados int not null,
+    causa varchar(500),
+    dt_desmama varchar(10) not null,
+    ndesmama int not null,
+    primary key (idReproducao_suino)
+);
