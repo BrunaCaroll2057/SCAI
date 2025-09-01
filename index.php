@@ -14,13 +14,27 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="JS/js.js"> </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    
+    <style>
+      body{
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #30633bff 0%, #4b9b63ff 50%, #b0ebb0ff 100%);
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    </style>
 </head>
 <body>
 
     <?php
         include 'Includes/menuinclude.php';
     ?>
+
+    
 
 <div id="carousel" class="carousel slide" data-ride="carousel">
 
@@ -75,10 +89,11 @@ session_start();
 
   <p id="tit_sobre">Saiba mais:</p>
 
+<div style="margin-left: 140px;">
   <div class="container text-center">
     <div class="row">
       <div class="col">
-        <div class="card bg-success-subtle text-dark" style="width: 18rem;">
+        <div class="card text-dark" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">Quer estudar no IFC?</h5>
             <p class="card-text">Se você tem interesse em estudar no IFC, acesse o link abaixo.</p>
@@ -88,7 +103,7 @@ session_start();
       </div>
 
       <div class="col">
-        <div class="card bg-success-subtle text-dark" style="width: 18rem;">
+        <div class="card text-dark" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">É servidor do IFC?</h5>
             <p class="card-text">Acesse o link abaixo para acessar a página dos servidores.</p>
@@ -98,7 +113,7 @@ session_start();
 
       </div>
       <div class="col">
-        <div class="card bg-success-subtle text-dark" style="width: 18rem;">
+        <div class="card text-dark" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">Já é estudante do IFC?</h5>
             <p class="card-text">Acesse o link abaixo para acessar a página dos estudantes.</p>
@@ -108,10 +123,11 @@ session_start();
       </div>
     </div>
   </div>
-
+</div>
 <p id="tit_sobre">Confira também:</p>
 
 <br>
+<div style="margin-left: 140px;">
 <div class="container text-center">
   <div class="row align-items-center">
     <div class="col">
@@ -142,7 +158,7 @@ session_start();
     </div>
   </div>
 </div>
-
+</div>
 <?php
   include "Includes/rodapeinclude.php";
 ?>
