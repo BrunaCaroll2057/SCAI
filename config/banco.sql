@@ -141,19 +141,21 @@ select * from user_form;
 -- Tabelas de raça
 -- -----------------------------------------------------
 
-create table reproducao_suino (
-    idReproducao_suino int not null auto_increment,
-    nproca varchar(50) not null,
+drop table if exists reproducao_suino;
+
+create table reproducaosuino (
+    id int not null auto_increment,
+    nporca varchar(50) not null,          
     raca varchar(50) not null,
-    dt_nascimento varchar(10) not null,
+    dt_nascimento date not null,
     macho varchar(45) not null,
-    dt_provparto varchar(10) not null,
-    dt_parto varchar(10) not null,
+    dt_provparto date not null,
+    dt_parto date not null,
     vivos int not null,
     natimortos int not null,
     mumificados int not null,
     causa varchar(500),
-    dt_desmama varchar(10) not null,
-    ndesmama int not null,
-    primary key (idReproducao_suino)
+    dt_desmama date not null,
+    ndesmamas int not null,
+    primary key (id)
 );
