@@ -106,25 +106,6 @@
             }
         }
 
-        .meeting-point {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #4caf50, #8bc34a);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 0.8rem;
-            box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
-            z-index: 1;
-        }
-
         h1 {
             color: #2e7d32;
             font-size: 2.8rem;
@@ -215,7 +196,7 @@
         }
 
         .progress {
-            width: 75%;
+            width: 25%;
             height: 100%;
             background: white;
             border-radius: 6px;
@@ -224,8 +205,8 @@
         }
 
         @keyframes progress-grow {
-            0%, 100% { width: 75%; }
-            50% { width: 78%; }
+            0%, 100% { width: 25%; }
+            50% { width: 48%; }
         }
 
         .contact-info {
@@ -344,8 +325,8 @@
     <div class="floating-leaves" style="top: 60%; right: 20%; animation-delay: 6s;">🍀</div>
 
     <div class="construction-container">
-        <h1>AgroAnimals</h1>
-        <div class="subtitle">Sistema de Coordenação e Cadastro</div>
+        <h1>SCAI</h1>
+        <div class="subtitle">Sistema de Coordenação de Animais</div>
         
         <div class="animals-animation">
             <div class="animal cow">🐄</div>
@@ -353,7 +334,6 @@
             <div class="animal sheep">🐑</div>
             <div class="animal chicken">🐔</div>
             <div class="animal rabbit">🐇</div>
-            <div class="meeting-point">CENTRO</div>
         </div>
         
         <p>Estamos construindo a melhor plataforma para gestão de animais agrícolas! Em breve, você poderá cadastrar, acompanhar e gerenciar todos os animais da sua propriedade com facilidade e eficiência.</p>
@@ -368,10 +348,6 @@
                 <div class="feature-text">Relatórios</div>
             </div>
             <div class="feature">
-                <div class="feature-icon">📍</div>
-                <div class="feature-text">Localização</div>
-            </div>
-            <div class="feature">
                 <div class="feature-icon">⚕️</div>
                 <div class="feature-text">Saúde</div>
             </div>
@@ -382,7 +358,7 @@
             <div class="progress-bar">
                 <div class="progress"></div>
             </div>
-            <p style="margin-top: 15px; font-size: 1rem; opacity: 0.9;">75% Completo - Lançamento Previsto: Dezembro 2024</p>
+            <p style="margin-top: 15px; font-size: 1rem; opacity: 0.9;">25% Completo - Lançamento Previsto: Dezembro 2026</p>
         </div>
         
         <div class="contact-info">
@@ -405,7 +381,6 @@
         // Efeito adicional de animação dos animais
         document.addEventListener('DOMContentLoaded', function() {
             const animals = document.querySelectorAll('.animal');
-            const meetingPoint = document.querySelector('.meeting-point');
             
             // Adicionar interação ao passar o mouse
             meetingPoint.addEventListener('mouseenter', function() {
