@@ -1,6 +1,7 @@
 <?php
-include 'processologin/config.php';
-session_start();
+  include 'processologin/config.php';
+
+  session_start();
 ?>
 
 <nav class="navbar bg-body-tertiary fixed-top">
@@ -22,61 +23,83 @@ session_start();
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 
 <?php
-if (isset($_SESSION['user_id'])) {
-$tipo = isset($_SESSION['user_tipo']) ? $_SESSION['user_tipo'] : '';
+  if (isset($_SESSION['user_id'])) {
+      $tipo = $_SESSION['user_tipo'] ?? '';
 
-  echo '
-    <li class="nav-item"><hr><a class="nav-link active" href="logado.php">Home</a><hr></li>
-    <li class="nav-item"><a class="nav-link" href="sobrelogada.php">Sobre</a><hr></li>
-    
-    <li class="nav-item dropdown">
-      <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>
-      <ul class="dropdown-menu" style="text-align: center;">
-        <li><a class="dropdown-item" href="Racabovino/index.php">Bovinos</a><hr></li>
-        <li><a class="dropdown-item" href="Animal/suinos.php">Suínos</a><hr></li>
-        <li><a class="dropdown-item" href="Animal/ovinos.php">Ovinos</a><hr></li>
-        <li><a class="dropdown-item" href="Animal/aves.php">Aves</a><hr></li>
-        <li><a class="dropdown-item" href="Animal/coelhos.php">Coelhos</a></li>
-      </ul>
-      <hr>
-    </li>
-    
-    <li class="nav-item"><a class="nav-link" href="home.php">Perfil</a><hr></li>
-  ';
+      if ($tipo === 'admin') {
+          echo '
+            <li class="nav-item"><hr><a class="nav-link active" href="logado.php">Home</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="sobrelogada.php">Sobre</a><hr></li>
+            
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>
+              <ul class="dropdown-menu" style="text-align: center;">
+                <li><a class="dropdown-item" href="Racabovino/index.php">Bovinos</a><hr></li>
+                <li><a class="dropdown-item" href="Animal/suinos.php">Suínos</a><hr></li>
+                <li><a class="dropdown-item" href="Animal/ovinos.php">Ovinos</a><hr></li>
+                <li><a class="dropdown-item" href="Animal/aves.php">Aves</a><hr></li>
+                <li><a class="dropdown-item" href="Animal/coelhos.php">Coelhos</a></li>
+              </ul>
+              <hr>
+            </li>
+              
+            <li class="nav-item"><a class="nav-link" href="home.php">Perfil</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="register.php">Cadastrar Funcionário</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="aprovacoes.php">Aprovar Cadastros</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="home.php?logout=' . $_SESSION['user_id'] . '">Logout</a><hr></li>
+          ';
+      } elseif ($tipo === 'funcionario') {
+          echo '
+            <li class="nav-item"><hr><a class="nav-link active" href="logado.php">Home</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="sobrelogada.php">Sobre</a><hr></li>
+            
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>
+              <ul class="dropdown-menu" style="text-align: center;">
+                <li><a class="dropdown-item" href="Racabovino/index.php">Bovinos</a><hr></li>
+                <li><a class="dropdown-item" href="Animal/suinos.php">Suínos</a><hr></li>
+                <li><a class="dropdown-item" href="Animal/ovinos.php">Ovinos</a><hr></li>
+                <li><a class="dropdown-item" href="Animal/aves.php">Aves</a><hr></li>
+                <li><a class="dropdown-item" href="Animal/coelhos.php">Coelhos</a></li>
+              </ul>
+              <hr>
+            </li>
+            
+            <li class="nav-item"><a class="nav-link" href="home.php">Perfil</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="solicitar_funcionario.php">Solicitar Cadastro de Funcionário</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="home.php?logout=' . $_SESSION['user_id'] . '">Logout</a><hr></li>
+          ';
+      } else {
+          // Usuários comuns não logados: não exibe menu (ou pode exibir menu público)
 
-  // Opções específicas para admin
-  if ($tipo === 'admin') {
-    echo '
-      <li class="nav-item"><a class="nav-link" href="register.php">Cadastrar Funcionário</a><hr></li>
-      <li class="nav-item"><a class="nav-link" href="aprovacoes.php">Aprovar Cadastros</a><hr></li>
-    ';
+          echo '
+            <li class="nav-item"><hr><a class="nav-link active" href="index.php">Home</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a><hr></li>
+            <li class="nav-item dropdown">
+              <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</a>
+              <ul class="dropdown-menu" style="text-align: center;">
+                <li><a class="dropdown-item" href="login.php">Logar</a><hr></li>
+                <li><a class="dropdown-item" href="register.php">Cadastrar</a></li>
+              </ul>
+              <hr>
+            </li>
+          ';
+      }
+  } else {
+      // Menu público para visitantes não logados
+      echo '
+        <li class="nav-item"><hr><a class="nav-link active" href="index.php">Home</a><hr></li>
+        <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a><hr></li>
+        <li class="nav-item dropdown">
+          <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</a>
+          <ul class="dropdown-menu" style="text-align: center;">
+            <li><a class="dropdown-item" href="login.php">Logar</a><hr></li>
+            <li><a class="dropdown-item" href="register.php">Cadastrar</a></li>
+          </ul>
+          <hr>
+        </li>
+      ';
   }
-
-  // Funcionários também podem ver a tela de cadastro, mas sem efeito direto
-  if ($tipo === 'funcionario') {
-    echo '
-      <li class="nav-item"><a class="nav-link" href="solicitar_funcionario.php">Solicitar Cadastro de Funcionário</a><hr></li>
-    ';
-  }
-
-  echo '
-    <li class="nav-item"><a class="nav-link" href="home.php?logout=' . $_SESSION['user_id'] . '">Logout</a><hr></li>
-  ';
-} else {
-  // Menu público
-  echo '
-    <li class="nav-item"><hr><a class="nav-link active" href="index.php">Home</a><hr></li>
-    <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a><hr></li>
-    <li class="nav-item dropdown">
-      <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Opções</a>
-      <ul class="dropdown-menu" style="text-align: center;">
-        <li><a class="dropdown-item" href="login.php">Logar</a><hr></li>
-        <li><a class="dropdown-item" href="register.php">Cadastrar</a></li>
-      </ul>
-      <hr>
-    </li>
-  ';
-}
 ?>
         </ul>
       </div>

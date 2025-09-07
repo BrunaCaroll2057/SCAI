@@ -1,42 +1,22 @@
 <?php
+   include 'processologin/config.php';
+   include 'processologin/User.class.php';
 
-include 'processologin/config.php';
-
-if(isset($_POST['submit'])){
-
-   $name = mysqli_real_escape_string($conn, $_POST['name']);
-   $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
-   $cpass = mysqli_real_escape_string($conn, md5($_POST['cpassword']));
-   $image = $_FILES['image']['name'];
-   $image_size = $_FILES['image']['size'];
-   $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_folder = 'processologin/uploaded_img/'.$image;
-
-   $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' AND password = '$pass'") or die('query failed');
-
-   if(mysqli_num_rows($select) > 0){
-      $message[] = 'Este usuário já existe!'; 
-   }else{
-      if($pass != $cpass){
-         $message[] = 'Confirme a senha corretamente!';
-      }elseif($image_size > 2000000){
-         $message[] = 'A imagem é muito grande!';
-      }else{
-         $insert = mysqli_query($conn, "INSERT INTO `user_form`(name, email, password, image) VALUES('$name', '$email', '$pass', '$image')") or die('query failed');
-
-         if($insert){
-            move_uploaded_file($image_tmp_name, $image_folder);
-            $message[] = 'Registro realizado com sucesso!';
-            header('location:login.php');
-         }else{
-            $message[] = 'O registro falhou!';
-         }
+   $user = new User($conn);
+   if (isset($_POST['submit'])) {
+      $name = $_POST['name'];
+      $email = $_POST['email'];
+      $password = $_POST['password'];
+      $cpassword = $_POST['cpassword'];
+      $image = $_FILES['image'];
+      $result = $user->register($name, $email, $password, $cpassword, $image);
+      if ($result === true) {
+         header('Location: login.php');
+         exit;
+      } else {
+         $message = $result; // array de erros
       }
    }
-
-}
-
 ?>
 
 <!DOCTYPE html>

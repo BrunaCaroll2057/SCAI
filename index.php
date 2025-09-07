@@ -1,5 +1,17 @@
 <?php
 session_start();
+
+  if (isset($_SESSION['user_id'])) {
+      $tipo = $_SESSION['user_tipo'] ?? '';
+
+      if ($tipo === 'admin') {
+          include 'Includes/menu_admin.php';
+      } elseif ($tipo === 'funcionario') {
+          include 'Includes/menu_funcionario.php';
+      }
+  } else {
+      include 'Includes/menu_publico.php'; // menu para não logados
+  }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +29,7 @@ session_start();
     <style>
       body{
         font-family: 'Roboto', sans-serif;
-        background: linear-gradient(135deg, #30633bff 0%, #4b9b63ff 50%, #b0ebb0ff 100%);
+        background-color: #509e64ff;
         min-height: 100vh;
         align-items: center;
         justify-content: center;
@@ -30,11 +42,24 @@ session_start();
 </head>
 <body>
 
-    <?php
-        include 'Includes/menuinclude.php';
-    ?>
 
-    
+<?php
+
+  include 'Includes/menuinclude.php';
+
+  if (isset($_SESSION['user_id'])) {
+      $tipo = $_SESSION['user_tipo'] ?? '';
+      switch ($tipo) {
+          case 'admin':
+              include 'Includes/menu_admin.php';
+              break;
+          case 'funcionario':
+              include 'Includes/menu_funcionario.php';
+              break;
+              default;
+      }
+  }
+?>
 
 <div id="carousel" class="carousel slide" data-ride="carousel">
 

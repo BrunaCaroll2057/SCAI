@@ -1,51 +1,35 @@
 <?php
+   include 'processologin/config.php';
+   include 'processologin/User.php';
 
-include 'processologin/config.php';
-session_start();
-$user_id = $_SESSION['user_id'];
+   session_start();
 
-if(isset($_POST['update_profile'])){
+   if (!isset($_SESSION['user_id'])) {
+      header('Location: login.php');
+      exit;
+   }
 
-   $update_name = mysqli_real_escape_string($conn, $_POST['update_name']);
-   $update_email = mysqli_real_escape_string($conn, $_POST['update_email']);
+   $user = new User($conn);
+   $user_id = $_SESSION['user_id'];
 
-   mysqli_query($conn, "UPDATE `user_form` SET name = '$update_name', email = '$update_email' WHERE id = '$user_id'") or die('query failed');
+   if (isset($_POST['update_profile'])) {
+      $name = $_POST['update_name'];
+      $email = $_POST['update_email'];
+      $old_pass = $_POST['old_pass'];
+      $new_pass = $_POST['new_pass'];
+      $confirm_pass = $_POST['confirm_pass'];
+      $image = $_FILES['update_image'];
 
-   $old_pass = $_POST['old_pass'];
-   $update_pass = mysqli_real_escape_string($conn, md5($_POST['update_pass']));
-   $new_pass = mysqli_real_escape_string($conn, md5($_POST['new_pass']));
-   $confirm_pass = mysqli_real_escape_string($conn, md5($_POST['confirm_pass']));
+      $result = $user->updateProfile($user_id, $name, $email, $old_pass, $new_pass, $confirm_pass, $image);
 
-   if(!empty($update_pass) || !empty($new_pass) || !empty($confirm_pass)){
-      if($update_pass != $old_pass){
-         $message[] = 'A senha antiga não corresponde!';
-      }elseif($new_pass != $confirm_pass){
-         $message[] = 'Confirme a senha corretamente!';
-      }else{
-         mysqli_query($conn, "UPDATE `user_form` SET password = '$confirm_pass' WHERE id = '$user_id'") or die('query failed');
-         $message[] = 'Senha atualizada com sucesso!';
+      if ($result === true) {
+         $message[] = 'Perfil atualizado com sucesso!';
+      } else {
+         $message = $result; // array de erros
       }
    }
 
-   $update_image = $_FILES['update_image']['name'];
-   $update_image_size = $_FILES['update_image']['size'];
-   $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
-   $update_image_folder = 'processologin/uploaded_img/'.$update_image;
-
-   if(!empty($update_image)){
-      if($update_image_size > 2000000){
-         $message[] = 'A imagem é muito grande!';
-      }else{
-         $image_update_query = mysqli_query($conn, "UPDATE `user_form` SET image = '$update_image' WHERE id = '$user_id'") or die('query failed');
-         if($image_update_query){
-            move_uploaded_file($update_image_tmp_name, $update_image_folder);
-         }
-         $message[] = 'Imagem atualizada com sucesso!';
-      }
-   }
-
-}
-
+   $fetch = $user->getUserById($user_id);
 ?>
 
 <!DOCTYPE html>

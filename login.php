@@ -1,26 +1,19 @@
 <?php
+   include 'processologin/config.php';
+   include 'processologin/User.class.php';
+   session_start();
 
-include 'processologin/config.php';
-session_start();
-
-if(isset($_POST['submit'])){
-
-   $email = mysqli_real_escape_string($conn, $_POST['email']);
-   $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
-
-   $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' AND password = '$pass'") or die('query failed');
-
-   if(mysqli_num_rows($select) > 0){
-      $row = mysqli_fetch_assoc($select);
-      $_SESSION['user_id'] = $row['id'];
-      $_SESSION['user_email'] = $row['email'];
-      $_SESSION['user_tipo'] = $row['tipo']; // <- importante
-      header('location:logado.php');
-   }else{
-      $message[] = 'Email e/ou senha incorretos!';
+   $user = new User($conn);
+   if (isset($_POST['submit'])) {
+      $email = $_POST['email'];
+      $password = $_POST['password'];
+      if ($user->login($email, $password)) {
+         header('Location: logado.php');
+         exit;
+      } else {
+         $message[] = 'Email e/ou senha incorretos!';
+      }
    }
-}
-
 ?>
 
 <!DOCTYPE html>

@@ -9,3 +9,6 @@ CREATE TABLE `user_form` (
   `image` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4
+
+alter table `user_form`
+add column tipo varchar(250);
