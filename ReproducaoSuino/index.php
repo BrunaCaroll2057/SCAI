@@ -76,6 +76,11 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </head>
 <body>
 
+<<<<<<< HEAD
+=======
+<div class="container mt-10">
+
+>>>>>>> e04a7c98e4cbdba44d6ad3f72345c88cb8ebec24
     <form action="index.php" method="post" enctype="multipart/form-data">
         <?php include __DIR__ . '/form_cad_suino.php'; ?>
     </form>

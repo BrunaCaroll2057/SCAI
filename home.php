@@ -33,15 +33,27 @@ if(isset($_GET['logout'])){
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="processologin/css/estilo.css">
-
+   <style>
+      body{
+         background-color: #f8f9fa;
+      }
+      .footer {
+        background-color: rgba(46, 125, 50, 0.9);
+        color: #e6f2d9;
+        padding: 20px 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 70px;
+      }
+   </style>
 </head>
 <body>
 
 <?php
-    include 'Includes/menuinclude2.php';
+  include __DIR__ . '/Includes/menuinclude.php';
 ?>
    
-<div class="container" style="background-color: white;">
+<div class="container" style="background-color: #f8f9fa;">
    
    <div class="profile" style="background-color: white; margin-top: -2px; margin-bottom: -10px;">   
       <h3 style="font-size: 40px;">Perfil</h3>

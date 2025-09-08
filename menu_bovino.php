@@ -15,11 +15,22 @@ session_start();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <style>
 
-        html, body {
+    html, body {
         height: 100%;
         margin: 0;
+        padding: 0;
         flex-direction: column;
         font-family: 'Roboto', sans-serif;
+        color: #e6f2d9;
+        text-align: center;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #578538ff 0%, #5f9770ff 50%, #a3d6a3ff 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
         color: #e6f2d9;
         text-align: center;
     }
@@ -32,19 +43,10 @@ session_start();
     .footer {
         background-color: rgba(46, 125, 50, 0.9);
         color: #e6f2d9;
-        padding: 20px 10px;
+        padding: 20px 20px;
         text-align: center;
         font-size: 0.9rem;
         margin-top: 70px;
-    }
-
-    body {
-        font-family: 'Roboto', sans-serif;
-        background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #8fbc8f 100%);
-        margin: 0;
-        padding: 20px;
-        color: #e6f2d9;
-        text-align: center;
     }
 
     .cow-image {

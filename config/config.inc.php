@@ -1,6 +1,10 @@
 <?php
 define('USUARIO', 'root'); /// usuario de conexão com o banco
+<<<<<<< HEAD
 define('SENHA', ''); // senha de conexão com o banco
+=======
+define('SENHA', 'BRUNAcarol2057'); // senha de conexão com o banco
+>>>>>>> e04a7c98e4cbdba44d6ad3f72345c88cb8ebec24
 define('HOST', 'localhost'); // ip do servidor do banco
 define('PORT', '3306'); // porta do mysql
 define('DB', 'scai'); // nome do banco

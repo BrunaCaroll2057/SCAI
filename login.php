@@ -35,7 +35,19 @@
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="processologin/css/estilo.css">
-
+   <style>
+      body{
+         background-color: #f8f9fa;
+      }
+      .footer {
+        background-color: rgba(46, 125, 50, 0.9);
+        color: #e6f2d9;
+        padding: 20px 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 70px;
+      }
+   </style>
 </head>
 <body>
 
