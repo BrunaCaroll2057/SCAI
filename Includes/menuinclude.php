@@ -1,10 +1,10 @@
 <?php
-  include 'processologin/config.php';
+  include_once __DIR__ . '/../config/config.inc.php';
 ?>
 
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid" style="height: 70px;">
-    <a class="navbar-brand" href="index.php">
+    <a class="navbar-brand"  href="<?=HOME?>index.php">
       SCAI - Sistema de Cadastro de Animais
     </a>  
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="width: 70px; height: 37px;">
@@ -26,8 +26,8 @@
 
       if ($tipo === 'admin') {
           echo '
-            <li class="nav-item"><hr><a class="nav-link active" href="logado.php">Home</a><hr></li>
-            <li class="nav-item"><a class="nav-link" href="sobrelogada.php">Sobre</a><hr></li>
+            <li class="nav-item"><hr><a class="nav-link active" href="'.HOME.'index.php">Home</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a><hr></li>
             
             <li class="nav-item dropdown">
               <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>
@@ -47,8 +47,8 @@
           ';
       } elseif ($tipo === 'funcionario') {
           echo '
-            <li class="nav-item"><hr><a class="nav-link active" href="logado.php">Home</a><hr></li>
-            <li class="nav-item"><a class="nav-link" href="sobrelogada.php">Sobre</a><hr></li>
+            <li class="nav-item"><hr><a class="nav-link active" href="index.php">Home</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a><hr></li>
             
             <li class="nav-item dropdown">
               <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>

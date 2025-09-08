@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -56,7 +60,13 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 <?php include 'Includes/menuinclude.php'; ?>
+=======
+<?php
+  include __DIR__ . '/Includes/menuinclude.php';
+?>
+>>>>>>> a592f4cb77f4f860f0240f0fff0b5c37027c2273
 
 <!-- Título -->
 <p id="tit_sobre">Cadastros de Suínos</p>

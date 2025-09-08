@@ -13,7 +13,11 @@
 
     <div class="container mt-5 pt-3">
         <div class="card shadow p-4 rounded">
+<<<<<<< HEAD
             <h3 class="text-center fw-bold mb-4">Ciclo reprodutivo de cada porca</h3>
+=======
+            <h3 class="text-center fw-bold mb-4">Cadastro de Suínos</h3>
+>>>>>>> a592f4cb77f4f860f0240f0fff0b5c37027c2273
 
             <form method="post">
                 <fieldset>
@@ -104,4 +108,8 @@
         </div>
     </div>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> a592f4cb77f4f860f0240f0fff0b5c37027c2273

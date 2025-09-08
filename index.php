@@ -22,7 +22,7 @@
     <style>
       body{
         font-family: 'Roboto', sans-serif;
-        background-color: #509e64ff;
+        background-color: #f8f9fa;
         min-height: 100vh;
         align-items: center;
         justify-content: center;
