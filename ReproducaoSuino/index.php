@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +19,9 @@
 </head>
 <body>
     <?php
+    
+include __DIR__ . '/Includes/menuinclude.php';
 require_once("../Classes/ReproducaoSuino.class.php");
-
-    include '../Includes/menuinclude3.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $id = isset($_POST['id'])?$_POST['id']:0;

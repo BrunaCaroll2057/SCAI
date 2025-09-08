@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +14,7 @@
 </head>
 <body>
     <?php
-        include '../Includes/menuinclude3.php';
+         include __DIR__ . '/Includes/menuinclude.php';
     ?>
 
     <h1 style="margin-left: 1%; margin-bottom: -10px;" id="tit_sobre">Manutenção de Animais</h1>
