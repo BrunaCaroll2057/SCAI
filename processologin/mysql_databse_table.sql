@@ -12,3 +12,4 @@ CREATE TABLE `user_form` (
 
 alter table `user_form`
 add column tipo varchar(250);
+ALTER TABLE user_form ADD COLUMN aprovado TINYINT(1) DEFAULT 0;
