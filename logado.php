@@ -15,8 +15,7 @@
 <body>
 
     <?php
-  
-        include 'Includes/menuinclude2.php';
+      include __DIR__ . '/Includes/menuinclude.php';
     ?>
 
   <div id="carousel" class="carousel slide" data-ride="carousel" style="margin-top: 50px;">

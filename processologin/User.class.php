@@ -7,17 +7,17 @@ class User {
         $this->conn = $dbConnection;
     }
 
-    // Função para registrar usuário
+    // Função para registrar funcionário
     public function register($name, $email, $password, $confirm_password, $image) {
         $errors = [];
 
-        // Verifica se usuário já existe
+        // Verifica se funcionário já existe
         $stmt = $this->conn->prepare("SELECT id FROM {$this->table} WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->store_result();
         if ($stmt->num_rows > 0) {
-            $errors[] = 'Este usuário já existe!';
+            $errors[] = 'Este funcionário já existe!';
         }
         $stmt->close();
 
@@ -29,7 +29,7 @@ class User {
             return $errors;
         }
 
-        // Hash da senha (recomendo usar password_hash em vez de md5)
+        // Hash da senha
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
         // Upload da imagem
@@ -44,8 +44,8 @@ class User {
         }
 
         // Insere no banco
-        $stmt = $this->conn->prepare("INSERT INTO {$this->table} (name, email, password, image, tipo) VALUES (?, ?, ?, ?, ?)");
-        $tipo = 'usuario'; // padrão, pode mudar conforme sua regra
+        $stmt = $this->conn->prepare("INSERT INTO {$this->table} (name, email, password, image, tipo, aprovado) VALUES (?, ?, ?, ?, ?, 0)");
+        $tipo = 'funcionario'; // padrão
         $stmt->bind_param("sssss", $name, $email, $passwordHash, $imageName, $tipo);
 
         if ($stmt->execute()) {
@@ -61,7 +61,7 @@ class User {
 
     // Função para login
     public function login($email, $password) {
-        $stmt = $this->conn->prepare("SELECT id, password, tipo FROM {$this->table} WHERE email = ?");
+        $stmt = $this->conn->prepare("SELECT id, password, tipo, aprovado FROM {$this->table} WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
 
@@ -69,10 +69,21 @@ class User {
         $user = $result->fetch_assoc();
 
         if ($user && password_verify($password, $user['password'])) {
+            // Se for funcionário, verificar aprovação
+            if ($user['tipo'] === 'funcionario' && $user['aprovado'] == 0) {
+                $stmt->close();
+                return false; // funcionário não aprovado ainda
+            }
+
             session_start();
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_email'] = $email;
-            $_SESSION['user_tipo'] = $user['tipo'];
+
+            if ($email === 'admin@scai.com') {
+                $_SESSION['user_tipo'] = 'admin';
+            } else {
+                $_SESSION['user_tipo'] = $user['tipo'];
+            }
             $stmt->close();
             return true;
         } else {

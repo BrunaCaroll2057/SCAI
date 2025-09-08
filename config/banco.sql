@@ -132,10 +132,18 @@ CREATE TABLE `user_form` (
 
 alter table user_form
 add column cpf varchar(250),
-add column telefone varchar(250);
+add column telefone varchar(250),
+ADD COLUMN aprovado TINYINT(1) DEFAULT 0;
+
+INSERT INTO user_form (name, email, password, image, tipo, aprovado)
+VALUES ('Administrador', 'admin@scai.com', '$2y$10$vZl9Wxx27COLtSIMfWWxiOjadZ0BpwiIs4.dfBEzk5a.3i7qmDfJ.', 'default-avatar.png', 'admin', 1);
+
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM user_form WHERE email = 'brunacaroll2057@gmail.com';
+
+UPDATE user_form SET password = '$2y$10$ajcFx34WcVpOD3kOhSW71u2vdUmWYTqHPh9TDt9byeRa8gtTBypL2' WHERE email = 'admin@scai.com';
 
 select * from user_form;
-
 
 -- -----------------------------------------------------
 -- Tabelas de raça

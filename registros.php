@@ -1,3 +1,7 @@
+<?php
+   session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +13,9 @@
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <?php
-        include 'Includes/menuinclude.php';
-    ?>
+  <?php
+    include __DIR__ . '/Includes/menuinclude.php';
+  ?>
 
 <br>
 <h2 id="tit_sobre">Registros do Instituto</h2>

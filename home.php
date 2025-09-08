@@ -64,7 +64,7 @@ if(isset($_GET['logout'])){
       <hr>
 
       <a href="update_profile.php" class="btn">Atualizar informações</a>
-      <a href="logado.php" class="logado-btn">Página inicial</a>
+      <a href="index.php" class="logado-btn">Página inicial</a>
       <a href="home.php?logout=<?php echo $user_id; ?>" class="delete-btn">Logout</a>
 
       <p>Novo <a href="login.php">Login</a> ou <a href="register.php">Registro</a></p>
