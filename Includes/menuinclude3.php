@@ -1,5 +1,9 @@
 <?php
 
+  if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+  }
+
   include __DIR__ . '/../processologin/config.php';
   session_start();
   $user_id = $_SESSION['user_id'];
