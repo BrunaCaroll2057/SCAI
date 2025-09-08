@@ -130,10 +130,9 @@ CREATE TABLE `user_form` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
-alter table user_form
-add column cpf varchar(250),
-add column telefone varchar(250),
-ADD COLUMN aprovado TINYINT(1) DEFAULT 0;
+alter table `user_form`
+add column tipo varchar(250);
+ALTER TABLE user_form ADD COLUMN aprovado TINYINT(1) DEFAULT 0;
 
 INSERT INTO user_form (name, email, password, image, tipo, aprovado)
 VALUES ('Administrador', 'admin@scai.com', '$2y$10$vZl9Wxx27COLtSIMfWWxiOjadZ0BpwiIs4.dfBEzk5a.3i7qmDfJ.', 'default-avatar.png', 'admin', 1);
