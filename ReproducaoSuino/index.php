@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 session_start();
 ?>
 <!DOCTYPE html>
@@ -16,10 +15,11 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="JS/js.js"> </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-=======
+
+<?php
+
 require_once("../Classes/ReproducaoSuino.class.php");
 include '../Includes/menuinclude3.php';
->>>>>>> 77d3840ed45f89ac693f6fc31dcf16991063eeac
 
 // Instancia padrão do objeto
 $animal = new ReproducaoSuino();
@@ -80,8 +80,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../css/estilo.css" />
 </head>
 <body>
-<<<<<<< HEAD
-    <?php
+
+<?php
     
 include __DIR__ . '/Includes/menuinclude.php';
 require_once("../Classes/ReproducaoSuino.class.php");
@@ -162,7 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     include '../Includes/rodapeinclude.php';
 
 ?>
-=======
+
     <div class="container mt-4">
         <h1 class="mb-4" id="tit_sobre">Manutenção de Animais</h1>
         <form action="index.php" method="post" enctype="multipart/form-data">
@@ -171,7 +171,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
->>>>>>> 77d3840ed45f89ac693f6fc31dcf16991063eeac
 </body>
 </html>
 l
