@@ -30,6 +30,9 @@ if (isset($_POST['aprovar'])) {
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
+    <?php
+        include __DIR__ . '/Includes/menuinclude.php';
+    ?>
 
     <h2>Pedidos de Cadastro de Funcionários Pendentes</h2>
 
@@ -74,6 +77,9 @@ if (isset($_POST['aprovar'])) {
     <?php 
         endif; 
     ?>
+
+    <!-- Rodapé -->
+    <?php include "Includes/rodapeinclude.php"; ?>
 
 </body>
 </html>

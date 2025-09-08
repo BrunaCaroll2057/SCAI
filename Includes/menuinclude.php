@@ -1,5 +1,5 @@
 <?php
-  include 'processologin/config.php';
+  include __DIR__ . '/../processologin/config.php';
 ?>
 
 <nav class="navbar bg-body-tertiary fixed-top">
@@ -26,8 +26,8 @@
 
       if ($tipo === 'admin') {
           echo '
-            <li class="nav-item"><hr><a class="nav-link active" href="logado.php">Home</a><hr></li>
-            <li class="nav-item"><a class="nav-link" href="sobrelogada.php">Sobre</a><hr></li>
+            <li class="nav-item"><hr><a class="nav-link active" href="index.php">Home</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a><hr></li>
             
             <li class="nav-item dropdown">
               <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>
@@ -47,8 +47,8 @@
           ';
       } elseif ($tipo === 'funcionario') {
           echo '
-            <li class="nav-item"><hr><a class="nav-link active" href="logado.php">Home</a><hr></li>
-            <li class="nav-item"><a class="nav-link" href="sobrelogada.php">Sobre</a><hr></li>
+            <li class="nav-item"><hr><a class="nav-link active" href="index.php">Home</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a><hr></li>
             
             <li class="nav-item dropdown">
               <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>

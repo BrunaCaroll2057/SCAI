@@ -145,6 +145,10 @@ UPDATE user_form SET password = '$2y$10$ajcFx34WcVpOD3kOhSW71u2vdUmWYTqHPh9TDt9b
 
 select * from user_form;
 
+alter table `user_form`
+add column tipo varchar(250);
+ALTER TABLE user_form ADD COLUMN aprovado TINYINT(1) DEFAULT 0;
+
 -- -----------------------------------------------------
 -- Tabelas de raça
 -- -----------------------------------------------------
