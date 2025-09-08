@@ -1,45 +1,168 @@
-  <!-- Filtro -->
-  <form action="lista_suino.php" method="GET">
-    <fieldset>
-        <legend>Busca</legend>
-        <label for="busca">Busca</label>
-        <input type="text" name="busca">
-        <label for="tipo">Tipo</label>
-        <select name="tipo">
-            <option value="0">Selecione</option>
-            <option value="1">ID</option>
-            <option value="2">N° Porca</option>
-            <option value="3">Raça</option>
-            <option value="4">Data de Nascimento</option>
-            <option value="5">Macho</option>
-            <option value="6">Data provável do parto</option>
-            <option value="7">Data do parto</option>
-            <option value="8">Vivos</option>
-            <option value="9">Natimortos</option>
-            <option value="10">Mumificados</option>
-            <option value="11">Causa da morte</option>
-            <option value="11">Data da desmama</option>
-            <option value="11">N° de desmamas</option>
-        </select>
-        <button type="submit">Buscar</button>
-    </fieldset>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+    margin: 0;
+  }
+
+  /* Formulário */
+  form fieldset {
+    border: 2px solid #198754;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;
+    background-color: #e8f5ee;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+  }
+
+  form legend {
+    font-weight: bold;
+    color: #198754;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+
+  form label {
+    margin-right: 10px;
+    font-weight: 600;
+  }
+
+  form input[type="text"],
+  form select {
+    padding: 6px 12px;
+    margin: 8px 12px 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: auto;
+  }
+
+  form button {
+    background-color: #198754;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  form button:hover {
+    background-color: #146c43;
+  }
+
+  h1 {
+    color: #343a40;
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+
+  /* Tabela */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1100px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  th {
+    background-color: #198754;
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+    font-weight: 600;
+    border-right: 1px solid #146c43;
+  }
+
+  th:last-child {
+    border-right: none;
+  }
+
+  td {
+    padding: 10px 15px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+    color: #333;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #e8f5ee;
+  }
+
+  a {
+    color: #198754;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<!-- Seu formulário e tabela -->
+<form action="lista_suino.php" method="GET">
+  <fieldset>
+    <legend>Busca</legend>
+    <label for="busca">Busca</label>
+    <input type="text" name="busca" id="busca">
+    <label for="tipo">Tipo</label>
+    <select name="tipo" id="tipo">
+      <option value="0">Selecione</option>
+      <option value="1">ID</option>
+      <option value="2">N° Porca</option>
+      <option value="3">Raça</option>
+      <option value="4">Data de Nascimento</option>
+      <option value="5">Macho</option>
+      <option value="6">Data provável do parto</option>
+      <option value="7">Data do parto</option>
+      <option value="8">Vivos</option>
+      <option value="9">Natimortos</option>
+      <option value="10">Mumificados</option>
+      <option value="11">Causa da morte</option>
+      <option value="12">Data da desmama</option>
+      <option value="13">N° de desmamas</option>
+    </select>
+    <button type="submit">Buscar</button>
+  </fieldset>
 </form>
 
-<!-- Listagem -->
 <h1>Listagem de Animais</h1>
-<table border="1">
-    <th>Id</th>
-    <th>N° Porca</th>
-    <th>Raça</th>
-    <th>Data de Nascimento</th>
-    <th>Macho</th>
-    <th>Data provável do parto</th>
-    <th>Data do parto</th>
-    <th>Vivos</th>
-    <th>Natimortos</th>
-    <th>Mumificados</th>
-    <th>Causa da morte</th>
-    <th>Data da desmama</th>
-    <th>N° de desmamas</th>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>N° Porca</th>
+      <th>Raça</th>
+      <th>Data de Nascimento</th>
+      <th>Macho</th>
+      <th>Data provável do parto</th>
+      <th>Data do parto</th>
+      <th>Vivos</th>
+      <th>Natimortos</th>
+      <th>Mumificados</th>
+      <th>Causa da morte</th>
+      <th>Data da desmama</th>
+      <th>N° de desmamas</th>
+    </tr>
+  </thead>
+  <tbody>
     {itens}
+  </tbody>
 </table>
+ç

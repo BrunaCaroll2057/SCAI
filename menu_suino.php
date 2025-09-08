@@ -1,61 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title>SCAI-Sistema de Cadastro de Animais do Instituto</title>
-    <link rel="stylesheet" href="css/estilo.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="JS/js.js"> </script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>SCAI - Cadastro de Suínos</title>
 
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FontAwesome e Estilo personalizado -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="JS/js.js"></script>
+
+    <style>
+
+        #tit_sobre {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #343a40;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .btn-card {
+            background-color: #198754;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .btn-card:hover {
+            background-color: #145c39;
+            color: white;
+        }
+
+        .section-title {
+            margin: 50px 0 20px;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
-    <?php
-        include 'Includes/menuinclude3.php';
-    ?>
-    <br><br>
 
-      <p id="tit_sobre">Cadastros de Suínos</p>
-        <br><br>
+<?php include 'Includes/menuinclude3.php'; ?>
 
-    <div class="container text-center">
-      <div class="row">
-        <div class="col">
-            <div class="card" style="width: 20rem;">
-            <div class="card-body">
-                <h5 class="card-title">Ciclo reprodutivo de cada porca</h5>
-                <a href="ReproducaoSuino/form_cad_suino.php" class="btn btn-card">Cadastrar</a>
-            </div>
+<!-- Título -->
+<p id="tit_sobre">Cadastros de Suínos</p>
+
+<!-- Cartões de Cadastro -->
+<div class="container text-center">
+    <div class="row justify-content-center">
+        <!-- Cadastro 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Ciclo reprodutivo de cada porca</h5>
+                    <a href="ReproducaoSuino/index.php" class="btn btn-card">Cadastrar</a>
+                </div>
             </div>
         </div>
 
-    <div class="col">
-        <div class="card" style="width: 20rem;">
-            <div class="card-body">
-                <h5 class="card-title">Produção dos lotes de porca</h5>
-                <a href="ProducaoSuino/form_cad_suino.php" class="btn btn-card">Cadastrar</a>
-            </div>
+        <!-- Cadastro 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Produção dos lotes de porca</h5>
+                    <a href="ProducaoSuino/form_cad_suino.php" class="btn btn-card">Cadastrar</a>
+                </div>
             </div>
         </div>
 
-    <div class="col">
-        <div class="card" style="width: 20rem">
-            <div class="card-body">
-                <h5 class="card-title">Informações da leitegada</h5>
-                <a href="Maternidade/form_cad_suino.php" class="btn btn-card">Cadastrar</a>
-            </div>
+        <!-- Cadastro 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Informações da leitegada</h5>
+                    <a href="Maternidade/form_cad_suino.php" class="btn btn-card">Cadastrar</a>
+                </div>
             </div>
         </div>
     </div>
-    </div>
+</div>
 
-    <?php
-        include "Includes/rodapeinclude.php";
-    ?>
+<!-- Título da Lista -->
+<p id="tit_sobre">Lista de Cadastros</p>
+
+<!-- Cartões de Listagem -->
+<div class="container text-center">
+    <div class="row justify-content-center">
+        <!-- Lista 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Ciclo reprodutivo de cada porca</h5>
+                    <a href="ReproducaoSuino/lista_suino.php" class="btn btn-card">Acessar lista</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Produção dos lotes de porca</h5>
+                    <a href="ProducaoSuino/form_cad_suino.php" class="btn btn-card">Acessar lista</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Informações da leitegada</h5>
+                    <a href="Maternidade/form_cad_suino.php" class="btn btn-card">Acessar lista</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Rodapé -->
+<?php include "Includes/rodapeinclude.php"; ?>
 
 </body>
 </html>
+h
