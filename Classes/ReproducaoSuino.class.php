@@ -217,8 +217,4 @@ class ReproducaoSuino {
         return $objetos;
     }
 }
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> a592f4cb77f4f860f0240f0fff0b5c37027c2273

@@ -76,25 +76,12 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </head>
 <body>
 
-<<<<<<< HEAD
-<div class="container mt-10">
-=======
-<div class="container mt-4">
-    <h1 class="mb-4">Manutenção de Animais</h1>
-    <h2>Suínos</h2>
->>>>>>> a592f4cb77f4f860f0240f0fff0b5c37027c2273
-
     <form action="index.php" method="post" enctype="multipart/form-data">
         <?php include __DIR__ . '/form_cad_suino.php'; ?>
     </form>
-</div>
 
 <?php if ($temRodape) include __DIR__ . '/../Includes/rodapeinclude.php'; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> a592f4cb77f4f860f0240f0fff0b5c37027c2273
