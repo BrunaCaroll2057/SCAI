@@ -1,17 +1,10 @@
 <?php
-session_start();
+  session_start();
 
-  if (isset($_SESSION['user_id'])) {
-      $tipo = $_SESSION['user_tipo'] ?? '';
+  $tipo = $_SESSION['user_tipo'] ?? ''; // se não existir, fica string vazia
 
-      if ($tipo === 'admin') {
-          include 'Includes/menu_admin.php';
-      } elseif ($tipo === 'funcionario') {
-          include 'Includes/menu_funcionario.php';
-      }
-  } else {
-      include 'Includes/menu_publico.php'; // menu para não logados
-  }
+  include 'Includes/menuinclude.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -42,27 +35,24 @@ session_start();
 </head>
 <body>
 
-
 <?php
 
-  include 'Includes/menuinclude.php';
+  include __DIR__ . '/Includes/menuinclude.php';
 
-  if (isset($_SESSION['user_id'])) {
-      $tipo = $_SESSION['user_tipo'] ?? '';
-      switch ($tipo) {
-          case 'admin':
-              include 'Includes/menu_admin.php';
-              break;
-          case 'funcionario':
-              include 'Includes/menu_funcionario.php';
-              break;
-              default;
-      }
+  if ($tipo === 'admin') {
+    // Conteúdo exclusivo para admin
+    include 'admin_dashboard.php';
+  } elseif ($tipo === 'funcionario') {
+      // Conteúdo exclusivo para funcionário
+      include 'funcionario_dashboard.php';
+  } else {
+      // Conteúdo para visitantes
+      include 'public_home.php';
   }
+
 ?>
 
 <div id="carousel" class="carousel slide" data-ride="carousel">
-
 <!--   Bullets do carrossel, se aumentar uma imagem, aumente um li e acrescento o próximo número -->
 <ol class="carousel-indicators">
   <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -71,44 +61,45 @@ session_start();
   <li data-target="#carousel" data-slide-to="3"></li>
 </ol>
 
-<div class="carousel-inner">
-  <div class="carousel-item active">
-    <img src="img/ifc.png">
-     <div class="titulo">
-  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/ifc.png">
+    <div class="titulo">
+    </div>
   </div>
 
   <div class="carousel-item">
     <img src="img/prediosede.png">
     <div class="titulo">
-  </div>
+    </div>
   </div>
 
   <div class="carousel-item">
     <img src="img/entrada2.png">
     <div class="titulo">
-  </div>
+    </div>
   </div>
 
 
-<div class="carousel-item">
-    <img src="img/fetec.png">
+  <div class="carousel-item">
+      <img src="img/fetec.png">
     <div class="titulo">
-  </div>
+    </div>
   </div>
 
 </div> <!-- Fecha elementos dentro do carrossel -->
 
 <!--   Controladores | Botões -->
-<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  <span class="sr-only"> Previous </span>
-</a>
-<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  <span class="sr-only"> Next </span>
-</a> 
-</div> <!-- Fim do carrossel -->
+  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only"> Previous </span>
+  </a>
+  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only"> Next </span>
+  </a> 
+</div> 
+<!-- Fim do carrossel -->
 
 <br><br>
 
@@ -184,6 +175,7 @@ session_start();
   </div>
 </div>
 </div>
+
 <?php
   include "Includes/rodapeinclude.php";
 ?>

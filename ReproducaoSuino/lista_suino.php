@@ -26,4 +26,4 @@ $item = file_get_contents(__DIR__ . '/itens_listagem.suino.html');
     $listagem = str_replace('{itens}',$itens,$listagem);
     print($listagem);
      
-?>
+?>l

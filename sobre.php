@@ -1,3 +1,7 @@
+<?php
+   session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,7 @@
 </head>
 <body>
     <?php
-        include 'Includes/menuinclude.php';
+        include __DIR__ . '/Includes/menuinclude.php';
     ?>
     
 <h1 id="tit_sobre">Sobre o Instituto Federal Catarinense - campus Rio do Sul, Unidade Sede</h1>

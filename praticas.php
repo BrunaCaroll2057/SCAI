@@ -1,3 +1,7 @@
+<?php
+   session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +14,9 @@
 
 </head>
 <body>
-    <?php
-        include 'Includes/menuinclude.php';
-    ?>
+  <?php
+    include __DIR__ . '/Includes/menuinclude.php';
+  ?>
 <br>
 
 <h1 id="tit_sobre">Registros de aulas práticas</h1>

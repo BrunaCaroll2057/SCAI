@@ -1,414 +1,185 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>SCAI-Sistema de Cadastro de Animais do Instituto</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="JS/js.js"> </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<style>
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #8fbc8f 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-            position: relative;
-        }
+        html, body {
+        height: 100%;
+        margin: 0;
+        flex-direction: column;
+        font-family: 'Roboto', sans-serif;
+        color: #e6f2d9;
+        text-align: center;
+    }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(139, 195, 74, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(76, 175, 80, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
+    .container {
+        max-width: 400px;
+        width: 100%;
+    }
 
-        .construction-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 50px;
-            text-align: center;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-            max-width: 600px;
-            width: 90%;
-            margin: 30px;
-            position: relative;
-            overflow: hidden;
-            border: 3px solid #4caf50;
-        }
+    .footer {
+        background-color: rgba(46, 125, 50, 0.9);
+        color: #e6f2d9;
+        padding: 20px 10px;
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 70px;
+    }
 
-        .construction-container::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #4caf50, #8bc34a, #cddc39, #4caf50);
-            border-radius: 27px;
-            z-index: -1;
-            animation: border-glow 3s ease-in-out infinite;
-        }
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #8fbc8f 100%);
+        margin: 0;
+        padding: 20px;
+        color: #e6f2d9;
+        text-align: center;
+    }
 
-        @keyframes border-glow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
+    .cow-image {
+        font-size: 6rem;
+        margin-bottom: 20px;
+        user-select: none;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
 
-        .animals-animation {
-            width: 100%;
-            height: 200px;
-            position: relative;
-            margin: 40px 0;
-        }
+    h1 {
+        font-weight: 700;
+        margin-bottom: 10px;
+        font-size: 2.5rem;
+        font-family: 'Poppins', sans-serif;
+    }
 
-        .animal {
-            position: absolute;
-            font-size: 2rem;
-            animation: move-to-center 4s ease-in-out infinite;
-            z-index: 2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        color: #d9e6c2;
+    }
 
-        .cow { color: #795548; top: 10%; left: 5%; animation-delay: 0s; }
-        .pig { color: #ffcdd2; top: 20%; right: 5%; animation-delay: 0.5s; }
-        .sheep { color: #f5f5f5; bottom: 20%; left: 15%; animation-delay: 1s; }
-        .chicken { color: #ffeb3b; bottom: 10%; right: 20%; animation-delay: 1.5s; }
-        .rabbit { color: #bdbdbd; top: 30%; left: 25%; animation-delay: 2s; }
+    .features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-bottom: 30px;
+        justify-items: center;
+    }
 
-        @keyframes move-to-center {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            25% {
-                transform: translate(calc(200px - 50%), calc(100px - 50%)) scale(1.2);
-            }
-            50% {
-                transform: translate(calc(200px - 50%), calc(100px - 50%)) scale(1.3);
-            }
-            75% {
-                transform: translate(calc(200px - 50%), calc(100px - 50%)) scale(1.2);
-            }
-        }
+    .feature {
+        width: 140px;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 20px;
+        border-radius: 15px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        font-weight: 600;
+        color: #e6f2d9;
+        user-select: none;
+        box-shadow: 0 0 5px rgba(255,255,255,0.1);
+        text-align: center;
+    }
 
-        h1 {
-            color: #2e7d32;
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            font-family: 'Poppins', sans-serif;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
+    .feature:hover {
+        transform: translateY(-8px) rotate(-3deg);
+        background-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 15px rgba(255, 255, 255, 0.4);
+    }
 
-        .subtitle {
-            color: #4caf50;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
+    .feature:nth-child(3) {
+        grid-column: 1 / span 2;
+        justify-self: center;
+    }
 
-        p {
-            color: #555;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 30px;
-        }
+    .progress-section {
+        background: rgba(255, 255, 255, 0.15);
+        color: #e6f2d9;
+        padding: 20px;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
+    .progress-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        animation: shimmer 2s infinite;
+    }
 
-        .feature {
-            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
-            padding: 20px;
-            border-radius: 15px;
-            border: 2px solid #4caf50;
-            transition: transform 0.3s ease;
-        }
+    @keyframes shimmer {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
 
-        .feature:hover {
-            transform: translateY(-5px);
-        }
+    .progress-bar {
+        width: 100%;
+        height: 12px;
+        background: rgba(255,255,255,0.3);
+        border-radius: 6px;
+        overflow: hidden;
+        margin-top: 15px;
+    }
 
-        .feature-icon {
-            font-size: 2rem;
-            color: #2e7d32;
-            margin-bottom: 10px;
-        }
+    .progress {
+        width: 25%;
+        height: 100%;
+        background: white;
+        border-radius: 6px;
+        animation: progress-grow 2s ease-in-out infinite;
+    }
 
-        .feature-text {
-            font-size: 0.9rem;
-            color: #388e3c;
-            font-weight: 500;
-        }
-
-        .progress-section {
-            background: linear-gradient(135deg, #4caf50, #8bc34a);
-            color: white;
-            padding: 25px;
-            border-radius: 20px;
-            margin: 30px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 12px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 6px;
-            overflow: hidden;
-            margin: 20px 0;
-        }
-
-        .progress {
-            width: 25%;
-            height: 100%;
-            background: white;
-            border-radius: 6px;
-            animation: progress-grow 2s ease-in-out infinite;
-            position: relative;
-        }
-
-        @keyframes progress-grow {
-            0%, 100% { width: 25%; }
-            50% { width: 48%; }
-        }
-
-        .contact-info {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 3px dotted #4caf50;
-        }
-
-        .contact-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #4caf50, #8bc34a);
-            color: white;
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        .contact-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
-        }
-
-        .social-links {
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, #4caf50, #8bc34a);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .social-link:hover {
-            background: linear-gradient(135deg, #388e3c, #4caf50);
-            transform: translateY(-3px) rotate(5deg);
-        }
-
-        .floating-leaves {
-            position: absolute;
-            font-size: 1.5rem;
-            color: #4caf50;
-            opacity: 0.6;
-            animation: float-around 8s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes float-around {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            25% {
-                transform: translate(100px, -50px) rotate(90deg);
-            }
-            50% {
-                transform: translate(200px, 0) rotate(180deg);
-            }
-            75% {
-                transform: translate(100px, 50px) rotate(270deg);
-            }
-            100% {
-                transform: translate(0, 0) rotate(360deg);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .construction-container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .animals-animation {
-                height: 150px;
-            }
-            
-            .animal {
-                font-size: 1.5rem;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    @keyframes progress-grow {
+        0%, 100% { width: 25%; }
+        50% { width: 48%; }
+    }
+</style>
 </head>
 <body>
-    <!-- Folhas flutuantes de fundo -->
-    <div class="floating-leaves" style="top: 10%; left: 5%; animation-delay: 0s;">🍃</div>
-    <div class="floating-leaves" style="top: 80%; right: 10%; animation-delay: 2s;">🌿</div>
-    <div class="floating-leaves" style="top: 40%; left: 15%; animation-delay: 4s;">🌱</div>
-    <div class="floating-leaves" style="top: 60%; right: 20%; animation-delay: 6s;">🍀</div>
 
-    <div class="construction-container">
+    <?php
+      include __DIR__ . '/Includes/menuinclude.php';
+    ?>
+
+
+    <div class="container">
+        <div class="cow-image" aria-label="Emoji de boi">🐄</div>
         <h1>SCAI</h1>
-        <div class="subtitle">Sistema de Coordenação de Animais</div>
-        
-        <div class="animals-animation">
-            <div class="animal cow">🐄</div>
-            <div class="animal pig">🐖</div>
-            <div class="animal sheep">🐑</div>
-            <div class="animal chicken">🐔</div>
-            <div class="animal rabbit">🐇</div>
+        <p>Estamos trabalhando para trazer a melhor plataforma de gestão de animais agrícolas. Em breve, tudo estará disponível!</p>
+
+        <div class="features" role="list" aria-label="Principais funcionalidades em desenvolvimento">
+            <div class="feature" role="listitem" tabindex="0">Cadastro Completo</div>
+            <div class="feature" role="listitem" tabindex="0">Relatórios</div>
+            <div class="feature" role="listitem" tabindex="0">Saúde</div>
         </div>
-        
-        <p>Estamos construindo a melhor plataforma para gestão de animais agrícolas! Em breve, você poderá cadastrar, acompanhar e gerenciar todos os animais da sua propriedade com facilidade e eficiência.</p>
-        
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">📋</div>
-                <div class="feature-text">Cadastro Completo</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">📊</div>
-                <div class="feature-text">Relatórios</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">⚕️</div>
-                <div class="feature-text">Saúde</div>
-            </div>
-        </div>
-        
-        <div class="progress-section">
-            <h3 style="margin-bottom: 20px; font-size: 1.3rem;">Progresso do Desenvolvimento</h3>
+
+        <div class="progress-section" aria-label="Progresso do desenvolvimento">
+            <h3>Progresso do Desenvolvimento</h3>
             <div class="progress-bar">
                 <div class="progress"></div>
             </div>
-            <p style="margin-top: 15px; font-size: 1rem; opacity: 0.9;">25% Completo - Lançamento Previsto: Dezembro 2026</p>
-        </div>
-        
-        <div class="contact-info">
-            <p style="margin-bottom: 20px; color: #2e7d32; font-weight: 600; font-size: 1.1rem;">
-                Quer ser notificado sobre o lançamento?
-            </p>
-            <a href="mailto:contato@agroanimals.com.br" class="contact-button">
-                📧 Entre em Contato
-            </a>
-            
-            <div class="social-links">
-                <a href="#" class="social-link">F</a>
-                <a href="#" class="social-link">I</a>
-                <a href="#" class="social-link">W</a>
-            </div>
+            <p>25% Completo - Lançamento Previsto: Dezembro 2026</p>
         </div>
     </div>
 
-    <script>
-        // Efeito adicional de animação dos animais
-        document.addEventListener('DOMContentLoaded', function() {
-            const animals = document.querySelectorAll('.animal');
-            
-            // Adicionar interação ao passar o mouse
-            meetingPoint.addEventListener('mouseenter', function() {
-                animals.forEach(animal => {
-                    animal.style.animationPlayState = 'paused';
-                    animal.style.transform = 'scale(1.5)';
-                });
-            });
-            
-            meetingPoint.addEventListener('mouseleave', function() {
-                animals.forEach(animal => {
-                    animal.style.animationPlayState = 'running';
-                    animal.style.transform = '';
-                });
-            });
-            
-            // Adicionar mais folhas flutuantes
-            for (let i = 0; i < 8; i++) {
-                const leaf = document.createElement('div');
-                leaf.className = 'floating-leaves';
-                leaf.innerHTML = '🍃';
-                leaf.style.top = Math.random() * 100 + '%';
-                leaf.style.left = Math.random() * 100 + '%';
-                leaf.style.animationDelay = Math.random() * 8 + 's';
-                leaf.style.animationDuration = (Math.random() * 10 + 5) + 's';
-                document.body.appendChild(leaf);
-            }
-        });
-    </script>
+<?php
+    include 'Includes/rodapeinclude.php';
+?>
+    
 </body>
 </html>

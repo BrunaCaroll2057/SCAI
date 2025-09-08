@@ -52,4 +52,4 @@ public static function consultar($sql, $parametros = []) {
     }
 }
 }
-?>
+?>h

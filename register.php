@@ -1,4 +1,7 @@
 <?php
+
+   session_start();
+
    include 'processologin/config.php';
    include 'processologin/User.class.php';
 
