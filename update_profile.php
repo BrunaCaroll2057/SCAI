@@ -1,6 +1,6 @@
 <?php
    include 'processologin/config.php';
-   include 'processologin/User.php';
+   include 'processologin/User.class.php';
 
    session_start();
 
@@ -54,7 +54,7 @@
 <body>
 
 <?php
-    include 'Includes/menuinclude2.php';
+  include __DIR__ . '/Includes/menuinclude.php';
 ?>
    
 <div class="update-profile" style="background-color: white; margin-top: 50px; margin-bottom: 20px;">
@@ -92,9 +92,8 @@
             <input type="file" name="update_image" accept="image/jpg, image/jpeg, image/png" class="box">
          </div>
          <div class="inputBox">
-            <input type="hidden" name="old_pass" value="<?php echo $fetch['password']; ?>">
             <span>Senha atual :</span>
-            <input type="password" name="update_pass" placeholder="Digite a senha atual" class="box">
+            <input type="password" name="old_pass" placeholder="Digite a senha atual" class="box">
             <span>Nova senha :</span>
             <input type="password" name="new_pass" placeholder="Digite a nova senha" class="box">
             <span>Confirme a senha :</span>
