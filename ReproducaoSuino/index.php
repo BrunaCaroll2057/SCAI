@@ -70,7 +70,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>SCAI - Cadastro de Animais</title>
+    <title>SCAI - Sistema de Coordenação de Animais do Instituto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/estilo.css">
 </head>
