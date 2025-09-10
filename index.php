@@ -122,7 +122,7 @@
         <div class="card-body">
           <h5 class="card-title fw-semibold">Quer estudar no IFC?</h5>
           <p class="card-text">Se você tem interesse em estudar no IFC, acesse o link abaixo.</p>
-          <a href="https://ifc.edu.br/perfil/servidor" class="btn btn-success">Ingresso de estudantes</a>
+          <a href="https://ingresso.ifc.edu.br/?..." class="btn btn-success">Ingresso de estudantes</a>
         </div>
       </div>
     </div>
@@ -133,7 +133,7 @@
         <div class="card-body">
           <h5 class="card-title fw-semibold">É servidor do IFC?</h5>
           <p class="card-text">Acesse o link abaixo para acessar a página dos servidores.</p>
-          <a href="https://ingresso.ifc.edu.br/?..." class="btn btn-success">Página dos servidores</a>
+          <a href="https://ifc.edu.br/perfil/servidor" class="btn btn-success">Página dos servidores</a>
         </div>
       </div>
     </div>
