@@ -16,6 +16,14 @@ if (isset($_POST['aprovar'])) {
     header('Location: aprovacoes.php');
     exit;
 }
+
+if (isset($_POST['rejeitar'])) {
+    $id = intval($_POST['id']);
+    // Exemplo: deletar o usuário rejeitado
+    mysqli_query($conn, "DELETE FROM user_form WHERE id = $id");
+    header('Location: aprovacoes.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +58,7 @@ if (isset($_POST['aprovar'])) {
             padding: 20px 20px;
             text-align: center;
             font-size: 0.9rem;
-            margin-top: 70px;
+            /* Removido margin-top para evitar espaço extra */
         }
     </style>
 </head>
@@ -78,8 +86,11 @@ if (isset($_POST['aprovar'])) {
                                 <td class="text-center">
                                     <form method="post" class="d-inline">
                                         <input type="hidden" name="id" value="<?= $row['id'] ?>" />
-                                        <button type="submit" name="aprovar" class="btn btn-success btn-sm" title="Aprovar Funcionário">
+                                        <button type="submit" name="aprovar" class="btn btn-success btn-sm me-2" title="Aprovar Funcionário">
                                             <i class="fa fa-check me-1" aria-hidden="true"></i> Aprovar
+                                        </button>
+                                        <button type="submit" name="rejeitar" class="btn btn-danger btn-sm" title="Rejeitar Funcionário" onclick="return confirm('Tem certeza que deseja rejeitar este pedido?');">
+                                            <i class="fa fa-times me-1" aria-hidden="true"></i> Rejeitar
                                         </button>
                                     </form>
                                 </td>

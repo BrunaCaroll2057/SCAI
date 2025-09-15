@@ -33,7 +33,7 @@
 <h1 id="tit_sobre">Sobre o Instituto Federal Catarinense - campus Rio do Sul, Unidade Sede</h1>
 <br><br>
 
-<img src="img/sobre.png" alt="" style="height: 400px; margin-left:-75%; border-radius: 20px;">
+<img src="img/sobre.png" alt="" style="height: 400px; margin-left:-70%; border-radius: 20px;">
 
 <p id="txtsobre1">
 O atual IFC Campus Rio do Sul foi fundado em 1968 como Colégio Agrícola de Rio do Sul, com foco na 
@@ -59,7 +59,7 @@ ao estágio curricular supervisionado obrigatório.
 
 </p>
 
-<img src="img/alojamento-sede.png" alt="" style="height: 400px; margin-right: -75%; border-radius: 20px;">
+<img src="img/alojamento-sede.png" alt="" style="height: 400px; margin-right: -67%; border-radius: 20px;">
 
 <p id="txtsobre2">
 <br>
