@@ -180,19 +180,83 @@ class ReproducaoSuino {
     }
 
     // listar (método estático)
-    public static function listar($tipo = 0, $id = 0) : array {
+    public static function listar($tipo = 0, $busca = '') : array {
         $table = self::$table;
         $sql = "SELECT * FROM `{$table}`";
         $parametros = [];
-
-        if ($tipo == 1 && $id > 0) {
-            $sql .= " WHERE id = :id";
-            $parametros[':id'] = $id;
+    
+        if ($tipo > 0 && $busca !== '') {
+            switch ($tipo) {
+                case 1: // ID
+                    $sql .= " WHERE id = :busca";
+                    $parametros[':busca'] = (int)$busca;
+                    break;
+    
+                case 2: // N° Porca
+                    $sql .= " WHERE nporca LIKE :busca";
+                    $parametros[':busca'] = "%$busca%";
+                    break;
+    
+                case 3: // Raça
+                    $sql .= " WHERE raca LIKE :busca";
+                    $parametros[':busca'] = "%$busca%";
+                    break;
+    
+                case 4: // Data de Nascimento
+                    $sql .= " WHERE dt_nascimento = :busca";
+                    $parametros[':busca'] = $busca;
+                    break;
+    
+                case 5: // Macho
+                    $sql .= " WHERE macho LIKE :busca";
+                    $parametros[':busca'] = "%$busca%";
+                    break;
+    
+                case 6: // Data provável do parto
+                    $sql .= " WHERE dt_provparto = :busca";
+                    $parametros[':busca'] = $busca;
+                    break;
+    
+                case 7: // Data do parto
+                    $sql .= " WHERE dt_parto = :busca";
+                    $parametros[':busca'] = $busca;
+                    break;
+    
+                case 8: // Vivos
+                    $sql .= " WHERE vivos = :busca";
+                    $parametros[':busca'] = (int)$busca;
+                    break;
+    
+                case 9: // Natimortos
+                    $sql .= " WHERE natimortos = :busca";
+                    $parametros[':busca'] = (int)$busca;
+                    break;
+    
+                case 10: // Mumificados
+                    $sql .= " WHERE mumificados = :busca";
+                    $parametros[':busca'] = (int)$busca;
+                    break;
+    
+                case 11: // Causa da morte
+                    $sql .= " WHERE causa LIKE :busca";
+                    $parametros[':busca'] = "%$busca%";
+                    break;
+    
+                case 12: // Data da desmama
+                    $sql .= " WHERE dt_desmama = :busca";
+                    $parametros[':busca'] = $busca;
+                    break;
+    
+                case 13: // N° de desmamas
+                    $sql .= " WHERE ndesmamas = :busca";
+                    $parametros[':busca'] = (int)$busca;
+                    break;
+            }
         }
-
+    
         $stmt = Database::consultar($sql, $parametros);
         $objetos = [];
-
+    
         if ($stmt !== false) {
             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($rows as $row) {
@@ -213,8 +277,8 @@ class ReproducaoSuino {
                 );
             }
         }
-
+    
         return $objetos;
-    }
+    } 
 }
 ?>
