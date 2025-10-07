@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title>SCAI-Sistema de Cadastro de Animais do Instituto</title>
+    <title>SCAI - Sistema de Coordenação de Animais do Instituto</title>
     <link rel="stylesheet" href="css/estilo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="JS/js.js"> </script>
@@ -122,7 +122,7 @@
         <div class="card-body">
           <h5 class="card-title fw-semibold">Quer estudar no IFC?</h5>
           <p class="card-text">Se você tem interesse em estudar no IFC, acesse o link abaixo.</p>
-          <a href="https://ifc.edu.br/perfil/servidor" class="btn btn-success">Ingresso de estudantes</a>
+          <a href="https://ingresso.ifc.edu.br/?..." target="_blank" class="btn btn-success">Ingresso de estudantes</a>
         </div>
       </div>
     </div>
@@ -133,7 +133,7 @@
         <div class="card-body">
           <h5 class="card-title fw-semibold">É servidor do IFC?</h5>
           <p class="card-text">Acesse o link abaixo para acessar a página dos servidores.</p>
-          <a href="https://ingresso.ifc.edu.br/?..." class="btn btn-success">Página dos servidores</a>
+          <a href="https://ifc.edu.br/perfil/servidor" target="_blank" class="btn btn-success">Página dos servidores</a>
         </div>
       </div>
     </div>
@@ -144,7 +144,7 @@
         <div class="card-body">
           <h5 class="card-title fw-semibold">Já é estudante do IFC?</h5>
           <p class="card-text">Acesse o link abaixo para acessar a página dos estudantes.</p>
-          <a href="https://ensino.ifc.edu.br/?..." class="btn btn-success">Página dos estudantes</a>
+          <a href="https://ensino.ifc.edu.br/?..." target="_blank" class="btn btn-success">Página dos estudantes</a>
         </div>
       </div>
     </div>

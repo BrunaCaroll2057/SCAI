@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title>SCAI-Sistema de Cadastro de Animais do Instituto</title>
+    <title>SCAI - Sistema de Coordenação de Animais do Instituto</title>
     <link rel="stylesheet" href="css/estilo.css">
     <style>
         body{
@@ -33,7 +33,7 @@
 <h1 id="tit_sobre">Sobre o Instituto Federal Catarinense - campus Rio do Sul, Unidade Sede</h1>
 <br><br>
 
-<img src="img/sobre.png" alt="" style="height: 400px; margin-left:-75%; border-radius: 20px;">
+<img src="img/sobre.png" alt="" style="height: 400px; margin-left:-70%; border-radius: 20px;">
 
 <p id="txtsobre1">
 O atual IFC Campus Rio do Sul foi fundado em 1968 como Colégio Agrícola de Rio do Sul, com foco na 
@@ -59,7 +59,7 @@ ao estágio curricular supervisionado obrigatório.
 
 </p>
 
-<img src="img/alojamento-sede.png" alt="" style="height: 400px; margin-right: -75%; border-radius: 20px;">
+<img src="img/alojamento-sede.png" alt="" style="height: 400px; margin-right: -67%; border-radius: 20px;">
 
 <p id="txtsobre2">
 <br>

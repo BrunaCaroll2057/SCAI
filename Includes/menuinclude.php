@@ -5,7 +5,7 @@
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid" style="height: 70px;">
     <a class="navbar-brand"  href="<?=HOME?>index.php">
-      SCAI - Sistema de Cadastro de Animais
+      SCAI - Sistema de Coordenação de Animais do Instituto
     </a>  
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="width: 70px; height: 37px;">
       <span class="navbar-toggler-icon"></span>
