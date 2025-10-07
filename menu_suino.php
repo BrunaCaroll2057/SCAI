@@ -84,8 +84,8 @@ session_start();
         <div class="col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Produção dos lotes de porca</h5>
-                    <a href="ProducaoSuino/form_cad_suino.php" class="btn btn-card">Cadastrar</a>
+                    <h5 class="card-title">Acompanhamento da leitegada - nascimento ao abate</h5>
+                    <a href="Acompanhamento/index.php" class="btn btn-card">Cadastrar</a>
                 </div>
             </div>
         </div>
