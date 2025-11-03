@@ -13,7 +13,25 @@
 
     <div class="container mt-5 pt-3">
         <div class="card shadow p-4 rounded">
-            <h3 class="text-center fw-bold mb-4">Ciclo reprodutivo de cada porca</h3>
+            <h3 class="text-center fw-bold mb-4">Acompanhamento da Leitegada - do nascimento ao abate</h3>
+
+
+
+            private $id;
+    private $porca;
+    private $lote;
+    private $vivos;
+    private $mortos;
+    private $mumia;
+    private $tmaternidade;
+    private $parto;
+    private $desmame;
+    private $screche;
+    private $venda;
+    private $nascimento;
+    private $mossa;
+    private $sexo;
+    private $observacao;
 
             <form method="post">
                 <fieldset>
@@ -26,22 +44,22 @@
                     <!-- Dados principais -->
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label for="nporca" class="form-label">N° Porca:</label>
-                            <input type="number" class="form-control" name="nporca" value="<?= htmlspecialchars($animal->getNporca()) ?>">
+                            <label for="porca" class="form-label">Porca:</label>
+                            <input type="number" class="form-control" name="porca" value="<?= htmlspecialchars($animal->getPorca()) ?>">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="raca" class="form-label">Raça:</label>
-                            <input type="text" class="form-control" name="raca" value="<?= htmlspecialchars($animal->getRaca()) ?>">
+                            <label for="lote" class="form-label">Lote:</label>
+                            <input type="number" class="form-control" name="lote" value="<?= htmlspecialchars($animal->getLote()) ?>">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="dt_nascimento" class="form-label">Data de Nascimento:</label>
-                            <input type="date" class="form-control" name="dt_nascimento" value="<?= htmlspecialchars($animal->getDt_nascimento()) ?>">
+                            <label for="vivos" class="form-label">Vivos:</label>
+                            <input type="number" class="form-control" name="vivos" value="<?= htmlspecialchars($animal->getVivos()) ?>">
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="macho" class="form-label">Macho:</label>
-                        <input type="text" class="form-control" name="macho" value="<?= htmlspecialchars($animal->getMacho()) ?>">
+                        <label for="mortos" class="form-label">Mortos:</label>
+                        <input type="number" class="form-control" name="mortos" value="<?= htmlspecialchars($animal->getMortos()) ?>">
                     </div>
 
                     <!-- Datas de parto -->

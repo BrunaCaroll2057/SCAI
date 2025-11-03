@@ -48,103 +48,111 @@ class Acompanhamento {
         $this->id = $id;
     }
     public function setPorca($porca){
-        if ($porca == "") throw new Exception("Erro, o N° de porcas deve ser informado!");
+        if ($porca == "") throw new Exception("Erro, a porca deve ser informada!");
         $this->porca = $porca;
     }
     public function setLote($lote){
-        if ($lote == "") throw new Exception("Erro, a lote deve ser informado!");
+        if ($lote == "") throw new Exception("Erro, o lote deve ser informado!");
         $this->lote = $lote;
     }
     public function setVivos($vivos){
-        if ($vivos < 0) throw new Exception("Erro, a data de nascimento deve ser informada!");
+        if ($vivos < 0) throw new Exception("Erro, a quantidade de vivos deve ser informado!");
         $this->vivos = $vivos;
     }
     public function setMortos($mortos){
-        if ($mortos == "") throw new Exception("Erro, o mortos deve ser informado!");
+        if ($mortos < 0) throw new Exception("Erro, a quantidade de mortos deve ser informado!");
         $this->mortos = $mortos;
     }
     public function setMumia($mumia){
-        if ($mumia == "") throw new Exception("Erro, a data provável do parto deve ser informada!");
+        if ($mumia < 0) throw new Exception("Erro, a quantidade de mumificados deve ser informado!");
         $this->mumia = $mumia;
     }
     public function setTmaternidade($tmaternidade){
-        if ($tmaternidade == "") throw new Exception("Erro, a data do parto deve ser informada!");
+        if ($tmaternidade == "") throw new Exception("Erro, a data de tranferência da maternidade deve ser informada!");
         $this->tmaternidade = $tmaternidade;
     }
     public function setParto($parto){
-        if ($parto === "") throw new Exception("Erro, a quantidade de parto deve ser informado!");
+        if ($parto === "") throw new Exception("Erro, a data do parto deve ser informada!");
         $this->parto = $parto;
     }
     public function setDesmame($desmame){
-        if ($desmame === "") throw new Exception("Erro, a quantidade de desmame deve ser informado!");
+        if ($desmame === "") throw new Exception("Erro, a data da desmame deve ser informada!");
         $this->desmame = $desmame;
     }
     public function setScreche($screche){
-        if ($screche === "") throw new Exception("Erro, a quantidade de screche deve ser informado!");
+        if ($screche === "") throw new Exception("Erro, a data da saída da creche deve ser informada!");
         $this->screche = $screche;
     }
     public function setVenda($venda){
-        if ($venda == "") throw new Exception("Erro, a data de desmama deve ser informada!");
+        if ($venda == "") throw new Exception("Erro, a data da venda deve ser informada!");
         $this->venda = $venda;
     }
     public function setNascimento($nascimento){
-        if ($nascimento === "") throw new Exception("Erro, o n° de desmamas deve ser informado!");
+        if ($nascimento === "") throw new Exception("Erro,a data de nascimento deve ser informada!");
         $this->nascimento = $nascimento;
     }
     public function setMossa($mossa){
-        if ($mossa == "") throw new Exception("Erro, a data de desmama deve ser informada!");
+        if ($mossa == "") throw new Exception("Erro, a mossa deve ser informada!");
         $this->mossa = $mossa;
     }
     public function setSexo($sexo){
-        if ($sexo === "") throw new Exception("Erro, o n° de desmamas deve ser informado!");
+        if ($sexo === "") throw new Exception("Erro, o sexo deve ser informado!");
         $this->sexo = $sexo;
     }
     public function setObservacao($observacao = ''){
         $this->observacao = $observacao;
     }
-    
-    // ------ getters ------
-    public function getId(): int { return (int) $this->id; }
-    public function getNporca(): string { return (string) $this->nporca; }
-    public function getRaca(): string { return (string) $this->raca; }
-    public function getDt_nascimento(): string { return (string) $this->dt_nascimento; }
-    public function getMacho(): string { return (string) $this->macho; }
-    public function getDt_provparto(): string { return (string) $this->dt_provparto; }
-    public function getDt_parto(): string { return (string) $this->dt_parto; }
-    public function getVivos(): int { return (int) $this->vivos; }
-    public function getNatimortos(): int { return (int) $this->natimortos; }
-    public function getMumificados(): int { return (int) $this->mumificados; }
-    public function getCausa(): string { return (string) $this->causa; }
-    public function getDt_desmama(): string { return (string) $this->dt_desmama; }
-    public function getNdesmamas(): int { return (int) $this->ndesmamas; }
+
+        // ------ getters ------
+        public function getId(): int { return (int) $this->id; }
+        public function getPorca(): string { return (string) $this->porca; }
+        public function getLote(): string { return (string) $this->lote; }
+        public function getVivos(): string { return (string) $this->vivos; }
+        public function getMortos(): string { return (string) $this->mortos; }
+        public function getMumia(): string { return (string) $this->mumia; }
+        public function getTmaternidade(): string { return (string) $this->tmaternidade; }
+        public function getParto(): int { return (int) $this->parto; }
+        public function getDesmame(): int { return (int) $this->desmame; }
+        public function getScreche(): int { return (int) $this->screche; }
+        public function getVenda(): string { return (string) $this->venda; }
+        public function getNascimento(): string { return (string) $this->nascimento; }
+        public function getMossa(): int { return (int) $this->mossa; }
+        public function getSexo(): int { return (int) $this->sexo; }
+        public function getObservacao(): int { return (int) $this->observacao; }
 
     public function __toString(): string {
-        return "ReproducaoSuino: {$this->id} - {$this->nporca} - Raça: {$this->raca} - Data de nascimento: {$this->dt_nascimento} - Macho: {$this->macho} - Data provável do parto: {$this->dt_provparto} - Data do parto: {$this->dt_parto} - Vivos: {$this->vivos} - Natimortos: {$this->natimortos} - Mumificados: {$this->mumificados} - Causa: {$this->causa} - Data da desmama: {$this->dt_desmama} - N° de desmamas: {$this->ndesmamas}";
+        return "Acompanhamento: {$this->id} - {$this->porca} - Lote: {$this->lote} - Vivos {$this->vivos} - Mortos: {$this->mortos} - Mumia: {$this->mumia} 
+                                            - Tmaternidade {$this->tmaternidade} - Parto: {$this->parto} - Desmame: {$this->desmame} 
+                                            - Screche: {$this->screche} - Venda: {$this->venda} - Nascimento: {$this->nascimento} 
+                                            - Mossa: {$this->mossa} - Sexo: {$this->sexo} - Observação: {$this->observacao}";
     }
 
+   
     // inserir
     public function inserir(): bool {
         $table = self::$table;
         $sql = "INSERT INTO `{$table}` (
-            nporca, raca, dt_nascimento, macho, dt_provparto, dt_parto, vivos,
-            natimortos, mumificados, causa, dt_desmama, ndesmamas
+            porca, lote, vivos, mortos, mumia, tmaternidade, parto,
+            desmame, screche, venda, nascimento, mossa, sexo, observacao
         ) VALUES (
-            :nporca, :raca, :dt_nascimento, :macho, :dt_provparto, :dt_parto, :vivos,
-            :natimortos, :mumificados, :causa, :dt_desmama, :ndesmamas
+            :porca, :lote, :vivos, :mortos, :mumia, :tmaternidade, :parto,
+            :desmame, :screche, :venda, :nascimento, :mossa, :sexo, :obsevacao
         )";
         $parametros = [
-            ':nporca' => $this->getNporca(),
-            ':raca' => $this->getRaca(),
-            ':dt_nascimento' => $this->getDt_nascimento(),
-            ':macho' => $this->getMacho(),
-            ':dt_provparto' => $this->getDt_provparto(),
-            ':dt_parto' => $this->getDt_parto(),
+            ':porca' => $this->getPorca(),
+            ':lote' => $this->getLote(),
             ':vivos' => $this->getVivos(),
-            ':natimortos' => $this->getNatimortos(),
-            ':mumificados' => $this->getMumificados(),
-            ':causa' => $this->getCausa(),
-            ':dt_desmama' => $this->getDt_desmama(),
-            ':ndesmamas' => $this->getNdesmamas()
+            ':mortos' => $this->getMortos(),
+            ':mumia' => $this->getMumia(),
+            ':tmaternidade' => $this->getTmaternidade(),
+            ':parto' => $this->getVivos(),
+            ':desmame' => $this->getDesmame(),
+            ':screche' => $this->getMumificados(),
+            ':venda' => $this->getVenda(),
+            ':nascimento' => $this->getNascimento(),
+            ':mossa' => $this->getMossa(),
+            ':sexo' => $this->getSexo(),
+            ':observacao' => $this->getObservacao()
         ];
         return Database::executar($sql, $parametros) === true;
     }
@@ -153,33 +161,35 @@ class Acompanhamento {
     public function alterar(): bool {
         $table = self::$table;
         $sql = "UPDATE `{$table}`
-                SET nporca = :nporca,
-                    raca = :raca,
-                    dt_nascimento = :dt_nascimento,
-                    macho = :macho,
-                    dt_provparto = :dt_provparto,
-                    dt_parto = :dt_parto,
+                SET porca = :porca,
+                    lote = :lote,
                     vivos = :vivos,
-                    natimortos = :natimortos,
-                    mumificados = :mumificados,
-                    causa = :causa,
-                    dt_desmama = :dt_desmama,
-                    ndesmamas = :ndesmamas
+                    mortos = :mortos,
+                    mumia = :mumia,
+                    tmaternidade = :tmaternidade,
+                    parto = :parto,
+                    desmame = :desmame,
+                    screche = :screche,
+                    venda = :venda,
+                    mossa = :mossa,
+                    sexo = :sexo, 
+                    observacao = :observacao
                 WHERE id = :id";
         $parametros = [
             ':id' => $this->getId(),
-            ':nporca' => $this->getNporca(),
-            ':raca' => $this->getRaca(),
-            ':dt_nascimento' => $this->getDt_nascimento(),
-            ':macho' => $this->getMacho(),
-            ':dt_provparto' => $this->getDt_provparto(),
-            ':dt_parto' => $this->getDt_parto(),
+            ':porca' => $this->getPorca(),
+            ':lote' => $this->getLote(),
             ':vivos' => $this->getVivos(),
-            ':natimortos' => $this->getNatimortos(),
-            ':mumificados' => $this->getMumificados(),
-            ':causa' => $this->getCausa(),
-            ':dt_desmama' => $this->getDt_desmama(),
-            ':ndesmamas' => $this->getNdesmamas()
+            ':mortos' => $this->getMortos(),
+            ':mumia' => $this->getMumia(),
+            ':tmaternidade' => $this->getTmaternidade(),
+            ':parto' => $this->getParto(),
+            ':desmame' => $this->getDesmame(),
+            ':screche' => $this->getScreche(),
+            ':venda' => $this->getVenda(),
+            ':mossa' => $this->getMossa(),
+            ':sexo' => $this->getSexo(),
+            ':observacao' => $this->getObservacao(),
         ];
         return Database::executar($sql, $parametros) === true;
     }
@@ -205,63 +215,68 @@ class Acompanhamento {
                     $parametros[':busca'] = (int)$busca;
                     break;
     
-                case 2: // N° Porca
-                    $sql .= " WHERE nporca LIKE :busca";
+                case 2: // Porca
+                    $sql .= " WHERE porca LIKE :busca";
                     $parametros[':busca'] = "%$busca%";
                     break;
     
-                case 3: // Raça
-                    $sql .= " WHERE raca LIKE :busca";
+                case 3: // Lote
+                    $sql .= " WHERE lote LIKE :busca";
                     $parametros[':busca'] = "%$busca%";
                     break;
     
-                case 4: // Data de Nascimento
-                    $sql .= " WHERE dt_nascimento = :busca";
-                    $parametros[':busca'] = $busca;
-                    break;
-    
-                case 5: // Macho
-                    $sql .= " WHERE macho LIKE :busca";
-                    $parametros[':busca'] = "%$busca%";
-                    break;
-    
-                case 6: // Data provável do parto
-                    $sql .= " WHERE dt_provparto = :busca";
-                    $parametros[':busca'] = $busca;
-                    break;
-    
-                case 7: // Data do parto
-                    $sql .= " WHERE dt_parto = :busca";
-                    $parametros[':busca'] = $busca;
-                    break;
-    
-                case 8: // Vivos
+                case 4: // Vivos
                     $sql .= " WHERE vivos = :busca";
-                    $parametros[':busca'] = (int)$busca;
-                    break;
-    
-                case 9: // Natimortos
-                    $sql .= " WHERE natimortos = :busca";
-                    $parametros[':busca'] = (int)$busca;
-                    break;
-    
-                case 10: // Mumificados
-                    $sql .= " WHERE mumificados = :busca";
-                    $parametros[':busca'] = (int)$busca;
-                    break;
-    
-                case 11: // Causa da morte
-                    $sql .= " WHERE causa LIKE :busca";
-                    $parametros[':busca'] = "%$busca%";
-                    break;
-    
-                case 12: // Data da desmama
-                    $sql .= " WHERE dt_desmama = :busca";
                     $parametros[':busca'] = $busca;
                     break;
     
-                case 13: // N° de desmamas
-                    $sql .= " WHERE ndesmamas = :busca";
+                case 5: // Mortos
+                    $sql .= " WHERE mortos LIKE :busca";
+                    $parametros[':busca'] = "%$busca%";
+                    break;
+    
+                case 6: // Mumia
+                    $sql .= " WHERE mumia = :busca";
+                    $parametros[':busca'] = $busca;
+                    break;
+    
+                case 7: // Tmaternidade
+                    $sql .= " WHERE tmaternidade = :busca";
+                    $parametros[':busca'] = $busca;
+                    break;
+    
+                case 8: // Parto
+                    $sql .= " WHERE parto = :busca";
+                    $parametros[':busca'] = (int)$busca;
+                    break;
+    
+                case 9: // Desmame
+                    $sql .= " WHERE desmame = :busca";
+                    $parametros[':busca'] = (int)$busca;
+                    break;
+    
+                case 10: // Screche
+                    $sql .= " WHERE screche = :busca";
+                    $parametros[':busca'] = (int)$busca;
+                    break;
+    
+                case 11: // Venda
+                    $sql .= " WHERE venda LIKE :busca";
+                    $parametros[':busca'] = "%$busca%";
+                    break;
+    
+                case 12: // Mossa
+                    $sql .= " WHERE mossa = :busca";
+                    $parametros[':busca'] = $busca;
+                    break;
+    
+                case 13: // Sexo
+                    $sql .= " WHERE sexo = :busca";
+                    $parametros[':busca'] = (int)$busca;
+                    break;
+
+                case 13: // Observação
+                    $sql .= " WHERE observacao = :busca";
                     $parametros[':busca'] = (int)$busca;
                     break;
             }
@@ -275,18 +290,19 @@ class Acompanhamento {
             foreach ($rows as $row) {
                 $objetos[] = new ReproducaoSuino(
                     $row['id'] ?? 0,
-                    $row['nporca'] ?? '',
-                    $row['raca'] ?? '',
-                    $row['dt_nascimento'] ?? '',
-                    $row['macho'] ?? '',
-                    $row['dt_provparto'] ?? '',
-                    $row['dt_parto'] ?? '',
+                    $row['porca'] ?? '',
+                    $row['lote'] ?? 0,
                     $row['vivos'] ?? 0,
-                    $row['natimortos'] ?? 0,
-                    $row['mumificados'] ?? 0,
-                    $row['causa'] ?? '',
-                    $row['dt_desmama'] ?? '',
-                    $row['ndesmamas'] ?? 0
+                    $row['mortos'] ?? 0,
+                    $row['mumia'] ?? 0,
+                    $row['tmaternidade'] ?? '',
+                    $row['parto'] ?? 0,
+                    $row['desmame'] ?? '',
+                    $row['screche'] ?? '',
+                    $row['venda'] ?? '',
+                    $row['mossa'] ?? '',
+                    $row['sexo'] ?? '',
+                    $row['observacao'] ?? ''
                 );
             }
         }
