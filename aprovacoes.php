@@ -5,7 +5,7 @@ include 'processologin/config.php';
 if (!isset($_SESSION['user_id']) || $_SESSION['user_tipo'] !== 'admin') {
     header('Location: login.php');
     exit;
-}
+};
 
 // Buscar funcionários pendentes
 $result = mysqli_query($conn, "SELECT id, name, email FROM user_form WHERE tipo = 'funcionario' AND aprovado = 0");
