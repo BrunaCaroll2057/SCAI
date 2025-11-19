@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once("../Classes/ReproducaoSuino.class.php");
+require_once("../Classes/Acompanhamento.class.php");
 
 // Corrige includes com caminho relativo
 if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
@@ -14,29 +14,30 @@ if (file_exists(__DIR__ . '/../Includes/rodapeinclude.php')) {
 }
 
 // Instancia padrão
-$animal = new ReproducaoSuino();
+$animal = new Acompanhamento();
 
 // Se for POST (salvar/excluir)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id           = $_POST['id'] ?? 0;
-    $nporca       = $_POST['nporca'] ?? 0;
-    $raca         = $_POST['raca'] ?? '';
-    $dt_nascimento= $_POST['dt_nascimento'] ?? '';
-    $macho        = $_POST['macho'] ?? '';
-    $dt_provparto = $_POST['dt_provparto'] ?? '';
-    $dt_parto     = $_POST['dt_parto'] ?? '';
+    $porca        = $_POST['porca'] ?? '';
+    $lote         = $_POST['lote'] ?? '';
     $vivos        = $_POST['vivos'] ?? 0;
-    $natimortos   = $_POST['natimortos'] ?? 0;
-    $mumificados  = $_POST['mumificados'] ?? 0;
-    $causa        = $_POST['causa'] ?? '';
-    $dt_desmama   = $_POST['dt_desmama'] ?? '';
-    $ndesmamas    = $_POST['ndesmamas'] ?? 0;
-    $acao         = $_POST['acao'] ?? '';
+    $mortos        = $_POST['mortos'] ?? 0;
+    $mumia        = $_POST['mumia'] ?? 0;
+    $tmaternidade     = $_POST['tmaternidade'] ?? '';
+    $parto        = $_POST['parto'] ?? 0;
+    $desmame   = $_POST['desmame'] ?? 0;
+    $screche  = $_POST['screche'] ?? 0;
+    $venda        = $_POST['venda'] ?? '';
+    $nascimento   = $_POST['nascimento'] ?? '';
+    $mossa    = $_POST['mossa'] ?? 0;
+    $sexo         = $_POST['sexo'] ?? '';
+    $observacao         = $_POST['observacao'] ?? '';
 
-    $animal = new ReproducaoSuino(
-        $id,$nporca,$raca,$dt_nascimento,$macho,
-        $dt_provparto,$dt_parto,$vivos,$natimortos,
-        $mumificados,$causa,$dt_desmama,$ndesmamas
+    $animal = new Acompanhamento(
+        $id,$porca,$lote,$vivos,$mortos,
+        $mumia,$tmaternidade,$parto,$desmame,
+        $screche,$venda,$nascimento,$mossa,$sexo,$observacao
     );
 
     if ($acao === 'salvar') {
@@ -59,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $id = $_GET['id'] ?? 0;
     if ($id > 0) {
-        $lista = ReproducaoSuino::listar(1, $id);
+        $lista = Acompanhamento::listar(1, $id);
         if (!empty($lista)) {
             $animal = $lista[0];
         }
@@ -70,7 +71,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>SCAI - Cadastro de Animais</title>
+    <title>SCAI - Sistema de Coordenação de Animais do Instituto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/estilo.css">
 </head>
