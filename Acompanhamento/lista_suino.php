@@ -1,10 +1,10 @@
 <?php
-require_once("../Classes/ReproducaoSuino.class.php");
+require_once("../Classes/Acompanhamento.class.php");
 
 $busca = isset($_GET['busca']) ? trim($_GET['busca']) : '';
 $tipo  = isset($_GET['tipo'])  ? (int)$_GET['tipo'] : 0;
 
-$lista = ReproducaoSuino::listar($tipo, $busca);
+$lista = Acompanhamento::listar($tipo, $busca);
 $itens = '';
 foreach ($lista as $suino) {
     $item = file_get_contents(__DIR__ . '/itens_listagem.suino.html');

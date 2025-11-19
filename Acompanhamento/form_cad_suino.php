@@ -4,122 +4,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../css/estilo.css">
-    <title>Cadastro de Acompanhamento da leitegada - Suínos</title>
+
+    <title>Cadastro de Acompanhamento - Suínos</title>
+
+    <style>
+        .table-box {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            background: #f1f1f1;
+            padding: 6px 10px;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        label {
+            font-weight: 600;
+        }
+    </style>
 </head>
+
 <body>
     <?php include __DIR__ . '/../Includes/menuinclude.php'; ?>
 
-    <div class="container mt-5 pt-3">
+    <div class="container mt-10 pt-3">
         <div class="card shadow p-4 rounded">
-            <h3 class="text-center fw-bold mb-4">Acompanhamento da Leitegada - do nascimento ao abate</h3>
 
-
-
-            private $id;
-    private $porca;
-    private $lote;
-    private $vivos;
-    private $mortos;
-    private $mumia;
-    private $tmaternidade;
-    private $parto;
-    private $desmame;
-    private $screche;
-    private $venda;
-    private $nascimento;
-    private $mossa;
-    private $sexo;
-    private $observacao;
+            <h3 class="text-center fw-bold mb-4">Acompanhamento da Leitegada - Do Nascimento ao Abate</h3>
 
             <form method="post">
-                <fieldset>
-                    <!-- ID -->
-                    <div class="mb-3">
-                        <label for="id" class="form-label">ID:</label>
-                        <input type="text" class="form-control" name="id" value="<?= htmlspecialchars($animal->getId()) ?>" readonly>
-                    </div>
 
-                    <!-- Dados principais -->
+                <!-- PRIMEIRA TABELA — DADOS DA LEITEGADA -->
+                <div class="table-box">
+
+                    <div class="section-header text-center">Dados da Leitegada</div>
+
                     <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label for="porca" class="form-label">Porca:</label>
+                        <div class="col-md-6 mb-3">
+                            <label>Porca:</label>
                             <input type="number" class="form-control" name="porca" value="<?= htmlspecialchars($animal->getPorca()) ?>">
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="lote" class="form-label">Lote:</label>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Lote:</label>
                             <input type="number" class="form-control" name="lote" value="<?= htmlspecialchars($animal->getLote()) ?>">
                         </div>
+                    </div>
+
+                    <div class="section-header">Nascidos</div>
+
+                    <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label for="vivos" class="form-label">Vivos:</label>
+                            <label>Vivos:</label>
                             <input type="number" class="form-control" name="vivos" value="<?= htmlspecialchars($animal->getVivos()) ?>">
                         </div>
-                    </div>
 
-                    <div class="mb-3">
-                        <label for="mortos" class="form-label">Mortos:</label>
-                        <input type="number" class="form-control" name="mortos" value="<?= htmlspecialchars($animal->getMortos()) ?>">
-                    </div>
-
-                    <!-- Datas de parto -->
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="dt_provparto" class="form-label">Data provável do parto:</label>
-                            <input type="date" class="form-control" name="dt_provparto" value="<?= htmlspecialchars($animal->getDt_provparto()) ?>">
+                        <div class="col-md-4 mb-3">
+                            <label>Mortos:</label>
+                            <input type="number" class="form-control" name="mortos" value="<?= htmlspecialchars($animal->getMortos()) ?>">
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="dt_parto" class="form-label">Data do parto:</label>
-                            <input type="date" class="form-control" name="dt_parto" value="<?= htmlspecialchars($animal->getDt_parto()) ?>">
+
+                        <div class="col-md-4 mb-3">
+                            <label>Mumificados:</label>
+                            <input type="number" class="form-control" name="mumia" value="<?= htmlspecialchars($animal->getMumia()) ?>">
                         </div>
                     </div>
 
-                    <!-- Nascidos -->
-                    <hr>
-                    <h5 class="fw-bold">Nascidos</h5>
+                    <div class="section-header">Datas</div>
+
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <label for="vivos" class="form-label">Vivos:</label>
-                            <input type="number" class="form-control" name="vivos" value="<?= htmlspecialchars($animal->getVivos()) ?>">
+                            <label>Transferência maternidade:</label>
+                            <input type="date" class="form-control" name="tmaternidade" value="<?= htmlspecialchars($animal->getTmaternidade()) ?>">
                         </div>
+
                         <div class="col-md-4 mb-3">
-                            <label for="natimortos" class="form-label">Natimortos:</label>
-                            <input type="number" class="form-control" name="natimortos" value="<?= htmlspecialchars($animal->getNatimortos()) ?>">
+                            <label>Parto:</label>
+                            <input type="date" class="form-control" name="parto" value="<?= htmlspecialchars($animal->getParto()) ?>">
                         </div>
+
                         <div class="col-md-4 mb-3">
-                            <label for="mumificados" class="form-label">Mumificados:</label>
-                            <input type="number" class="form-control" name="mumificados" value="<?= htmlspecialchars($animal->getMumificados()) ?>">
+                            <label>Desmame:</label>
+                            <input type="date" class="form-control" name="desmame" value="<?= htmlspecialchars($animal->getDesmame()) ?>">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Saída da creche:</label>
+                            <input type="date" class="form-control" name="screche" value="<?= htmlspecialchars($animal->getScreche()) ?>">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Venda:</label>
+                            <input type="date" class="form-control" name="venda" value="<?= htmlspecialchars($animal->getVenda()) ?>">
                         </div>
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="causa" class="form-label">Causas da morte (na maternidade):</label>
-                        <textarea name="causa" class="form-control" rows="3"><?= htmlspecialchars($animal->getCausa()) ?></textarea>
-                    </div>
+                <!-- SEGUNDA TABELA — CONTROLE INDIVIDUAL -->
+                <div class="table-box">
 
-                    <!-- Desmama -->
-                    <hr>
-                    <h5 class="fw-bold">Desmama</h5>
+                    <div class="section-header text-center">Controle Individual dos Leitões</div>
+
                     <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="dt_desmama" class="form-label">Data da desmama:</label>
-                            <input type="date" class="form-control" name="dt_desmama" value="<?= htmlspecialchars($animal->getDt_desmama()) ?>">
+                        <div class="col-md-3 mb-3">
+                            <label>ID:</label>
+                            <input type="text" class="form-control" name="id" value="<?= htmlspecialchars($animal->getId()) ?>" readonly>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="ndesmamas" class="form-label">N° de desmamas:</label>
-                            <input type="number" class="form-control" name="ndesmamas" value="<?= htmlspecialchars($animal->getNdesmamas()) ?>">
+
+                        <div class="col-md-3 mb-3">
+                            <label>Mossa:</label>
+                            <input type="text" class="form-control" name="mossa" value="<?= htmlspecialchars($animal->getMossa()) ?>">
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+                            <label>Sexo:</label>
+                            <select class="form-control" name="sexo">
+                                <option value="Masculino" <?= ($animal->getSexo() == "Masculino" ? "selected" : "") ?>>Masculino</option>
+                                <option value="Feminino" <?= ($animal->getSexo() == "Feminino" ? "selected" : "") ?>>Feminino</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3 mb-3">
+                            <label>Observações:</label>
+                            <input type="text" class="form-control" name="observacao" value="<?= htmlspecialchars($animal->getObservacao()) ?>">
                         </div>
                     </div>
 
-                    <!-- Botões -->
-                    <div class="d-flex justify-content-end gap-2 mt-3">
-                        <button type="submit" name="acao" value="salvar" class="btn btn-success">Salvar</button>
-                        <button type="submit" name="acao" value="excluir" class="btn btn-danger">Excluir</button>
-                        <input type="reset" value="Cancelar" class="btn btn-secondary">
+                    <div class="section-header">Datas do Leitão</div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label>Nascimento:</label>
+                            <input type="date" class="form-control" name="nascimento" value="<?= htmlspecialchars($animal->getNascimento()) ?>">
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label>Desmame:</label>
+                            <input type="date" class="form-control" name="desmame" value="<?= htmlspecialchars($animal->getDesmame()) ?>">
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label>Saída da creche:</label>
+                            <input type="date" class="form-control" name="screche" value="<?= htmlspecialchars($animal->getScreche()) ?>">
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label>Venda:</label>
+                            <input type="date" class="form-control" name="venda" value="<?= htmlspecialchars($animal->getVenda()) ?>">
+                        </div>
                     </div>
-                </fieldset>
+                </div>
+
+                <!-- BOTÕES -->
+                <div class="d-flex justify-content-end gap-2 mt-3">
+                    <button type="submit" name="acao" value="salvar" class="btn btn-success">Salvar</button>
+                    <button type="submit" name="acao" value="excluir" class="btn btn-danger">Excluir</button>
+                    <input type="reset" value="Cancelar" class="btn btn-secondary">
+                </div>
+
             </form>
+
         </div>
     </div>
+
 </body>
 </html>
