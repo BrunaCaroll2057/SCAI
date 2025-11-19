@@ -1,10 +1,4 @@
 <?php
-$hash = 'COLE_AQUI_O_HASH_DO_BANCO';
-$senha_teste = 'Admin123!'; // a senha que você quer testar
+echo password_hash("SCAI2025!", PASSWORD_DEFAULT);
 
-if (password_verify($senha_teste, $hash)) {
-    echo "Senha correta!";
-} else {
-    echo "Senha incorreta!";
-}
-?>
+var_dump(password_verify("SCAI2025!", '$2y$10$tmqaCwNI3wCanVvTOwywouz4JK.ZuuByDvJihOJEB0VrV9xHKsO1y'));

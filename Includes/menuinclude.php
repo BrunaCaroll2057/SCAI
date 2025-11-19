@@ -42,7 +42,8 @@
             </li>
               
             <li class="nav-item"><a class="nav-link" href="home.php">Perfil</a><hr></li>
-            <li class="nav-item"><a class="nav-link" href="aprovacoes.php">Aprovar Cadastros</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="aprovacoes.php">Aprovar Registros</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="listar_usuarios.php">Controle de Usuários</a><hr></li>
             <li class="nav-item"><a class="nav-link" href="home.php?logout=' . $_SESSION['user_id'] . '">Logout</a><hr></li>
           ';
       } elseif ($tipo === 'funcionario') {
