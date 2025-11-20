@@ -140,13 +140,27 @@ VALUES ('Administrador', 'admin@scai.com', '$2y$10$vZl9Wxx27COLtSIMfWWxiOjadZ0Bp
 SET SQL_SAFE_UPDATES = 0;
 DELETE FROM user_form WHERE email = 'brunacaroll2057@gmail.com';
 
-UPDATE user_form SET password = '$2y$10$ajcFx34WcVpOD3kOhSW71u2vdUmWYTqHPh9TDt9byeRa8gtTBypL2' WHERE email = 'admin@scai.com';
+UPDATE user_form 
+SET password = '$2y$10$ajcFx34WcVpOD3kOhSW71u2vdUmWYTqHPh9TDt9byeRa8gtTBypL2' 
+WHERE email = 'admin@scai.com';
+
+UPDATE user_form
+SET password = '$2b$12$DbPHSg2UtKxgwvo1Ht/JCOPEbu2QG3iCF51YzWl/TRTC70G6KAYB.'
+WHERE id = 1;
+
+SELECT id, name, email, tipo, aprovado FROM user_form;
 
 select * from user_form;
 
 alter table `user_form`
 add column tipo varchar(250);
 ALTER TABLE user_form ADD COLUMN aprovado TINYINT(1) DEFAULT 0;
+
+UPDATE user_form 
+SET password = '$2y$10$tmqaCwNI3wCanVvTOwywouz4JK.ZuuByDvJihOJEB0VrV9xHKsO1y'
+WHERE email = 'admin@scai.com';
+
+SET SQL_SAFE_UPDATES = 0;
 
 -- -----------------------------------------------------
 -- Tabelas de raça
