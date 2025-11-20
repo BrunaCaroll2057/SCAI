@@ -123,7 +123,7 @@ session_start();
             <div class="card h-100">
                 <div class="card-body">
                     <h5 class="card-title">Produção dos lotes de porca</h5>
-                    <a href="ProducaoSuino/form_cad_suino.php" class="btn btn-card">Acessar lista</a>
+                    <a href="Acompanhamento/listar_lotes.php" class="btn btn-card">Acessar lista</a>
                 </div>
             </div>
         </div>

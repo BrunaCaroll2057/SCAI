@@ -170,3 +170,30 @@ create table reproducaosuino (
     ndesmamas int not null,
     primary key (id)
 );
+ 
+CREATE TABLE `lotes` (
+    `id_lote` INT AUTO_INCREMENT PRIMARY KEY, 
+    `porca` VARCHAR(255),
+    `lote` VARCHAR(255),
+    `vivos` INT DEFAULT 0,
+    `mortos` INT DEFAULT 0,
+    `mumia` INT DEFAULT 0,
+    `tmaternidade` DATE,
+    `parto_lote` DATE,
+    `desmame_lote` DATE,
+    `screche_lote` DATE,
+    `venda_lote` DATE
+);
+
+CREATE TABLE `leitoes` (
+    `id_leitao` INT AUTO_INCREMENT PRIMARY KEY, 
+    `id_lote` INT,  
+    `mossa` VARCHAR(255),
+    `sexo` ENUM('Macho', 'Fêmea'),
+    `observacao` TEXT,
+    `nascimento` DATE,
+    `desmame_animal` DATE,
+    `screche_animal` DATE,
+    `venda_animal` DATE,
+    FOREIGN KEY (`id_lote`) REFERENCES `lotes`(`id_lote`) 
+);
