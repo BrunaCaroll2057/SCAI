@@ -52,14 +52,6 @@ if (isset($_POST['rejeitar'])) {
             flex: 1; /* faz o main crescer para ocupar o espaço disponível */
         }
 
-        .footer {
-            background-color: rgba(46, 125, 50, 0.9);
-            color: #e6f2d9;
-            padding: 20px 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            /* Removido margin-top para evitar espaço extra */
-        }
     </style>
 </head>
 <body>

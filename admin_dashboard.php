@@ -1,5 +1,5 @@
 <?php
 
-    echo '<h1>Bem-vindo, Admin!</h1>';
+    echo '<br><h2>Bem-vindo, Administrador(a)!</h2>';
 
 ?>

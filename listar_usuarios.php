@@ -26,7 +26,7 @@ $result = $conn->query($sql);
     <!-- SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body class="bg-light">
@@ -36,6 +36,7 @@ include __DIR__ . '/Includes/menuinclude.php';
 
 <div class="container mt-5">
     <h2 class="mb-4">Usuários Cadastrados</h2>
+    <br>
 
     <table class="table table-bordered table-hover bg-white shadow-sm">
         <thead class="table-dark">
@@ -89,6 +90,10 @@ function confirmDelete(id) {
     });
 }
 </script>
+
+<?php
+  include "Includes/rodapeinclude.php";
+?>
 
 </body>
 </html>

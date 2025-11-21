@@ -1,5 +1,5 @@
 <?php
 
-    echo '<h1>Bem-vindo ao SCAI - visitante</h1>';
+    echo '<br><h2>Bem-vindo ao SCAI - visitante!</h2>';
 
 ?>
