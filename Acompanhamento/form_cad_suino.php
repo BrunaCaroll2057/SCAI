@@ -4,173 +4,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <title>Cadastro de Acompanhamento - Suínos</title>
-
     <style>
-        .table-box {
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 40px;
+        .form-control, .form-select {
+            border: none !important;
+            border-bottom: 2px solid #bfbfbf !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
         }
-
-        .section-header {
-            background: #f1f1f1;
-            padding: 6px 10px;
+        .form-control:focus, .form-select:focus {
+            border-bottom: 2px solid #0d6efd !important;
+        }
+        .tabela-ficha {
+            width: 100%;
+            border: 1px solid #bfbfbf;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .titulo-secao {
+            background-color: #e9ecef;
             font-weight: bold;
-            border-radius: 4px;
-            margin-bottom: 15px;
             text-transform: uppercase;
+            text-align: center;
         }
-
-        label {
-            font-weight: 600;
+        .btn-excluir {
+            margin-top: 10px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
         }
     </style>
 </head>
+<body class="bg-light">
 
-<body>
-    <?php include __DIR__ . '/../Includes/menuinclude.php'; ?>
+<?php
+    // Garantindo que o id_lote seja obtido corretamente
+    $id_lote_hidden = $_GET['id'] ?? '';
+?>
 
-    <div class="container mt-10 pt-3">
-        <div class="card shadow p-4 rounded">
+<div class="container my-5">
+    <h3 class="mb-3">Cadastro de Lote e Leitões</h3>
 
-            <h3 class="text-center fw-bold mb-4">Acompanhamento da Leitegada - Do Nascimento ao Abate</h3>
+    <!-- FORMULÁRIO COMBINADO -->
+    <form id="form_completo" action="salvar_lote_e_leitoes.php" method="POST">
+        
+        <!-- DADOS DO LOTE -->
+        <h4 class="mb-3">Dados Gerais do Lote</h4>
+        <table class="tabela-ficha">
+            <tr><th class="titulo-secao" colspan="4">Dados gerais</th></tr>
+            <tr>
+                <td>Porca:</td><td><input type="text" name="porca" class="form-control" required></td>
+                <td>Lote:</td><td><input type="text" name="lote" class="form-control" required></td>
+            </tr>
+        </table>
 
-            <form method="post">
+        <table class="tabela-ficha">
+            <tr><th class="titulo-secao" colspan="6">Nascidos</th></tr>
+            <tr>
+                <td>Vivos:</td><td><input type="number" name="vivos" class="form-control" required></td>
+                <td>Mortos:</td><td><input type="number" name="mortos" class="form-control" required></td>
+                <td>Múmia:</td><td><input type="number" name="mumia" class="form-control" required></td>
+            </tr>
+        </table>
 
-                <!-- PRIMEIRA TABELA — DADOS DA LEITEGADA -->
-                <div class="table-box">
+        <table class="tabela-ficha">
+            <tr><th class="titulo-secao" colspan="6">Datas</th></tr>
+            <tr>
+                <td>Trans. Maternidade:</td><td><input type="date" name="tmaternidade" class="form-control" required></td>
+                <td>Parto:</td><td><input type="date" name="parto_lote" class="form-control" required></td>
+                <td>Desmame:</td><td><input type="date" name="desmame_lote" class="form-control" required></td>
+            </tr>
+            <tr>
+                <td>Saída de creche:</td><td><input type="date" name="screche_lote" class="form-control" required></td>
+                <td>Venda:</td><td><input type="date" name="venda_lote" class="form-control" required></td>
+            </tr>
+        </table>
 
-                    <div class="section-header text-center">Dados da Leitegada</div>
+        <hr class="my-5">
 
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label>Porca:</label>
-                            <input type="number" class="form-control" name="porca" value="<?= htmlspecialchars($animal->getPorca()) ?>">
-                        </div>
+        <!-- DADOS DOS LEITÕES -->
+        <h4 class="mb-3">Dados Individuais dos Leitões</h4>
+        <input type="hidden" name="id_lote" value="<?php echo htmlspecialchars($id_lote_hidden); ?>">
 
-                        <div class="col-md-6 mb-3">
-                            <label>Lote:</label>
-                            <input type="number" class="form-control" name="lote" value="<?= htmlspecialchars($animal->getLote()) ?>">
-                        </div>
-                    </div>
+        <table class="tabela-ficha" id="leitoes_table">
+            <thead>
+                <tr>
+                    <th class="titulo-secao">Nº</th>
+                    <th class="titulo-secao">Mossa</th>
+                    <th class="titulo-secao">Sexo</th>
+                    <th class="titulo-secao">Observação</th>
+                    <th class="titulo-secao">Nascimento</th>
+                    <th class="titulo-secao">Desmame</th>
+                    <th class="titulo-secao">Saída Creche</th>
+                    <th class="titulo-secao">Venda</th>
+                    <th class="titulo-secao">Ação</th>
+                </tr>
+            </thead>
+            <tbody id="leitoes_container">
+                <tr>
+                    <td>1</td>
+                    <td><input type="text" name="mossa[]" class="form-control"></td>
+                    <td><select name="sexo[]" class="form-select">
+                        <option value="Macho">Macho</option>
+                        <option value="Fêmea">Fêmea</option>
+                    </select></td>
+                    <td><input type="text" name="observacao[]" class="form-control"></td>
+                    <td><input type="date" name="nascimento[]" class="form-control"></td>
+                    <td><input type="date" name="desmame_animal[]" class="form-control"></td>
+                    <td><input type="date" name="screche_animal[]" class="form-control"></td>
+                    <td><input type="date" name="venda_animal[]" class="form-control"></td>
+                    <td><button type="button" class="btn-excluir" onclick="excluirLeitao(this)">Excluir</button></td>
+                </tr>
+            </tbody>
+        </table>
 
-                    <div class="section-header">Nascidos</div>
+        <button type="button" class="btn btn-secondary mb-3" id="add_leitao">+ Adicionar Leitão</button>
+        <button type="submit" class="btn btn-success mb-3">Salvar Lote e Leitões</button>
 
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label>Vivos:</label>
-                            <input type="number" class="form-control" name="vivos" value="<?= htmlspecialchars($animal->getVivos()) ?>">
-                        </div>
+    </form>
 
-                        <div class="col-md-4 mb-3">
-                            <label>Mortos:</label>
-                            <input type="number" class="form-control" name="mortos" value="<?= htmlspecialchars($animal->getMortos()) ?>">
-                        </div>
+</div>
 
-                        <div class="col-md-4 mb-3">
-                            <label>Mumificados:</label>
-                            <input type="number" class="form-control" name="mumia" value="<?= htmlspecialchars($animal->getMumia()) ?>">
-                        </div>
-                    </div>
+<script>
+    let leitoesCount = 1;
 
-                    <div class="section-header">Datas</div>
+    // Função para adicionar novos leitões
+    document.getElementById('add_leitao').addEventListener('click', function() {
+        leitoesCount++;
+        const tableBody = document.getElementById('leitoes_container');
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${leitoesCount}</td>
+            <td><input type="text" name="mossa[]" class="form-control"></td>
+            <td><select name="sexo[]" class="form-select">
+                <option value="Macho">Macho</option>
+                <option value="Fêmea">Fêmea</option>
+            </select></td>
+            <td><input type="text" name="observacao[]" class="form-control"></td>
+            <td><input type="date" name="nascimento[]" class="form-control"></td>
+            <td><input type="date" name="desmame_animal[]" class="form-control"></td>
+            <td><input type="date" name="screche_animal[]" class="form-control"></td>
+            <td><input type="date" name="venda_animal[]" class="form-control"></td>
+            <td><button type="button" class="btn-excluir" onclick="excluirLeitao(this)">Excluir</button></td>
+        `;
+        tableBody.appendChild(row);
+    });
 
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label>Transferência maternidade:</label>
-                            <input type="date" class="form-control" name="tmaternidade" value="<?= htmlspecialchars($animal->getTmaternidade()) ?>">
-                        </div>
+    // Função para excluir a linha completa do leitão
+    function excluirLeitao(button) {
+        const row = button.closest('tr');
+        row.remove();
+        atualizarNumeracao();
+    }
 
-                        <div class="col-md-4 mb-3">
-                            <label>Parto:</label>
-                            <input type="date" class="form-control" name="parto" value="<?= htmlspecialchars($animal->getParto()) ?>">
-                        </div>
-
-                        <div class="col-md-4 mb-3">
-                            <label>Desmame:</label>
-                            <input type="date" class="form-control" name="desmame" value="<?= htmlspecialchars($animal->getDesmame()) ?>">
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label>Saída da creche:</label>
-                            <input type="date" class="form-control" name="screche" value="<?= htmlspecialchars($animal->getScreche()) ?>">
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label>Venda:</label>
-                            <input type="date" class="form-control" name="venda" value="<?= htmlspecialchars($animal->getVenda()) ?>">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SEGUNDA TABELA — CONTROLE INDIVIDUAL -->
-                <div class="table-box">
-
-                    <div class="section-header text-center">Controle Individual dos Leitões</div>
-
-                    <div class="row">
-                        <div class="col-md-3 mb-3">
-                            <label>ID:</label>
-                            <input type="text" class="form-control" name="id" value="<?= htmlspecialchars($animal->getId()) ?>" readonly>
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label>Mossa:</label>
-                            <input type="text" class="form-control" name="mossa" value="<?= htmlspecialchars($animal->getMossa()) ?>">
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label>Sexo:</label>
-                            <select class="form-control" name="sexo">
-                                <option value="Masculino" <?= ($animal->getSexo() == "Masculino" ? "selected" : "") ?>>Masculino</option>
-                                <option value="Feminino" <?= ($animal->getSexo() == "Feminino" ? "selected" : "") ?>>Feminino</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-3 mb-3">
-                            <label>Observações:</label>
-                            <input type="text" class="form-control" name="observacao" value="<?= htmlspecialchars($animal->getObservacao()) ?>">
-                        </div>
-                    </div>
-
-                    <div class="section-header">Datas do Leitão</div>
-
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label>Nascimento:</label>
-                            <input type="date" class="form-control" name="nascimento" value="<?= htmlspecialchars($animal->getNascimento()) ?>">
-                        </div>
-
-                        <div class="col-md-4 mb-3">
-                            <label>Desmame:</label>
-                            <input type="date" class="form-control" name="desmame" value="<?= htmlspecialchars($animal->getDesmame()) ?>">
-                        </div>
-
-                        <div class="col-md-4 mb-3">
-                            <label>Saída da creche:</label>
-                            <input type="date" class="form-control" name="screche" value="<?= htmlspecialchars($animal->getScreche()) ?>">
-                        </div>
-
-                        <div class="col-md-4 mb-3">
-                            <label>Venda:</label>
-                            <input type="date" class="form-control" name="venda" value="<?= htmlspecialchars($animal->getVenda()) ?>">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BOTÕES -->
-                <div class="d-flex justify-content-end gap-2 mt-3">
-                    <button type="submit" name="acao" value="salvar" class="btn btn-success">Salvar</button>
-                    <button type="submit" name="acao" value="excluir" class="btn btn-danger">Excluir</button>
-                    <input type="reset" value="Cancelar" class="btn btn-secondary">
-                </div>
-
-            </form>
-
-        </div>
-    </div>
+    // Função para atualizar a numeração dos leitões
+    function atualizarNumeracao() {
+        const rows = document.querySelectorAll('#leitoes_container tr');
+        rows.forEach((row, index) => {
+            const cell = row.querySelector('td');
+            cell.textContent = index + 1;
+        });
+        leitoesCount = rows.length;
+    }
+</script>
 
 </body>
 </html>
