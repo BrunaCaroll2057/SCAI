@@ -1,21 +1,22 @@
 <?php
-// Inclusão dos arquivos necessários
 require_once("../Classes/Database.class.php");
+<<<<<<< HEAD
+=======
+include_once '../Includes/menuinclude.php'; 
+>>>>>>> 3f93f7a91bfc810c8d4757835407daa982aebcac
 include_once '../config/config.inc.php'; 
 
-// Receber o id_lote via GET
 $id_lote = $_GET['id_lote'] ?? null;
 
 if (!$id_lote || !is_numeric($id_lote)) {
     die("ID do lote inválido ou não fornecido.");
 }
 
-// Consultar os dados do lote
-$sql_lote = "SELECT * FROM lotes WHERE id_lote = :id_lote"; // Ajustado para 'id_lote' assumindo que é a coluna correta
+$sql_lote = "SELECT * FROM lotes WHERE id_lote = :id_lote";
 $lote_result = Database::consultar($sql_lote, [':id_lote' => $id_lote]);
 
 if ($lote_result === false) {
-    die("Erro na consulta do lote: " . Database::getLastError()); // Assumindo que Database tem um método para erro, ou use uma mensagem genérica
+    die("Erro na consulta do lote: " . Database::getLastError());
 }
 
 $lote = $lote_result->fetch(PDO::FETCH_ASSOC);
@@ -24,12 +25,11 @@ if (!$lote) {
     die("Lote não encontrado.");
 }
 
-// Consultar os leitões associados
 $sql_leitoes = "SELECT * FROM leitoes WHERE id_lote = :id_lote";
 $leitoes_result = Database::consultar($sql_leitoes, [':id_lote' => $id_lote]);
 
 if ($leitoes_result === false) {
-    die("Erro na consulta dos leitões: " . Database::getLastError()); // Mesmo aqui
+    die("Erro na consulta dos leitões: " . Database::getLastError());
 }
 
 $leitoes = $leitoes_result->fetchAll(PDO::FETCH_ASSOC);
@@ -73,7 +73,6 @@ $leitoes = $leitoes_result->fetchAll(PDO::FETCH_ASSOC);
 
     <hr>
 
-    <!-- DADOS DOS LEITÕES -->
     <h4>Dados dos Leitões</h4>
     <?php if (count($leitoes) > 0): ?>
         <table class="table table-bordered">
@@ -99,17 +98,24 @@ $leitoes = $leitoes_result->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo htmlspecialchars($leitao['screche_animal'] ?? 'N/A'); ?></td>
                         <td><?php echo htmlspecialchars($leitao['venda_animal'] ?? 'N/A'); ?></td>
                     </tr>
-                <?php endforeach; ?>
+                <?php 
+                    endforeach; 
+                ?>
             </tbody>
         </table>
-    <?php else: ?>
+    <?php 
+        else:
+    ?>
+
         <p>Nenhum leitão cadastrado para este lote.</p>
-    <?php endif; ?>
+
+    <?php 
+        endif;
+    ?>
 
     <br>
-    <a href="index.php" class="btn btn-primary">Cadastrar Novo Lote</a>
-    <a href="editar_lote.php?id_lote=<?php echo $id_lote; ?>" class="btn btn-warning">Editar Lote</a> <!-- Opcional: link para editar, se existir -->
-</div>
-
+        <a href="index.php" class="btn btn-primary">Cadastrar Novo Lote</a>
+        <a href="editar_lote.php?id_lote=<?php echo $id_lote; ?>" class="btn btn-warning">Editar Lote</a>
+    </div>
 </body>
 </html>
