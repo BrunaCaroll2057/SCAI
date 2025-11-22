@@ -18,11 +18,12 @@ $result = $conn->query($sql);
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>SCAI - Controle de Usuários</title>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title>SCAI - Sistema de Coordenação de Animais do Instituto</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="JS/js.js"> </script>
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -35,7 +36,7 @@ include __DIR__ . '/Includes/menuinclude.php';
 ?>
 
 <div class="container mt-5">
-    <h2 class="mb-4">Usuários Cadastrados</h2>
+    <h2 class="mb-4" id="tit_sobre">Usuários Cadastrados</h2>
     <br>
 
     <table class="table table-bordered table-hover bg-white shadow-sm">
@@ -80,9 +81,14 @@ function confirmDelete(id) {
         text: "Essa ação não pode ser desfeita.",
         icon: "warning",
         showCancelButton: true,
+        confirmButtonText: "Sim, deletar",
+        cancelButtonText: "Cancelar", // <--- aqui você muda
         confirmButtonColor: "#d33",
         cancelButtonColor: "#3085d6",
-        confirmButtonText: "Sim, deletar"
+        customClass: {
+            confirmButton: 'swal2-confirm btn btn-danger',
+            cancelButton: 'swal2-cancel btn btn-secondary'
+        }
     }).then((result) => {
         if (result.isConfirmed) {
             window.location = "delete_user.php?id=" + id;
@@ -90,6 +96,8 @@ function confirmDelete(id) {
     });
 }
 </script>
+
+<br>
 
 <?php
   include "Includes/rodapeinclude.php";

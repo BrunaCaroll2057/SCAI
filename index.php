@@ -16,8 +16,7 @@
     <title>SCAI - Sistema de Coordenação de Animais do Instituto</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="JS/js.js"> </script>
-<link rel="stylesheet" href="css/estilo.css">
-
+    <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
 
@@ -145,7 +144,7 @@
           <div class="card" style="width: 18rem;">
             <a href="https://ifc.edu.br/" target="_blank" rel="noopener noreferrer"><img src="img/if.png" class="card-img-top" alt="..."></a>
               <div class="card-body">
-                <p class="card-text">Acesse o site oficial do Instituto Federal Catarinense.</p><br>
+                <p class="card-text">Acesse o site oficial do IFC - Instituto Federal Catarinense.</p><br>
               </div>
           </div>
         </div>

@@ -89,37 +89,8 @@ CREATE TABLE IF NOT EXISTS `scai`.`ANIMAL` (
 SELECT * FROM ANIMAL;
 
 -- -----------------------------------------------------
--- Table `mydb`.`FUNCIONARIO`
+-- Table `mydb`.`user_form`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `scai`.`FUNCIONARIO` (
-  `idFUNCIONARIO` INT NOT NULL PRIMARY KEY,
-  `NOME` VARCHAR(45) NOT NULL,  
-  `CPF` INT NOT NULL,
-  `EMAIL` VARCHAR(45) NOT NULL,
-  `TELEFONE` INT NOT NULL,
-  `DT_NASCIMENTO` DATE NOT NULL,
-  `ESTADO` VARCHAR(45) NOT NULL, -- tirar da tabela
-  `CIDADE` VARCHAR(45) NOT NULL,
-  `SENHA` VARCHAR(45) NOT NULL);
-  
-select * from FUNCIONARIO;
-DROP TABLE IF EXISTS FUNCIONARIO;
-
-CREATE TABLE IF NOT EXISTS USUARIOS (
-  id int NOT NULL AUTO_INCREMENT,
-  nome varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
-  usuario varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
-  email varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
-  senha varchar(220) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (id)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO usuarios (id, nome, usuario, email, senha) VALUES 
-(1, 'Brenda', 'desouzab211@gmail.com', 'desouzab211@gmail.com', 'brenda2025');
-COMMIT;
-
-select * from USUARIOS;
-drop table USUARIOS;
 
 CREATE TABLE `user_form` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
@@ -183,31 +154,4 @@ create table reproducaosuino (
     dt_desmama date not null,
     ndesmamas int not null,
     primary key (id)
-);
- 
-CREATE TABLE `lotes` (
-    `id_lote` INT AUTO_INCREMENT PRIMARY KEY, 
-    `porca` VARCHAR(255),
-    `lote` VARCHAR(255),
-    `vivos` INT DEFAULT 0,
-    `mortos` INT DEFAULT 0,
-    `mumia` INT DEFAULT 0,
-    `tmaternidade` DATE,
-    `parto_lote` DATE,
-    `desmame_lote` DATE,
-    `screche_lote` DATE,
-    `venda_lote` DATE
-);
-
-CREATE TABLE `leitoes` (
-    `id_leitao` INT AUTO_INCREMENT PRIMARY KEY, 
-    `id_lote` INT,  
-    `mossa` VARCHAR(255),
-    `sexo` ENUM('Macho', 'Fêmea'),
-    `observacao` TEXT,
-    `nascimento` DATE,
-    `desmame_animal` DATE,
-    `screche_animal` DATE,
-    `venda_animal` DATE,
-    FOREIGN KEY (`id_lote`) REFERENCES `lotes`(`id_lote`) 
 );

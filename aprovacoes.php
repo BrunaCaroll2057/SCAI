@@ -58,7 +58,7 @@ if (isset($_POST['rejeitar'])) {
     <?php include __DIR__ . '/Includes/menuinclude.php'; ?>
 
     <main class="container my-5">
-        <h2 class="mb-4 text-center">Pedidos de Cadastro de Funcionários Pendentes</h2>
+        <h2 class="mb-4 text-center" id="tit_sobre">Pedidos de Cadastro de Funcionários Pendentes</h2>
 
         <?php if (mysqli_num_rows($result) > 0): ?>
             <div class="table-responsive">

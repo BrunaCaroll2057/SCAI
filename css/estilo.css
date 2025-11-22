@@ -269,17 +269,6 @@ header p {
   }
 }
 
-#txtsobre1{
-  margin-left: 380px;
-  margin-right: 40px;
-  margin-top: -390px;
-}
-
-#txtsobre2{
-    margin-left: 40px;
-    margin-top: -390px;
-    margin-right: 440px;
-}
 
 /* Estilização do conteúdo */
 .content {
@@ -321,7 +310,7 @@ body {
   padding-left: 90px;
   padding-right: 100px;
   font-family: 'Roboto', sans-serif;  
-  font-size: 1em;
+  font-size: 0.9em;
   color: rgb(0, 0, 0);
   line-height: 1.6;
   padding-top: 80px !important;
@@ -369,8 +358,8 @@ font{
 }
 
 #tit_sobre{
-  margin-top: 40px;
-  font-size: 40px;
+  margin-top: 30px;
+  font-size: 30px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 #tit_cadastrar{
@@ -392,9 +381,9 @@ font{
 }
 
 .btn-card {
-  background-color: #d4edda !important;  /* verde clarinho pastel */
-  color: #155724 !important;             /* texto verde escuro */
-  border: 1px solid #c3e6cb !important;  /* borda suave */
+  background-color: #d4edda !important; 
+  color: #155724 !important;      
+  border: 1px solid #c3e6cb !important; 
   padding: 10px 20px;
   border-radius: 8px;
   font-weight: bold;
@@ -402,7 +391,7 @@ font{
 }
 
 .btn-card:hover {
-  background-color: #c3e6cb !important;  /* verde um pouco mais forte no hover */
+  background-color: #c3e6cb !important;  
   color: #155724 !important;
 }
 
@@ -414,7 +403,7 @@ font{
 .offcanvas {
     background-color: rgb(94, 182, 97) !important;
     color: white !important;
-    font-size: 20px;
+    font-size: 17.4px;
 }
 
 /* Links principais (fora do dropdown) */
@@ -431,7 +420,7 @@ font{
 /* Itens do dropdown com texto branco */
 .offcanvas .dropdown-menu .dropdown-item {
     color: white !important;
-    font-size: 18px;
+    font-size: 16.4px;
     font-weight: 500;
     background-color: transparent;
 }
@@ -439,15 +428,14 @@ font{
 /* Hover geral nos itens */
 .offcanvas .nav-link:hover,
 .offcanvas .dropdown-menu .dropdown-item:hover {
-    background-color: rgba(56, 155, 60, 0.7) !important;
+    background-color: rgba(56, 155, 59, 0.5) !important;
     color: white !important;
 }
 
-/* Ícone do perfil */
 .profile-icon {
     background-color: rgb(94, 182, 97);
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -456,7 +444,7 @@ font{
 
 .profile-icon i {
     color: white;
-    font-size: 22px;
+    font-size: 40px;
 }
 
 .navbar a, .navbar .navbar-brand, .nav-link {
@@ -479,19 +467,18 @@ font{
     filter: invert(100%);
 }
 
-
-/* ----- Footer PADRÃO ----- */
+/*  Footer PADRÃO  */
 footer.footer {
   width: 100%;
   
   /* Layout */
   text-align: center;
-  margin-top: auto;
-  padding: 30px 0;
+  margin-top: 50px;
+  padding: 20px 0;
   /* Cores e estilo */
-  background-color: rgba(46, 125, 50, 0.9) !important;
-  color: #e6f2d9 !important;
-  font-size: 0.9rem;
+  background-color: rgb(94, 182, 97) !important;
+  color: white !important;
+  font-size: 1rem;
 }
 
 h1, h2, h3, h4, h5 {
@@ -500,9 +487,143 @@ h1, h2, h3, h4, h5 {
 
 /* Espaço estrutural abaixo da navbar */
 .content-wrapper {
-  padding-top: 30px; /* Ajuste até ficar agradável */
-  padding-bottom: 90px; /* Espaço antes do footer */
+  padding-top: 5px;
+  padding-bottom: 100px; 
   width: 100%;
   margin: 0 auto;
-  text-align: center; /* Centraliza títulos e textos por padrão */
+  text-align: center;
+}
+
+/* IMAGENS DA PÁGINA sobre.php */
+/* Contêiner que envolve imagem + texto */
+.sobre-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+/* Imagem à esquerda */
+#imgsobre1 {
+    float: left;
+    height: 400px;
+    max-width: 45%;
+    width: auto;
+    margin-left: 5.5%;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+/* Texto sobre a direita da imagem 1 */
+#txtsobre1 {
+    position: relative;
+    left: 4%;
+    top: 0;
+    bottom: 40px;
+    width: 91%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Imagem à direita */
+#imgsobre2 {
+    float: right;
+    top: 10%;
+    max-width: 100%;
+    height: 390px;
+    margin-right: 6%;
+    border-radius: 20px;
+    position: relative;
+}
+
+/* Texto sobre a esquerda da imagem 2 */
+#txtsobre2 {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    left: 5%;
+    width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Ajuste para os botões dentro da tabela de usuários */
+.table .btn {
+    width: auto !important; 
+    height: auto !important; 
+    padding: 4px 10px;      
+    margin-left: 0;   
+    font-size: 0.85rem;     
+}
+
+/* Ajuste para os botões do SweetAlert2 */
+.swal2-confirm,
+.swal2-cancel {
+    width: auto !important;     
+    padding: 8px 20px !important;
+    font-size: 0.9rem !important; 
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    display: inline-block !important;
+    box-sizing: border-box !important;
+}
+
+/* Estilo da página de visualizar usuário */
+.card {
+    border-radius: 15px;
+}
+
+.card-header {
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+.card-body p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* Botão voltar */
+.btn-secondary {
+    background-color: #5EB661;
+    border-color: #4aa04a;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #4aa04a;
+    border-color: #3e7a3a;
+}
+
+/* Novo layout flex do usuário */
+.user-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.user-card img {
+    width: 150px;
+    height: 165px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.user-details p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .user-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-details {
+        text-align: center;
+    }
 }

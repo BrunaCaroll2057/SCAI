@@ -3,7 +3,7 @@
 ?>
 <nav class="navbar navbar-dark fixed-top shadow">
   <div class="container-fluid" style="height: 70px;">
-    <a class="navbar-brand"  href="<?=HOME?>index.php" style="font-size: 25px;">
+    <a class="navbar-brand"  href="<?=HOME?>index.php" style="font-size: 22px;">
       SCAI - Sistema de Coordenação de Animais do Instituto
     </a>  
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" style="width: 70px; height: 37px;">
@@ -25,7 +25,7 @@
       if ($tipo === 'admin') {
           echo '
             <li class="nav-item">
-              <a class="profile-icon" href="#">
+              <a class="profile-icon" href="home.php">
                   <i class="bi bi-person"></i>
               </a>
             </li>
