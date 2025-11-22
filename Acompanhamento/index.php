@@ -1,10 +1,18 @@
 <?php
-// Inclusão dos arquivos necessários
-require_once("../Classes/Database.class.php");
-include_once '../Includes/menuinclude.php'; // Incluindo o menu
-include_once '../config/config.inc.php'; // Incluindo a configuração de banco de dados
+session_start();
 
-// Inicializar $id_lote para evitar warnings
+require_once("../Classes/Database.class.php");
+
+// Corrige includes com caminho relativo
+if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
+    include __DIR__ . '/../Includes/menuinclude.php';
+}
+if (file_exists(__DIR__ . '/../Includes/rodapeinclude.php')) {
+    $temRodape = true;
+} else {
+    $temRodape = false;
+}
+
 $id_lote = null;
 ?>
 
