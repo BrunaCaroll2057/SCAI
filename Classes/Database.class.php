@@ -19,10 +19,17 @@ class Database {
     private static function preparar($sql) {
         $conexao = self::abrirConexao();
         if ($conexao) {
-            return $conexao->prepare($sql);
+            try {
+                return $conexao->prepare($sql);
+            } catch (PDOException $e) {
+                self::setLastError("Erro ao preparar query: " . $e->getMessage());
+                return null;
+            }
         }
+        self::setLastError("Sem conexão com o banco de dados.");
         return null;
-    }
+}
+
 
     private static function vincularParametros($comando, $parametros) {
         foreach ($parametros as $chave => $valor) {
@@ -37,7 +44,7 @@ class Database {
             if (!$comando) throw new Exception("Erro ao preparar a query.");
             $comando = self::vincularParametros($comando, $parametros);
             $comando->execute();
-            return true; // Para INSERT, UPDATE, DELETE
+            return true;
         } catch (PDOException $e) {
             echo "Erro ao executar query: " . $e->getMessage();
             return false;
@@ -47,17 +54,20 @@ class Database {
     public static function consultar($sql, $parametros = []) {
         try {
             $comando = self::preparar($sql);
-            if (!$comando) throw new Exception("Erro ao preparar a query.");
+            if (!$comando) {
+                return false;
+            }
+
             $comando = self::vincularParametros($comando, $parametros);
+
             $comando->execute();
-            return $comando; // Retorna o PDOStatement
+            return $comando;
+
         } catch (PDOException $e) {
-            echo "Erro ao executar query: " . $e->getMessage();
+            self::setLastError("Erro ao executar consulta: " . $e->getMessage());
             return false;
         }
     }
-
-    // Método público para obter o último ID inserido
     public static function lastInsertId() {
         $conexao = self::abrirConexao();
         if ($conexao) {
@@ -66,7 +76,6 @@ class Database {
         return null;
     }
 
-    // Novos métodos para transações (adicionados dentro da classe)
     public static function beginTransaction() {
         $conexao = self::abrirConexao();
         if ($conexao) {
@@ -87,5 +96,15 @@ class Database {
             $conexao->rollBack();
         }
     }
+    private static $lastError = null;
+
+    private static function setLastError($error) {
+        self::$lastError = $error;
+    }
+
+    public static function getLastError() {
+        return self::$lastError;
+    }
+
 }
 ?>

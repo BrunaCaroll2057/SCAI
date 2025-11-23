@@ -74,7 +74,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </head>
 <body>
 
-    <form action="index.php" method="post" enctype="multipart/form-data">
+    <form action="<?= HOME ?>ProducaoLotes/index.php" method="post" enctype="multipart/form-data">
         <?php include __DIR__ . '/form_cad_suino.php'; ?>
     </form>
 
