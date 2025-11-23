@@ -33,9 +33,8 @@ $id_lote = null;
 </head>
 <body>
 
-    <form action="<?= HOME ?>Acompanhamento/index.php" method="post" enctype="multipart/form-data">
-        <?php include __DIR__ . '/form_cad_suino.php'; ?>
-    </form>
+    <?php include __DIR__ . '/form_cad_suino.php'; ?>
+
 
 <?php if ($temRodape) include __DIR__ . '/../Includes/rodapeinclude.php'; ?>
 

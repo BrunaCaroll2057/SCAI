@@ -1,27 +1,44 @@
 <?php
 include "../config/config.inc.php";
-include "../Classes/Database.class.php"; 
+include "../Classes/Database.class.php";
 
-// Recebendo os dados do formulário
+// ------------------------------
+// Função de debug opcional
+// ------------------------------
+function debug_log($msg) {
+    error_log("[DEBUG] " . $msg);
+}
+
+// ------------------------------
+// 1. Recebe dados do lote
+// ------------------------------
 $porca = $_POST['porca'] ?? '';
 $lote = $_POST['lote'] ?? '';
-$vivos = isset($_POST['vivos']) && is_numeric($_POST['vivos']) ? (int) $_POST['vivos'] : 0;
-$mortos = isset($_POST['mortos']) && is_numeric($_POST['mortos']) ? (int) $_POST['mortos'] : 0;
-$mumia = isset($_POST['mumia']) && is_numeric($_POST['mumia']) ? (int) $_POST['mumia'] : 0;
-$tmaternidade = !empty($_POST['tmaternidade']) ? $_POST['tmaternidade'] : null;
-$parto_lote = !empty($_POST['parto_lote']) ? $_POST['parto_lote'] : null;
-$desmame_lote = !empty($_POST['desmame_lote']) ? $_POST['desmame_lote'] : null;
-$screche_lote = !empty($_POST['screche_lote']) ? $_POST['screche_lote'] : null;
-$venda_lote = !empty($_POST['venda_lote']) ? $_POST['venda_lote'] : null;
+$vivos = is_numeric($_POST['vivos'] ?? null) ? (int)$_POST['vivos'] : 0;
+$mortos = is_numeric($_POST['mortos'] ?? null) ? (int)$_POST['mortos'] : 0;
+$mumia = is_numeric($_POST['mumia'] ?? null) ? (int)$_POST['mumia'] : 0;
 
-$id_lote = isset($_POST['id_lote']) && $_POST['id_lote'] !== '' && is_numeric($_POST['id_lote']) ? $_POST['id_lote'] : null;
+$tmaternidade = $_POST['tmaternidade'] ?: null;
+$parto_lote = $_POST['parto_lote'] ?: null;
+$desmame_lote = $_POST['desmame_lote'] ?: null;
+$screche_lote = $_POST['screche_lote'] ?: null;
+$venda_lote = $_POST['venda_lote'] ?: null;
 
-// Se o id_lote for nulo, significa: criando um novo lote
+$id_lote = isset($_POST['id_lote']) && is_numeric($_POST['id_lote']) ? (int)$_POST['id_lote'] : null;
+
+debug_log("ID recebido: $id_lote");
+
+// ------------------------------
+// 2. Salva ou atualiza o LOTE
+// ------------------------------
 if ($id_lote === null) {
-    // Inserindo os dados do lote
-    $sql_lote = "INSERT INTO lotes (porca, lote, vivos, mortos, mumia, tmaternidade, parto_lote, desmame_lote, screche_lote, venda_lote)
-                 VALUES (:porca, :lote, :vivos, :mortos, :mumia, :tmaternidade, :parto_lote, :desmame_lote, :screche_lote, :venda_lote)";
-    $parametros_lote = [
+    // Criar novo lote
+    $sql = "INSERT INTO lotes 
+            (porca, lote, vivos, mortos, mumia, tmaternidade, parto_lote, desmame_lote, screche_lote, venda_lote)
+            VALUES 
+            (:porca, :lote, :vivos, :mortos, :mumia, :tmaternidade, :parto_lote, :desmame_lote, :screche_lote, :venda_lote)";
+
+    $ok = Database::executar($sql, [
         ':porca' => $porca,
         ':lote' => $lote,
         ':vivos' => $vivos,
@@ -32,42 +49,102 @@ if ($id_lote === null) {
         ':desmame_lote' => $desmame_lote,
         ':screche_lote' => $screche_lote,
         ':venda_lote' => $venda_lote
-    ];
-    
-    Database::executar($sql_lote, $parametros_lote);
+    ]);
 
-    // Recuperando o id_lote do último lote inserido
-    $id_lote = Database::lastInsertId(); 
+    if (!$ok) {
+        die("❌ Erro ao inserir lote: " . Database::getLastError());
+    }
+
+    $id_lote = Database::lastInsertId();
+    if (!$id_lote) {
+        die("❌ Erro ao obter id_lote após inserção!");
+    }
+
+    debug_log("Novo lote criado: $id_lote");
+
+} else {
+    // Atualizar lote existente
+    $sql = "UPDATE lotes SET
+            porca = :porca,
+            lote = :lote,
+            vivos = :vivos,
+            mortos = :mortos,
+            mumia = :mumia,
+            tmaternidade = :tmaternidade,
+            parto_lote = :parto_lote,
+            desmame_lote = :desmame_lote,
+            screche_lote = :screche_lote,
+            venda_lote = :venda_lote
+            WHERE id_lote = :id_lote";
+
+    $ok = Database::executar($sql, [
+        ':porca' => $porca,
+        ':lote' => $lote,
+        ':vivos' => $vivos,
+        ':mortos' => $mortos,
+        ':mumia' => $mumia,
+        ':tmaternidade' => $tmaternidade,
+        ':parto_lote' => $parto_lote,
+        ':desmame_lote' => $desmame_lote,
+        ':screche_lote' => $screche_lote,
+        ':venda_lote' => $venda_lote,
+        ':id_lote' => $id_lote
+    ]);
+
+    if (!$ok) {
+        die("❌ Erro ao atualizar lote: " . Database::getLastError());
+    }
+
+    debug_log("Lote atualizado: $id_lote");
 }
 
-// Inserindo os leitões
+// ------------------------------
+// 3. Salva os LEITÕES
+// ------------------------------
 $leitoes = $_POST['mossa'] ?? [];
-foreach ($leitoes as $index => $mossa) {
-    $sexo = $_POST['sexo'][$index] ?? '';
-    $observacao = $_POST['observacao'][$index] ?? '';
-    $nascimento = !empty($_POST['nascimento'][$index]) ? $_POST['nascimento'][$index] : null;
-    $desmame_animal = !empty($_POST['desmame_animal'][$index]) ? $_POST['desmame_animal'][$index] : null;
-    $screche_animal = !empty($_POST['screche_animal'][$index]) ? $_POST['screche_animal'][$index] : null;
-    $venda_animal = !empty($_POST['venda_animal'][$index]) ? $_POST['venda_animal'][$index] : null;
-    
-    $sql_leitoes = "INSERT INTO leitoes (id_lote, mossa, sexo, observacao, nascimento, desmame_animal, screche_animal, venda_animal) 
-                    VALUES (:id_lote, :mossa, :sexo, :observacao, :nascimento, :desmame_animal, :screche_animal, :venda_animal)";
-    
-    $parametros_leitoes = [
-        ':id_lote' => $id_lote,
-        ':mossa' => $mossa,
-        ':sexo' => $sexo,
-        ':observacao' => $observacao,
-        ':nascimento' => $nascimento,
-        ':desmame_animal' => $desmame_animal,
-        ':screche_animal' => $screche_animal,
-        ':venda_animal' => $venda_animal
-    ];
-    
-    Database::executar($sql_leitoes, $parametros_leitoes);
+
+if (!empty($leitoes)) {
+    foreach ($leitoes as $i => $mossa) {
+
+        if (empty(trim($mossa))) continue;
+
+        $sexo = $_POST['sexo'][$i] ?? null;
+        $observacao = $_POST['observacao'][$i] ?? null;
+
+        $nascimento = $_POST['nascimento'][$i] ?: null;
+        $desmame_animal = $_POST['desmame_animal'][$i] ?: null;
+        $screche_animal = $_POST['screche_animal'][$i] ?: null;
+        $venda_animal = $_POST['venda_animal'][$i] ?: null;
+
+        $sql_leitao = "INSERT INTO leitoes 
+                        (id_lote, mossa, sexo, observacao, nascimento, desmame_animal, screche_animal, venda_animal)
+                       VALUES 
+                        (:id_lote, :mossa, :sexo, :observacao, :nascimento, :desmame_animal, :screche_animal, :venda_animal)";
+
+        $ok = Database::executar($sql_leitao, [
+            ':id_lote' => $id_lote,
+            ':mossa' => $mossa,
+            ':sexo' => $sexo,
+            ':observacao' => $observacao,
+            ':nascimento' => $nascimento,
+            ':desmame_animal' => $desmame_animal,
+            ':screche_animal' => $screche_animal,
+            ':venda_animal' => $venda_animal
+        ]);
+
+        if (!$ok) {
+            die("❌ Erro ao inserir leitão ($i): " . Database::getLastError());
+        }
+    }
+
+    debug_log("Leitões salvos.");
+} else {
+    debug_log("Nenhum leitão enviado.");
 }
 
-// Redirecionar para uma página de visualização, passando o id_lote
-header("Location: visualizar_lote.php?id_lote=" . $id_lote);
-exit(); 
+// ------------------------------
+// 4. Redireciona corretamente
+// ------------------------------
+header("Location: visualizar_lote.php?id_lote=$id_lote");
+exit;
 ?>
