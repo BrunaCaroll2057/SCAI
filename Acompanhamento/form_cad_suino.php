@@ -17,7 +17,7 @@
     <div class="card shadow p-4 rounded">
         <h3 class="mb-3 text-center">Cadastro de Lote e Leitões</h3>
 
-        <form id="form_completo" action="salvar_lote_e_leitoes.php" method="POST">
+        <form id="form_completo" action="salvar_lotes_e_leitoes.php" method="POST">
             
             <h4 class="mb-3">Dados Gerais do Lote</h4>
             <table class="tabela-ficha">

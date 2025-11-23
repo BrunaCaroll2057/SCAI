@@ -1,13 +1,17 @@
 <?php
-require_once("../Classes/Database.class.php");
-include_once '../config/config.inc.php'; 
+session_start();
 
+require_once("../Classes/Database.class.php");
+include_once '../config/config.inc.php';
+
+if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
+    include __DIR__ . '/../Includes/menuinclude.php';
+}
 if (file_exists(__DIR__ . '/../Includes/rodapeinclude.php')) {
     $temRodape = true;
 } else {
     $temRodape = false;
 }
-
 $id_lote = $_GET['id_lote'] ?? null;
 
 if (!$id_lote || !is_numeric($id_lote)) {
@@ -48,15 +52,9 @@ $leitoes = $leitoes_result->fetchAll(PDO::FETCH_ASSOC);
     <title>SCAI - Sistema de Coordenação de Animais do Instituto</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="JS/js.js"> </script>
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
-
-<?php
-if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
-    include __DIR__ . '/../Includes/menuinclude.php';
-}
-?>
 
 <div class="container my-5">
     <h3 class="mb-3">Dados do Lote Cadastrado</h3>
@@ -123,9 +121,9 @@ if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
         <a href="editar_lotes.php?id_lote=<?php echo $id_lote; ?>" class="btn btn-warning">Editar Lote</a>
     </div>
 
-<?php
-    if ($temRodape) include __DIR__ . '/../Includes/rodapeinclude.php';
-?>
+    <?php
+        if ($temRodape) include __DIR__ . '/../Includes/rodapeinclude.php';
+    ?>
 
 </body>
 </html>
