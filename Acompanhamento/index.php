@@ -32,8 +32,51 @@ $id_lote = null;
         <?php include __DIR__ . '/form_cad_suino.php'; ?>
     </form>
 
+<script>
+    let leitoesCount = 1;
+
+    // Função para adicionar novos leitões
+    document.getElementById('add_leitao').addEventListener('click', function() {
+        leitoesCount++;
+        const tableBody = document.getElementById('leitoes_container');
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${leitoesCount}</td>
+            <td><input type="text" name="mossa[]" class="form-control"></td>
+            <td><select name="sexo[]" class="form-select">
+                <option value="Macho">Macho</option>
+                <option value="Fêmea">Fêmea</option>
+            </select></td>
+            <td><input type="text" name="observacao[]" class="form-control"></td>
+            <td><input type="date" name="nascimento[]" class="form-control"></td>
+            <td><input type="date" name="desmame_animal[]" class="form-control"></td>
+            <td><input type="date" name="screche_animal[]" class="form-control"></td>
+            <td><input type="date" name="venda_animal[]" class="form-control"></td>
+            <td><button type="button" class="btn-excluir" onclick="excluirLeitao(this)">Excluir</button></td>
+        `;
+        tableBody.appendChild(row);
+    });
+
+    // Função para excluir a linha completa do leitão
+    function excluirLeitao(button) {
+        const row = button.closest('tr');
+        row.remove();
+        atualizarNumeracao();
+    }
+
+    // Função para atualizar a numeração dos leitões
+    function atualizarNumeracao() {
+        const rows = document.querySelectorAll('#leitoes_container tr');
+        rows.forEach((row, index) => {
+            const cell = row.querySelector('td');
+            cell.textContent = index + 1;
+        });
+        leitoesCount = rows.length;
+    }
+</script>
+
 <?php if ($temRodape) include __DIR__ . '/../Includes/rodapeinclude.php'; ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

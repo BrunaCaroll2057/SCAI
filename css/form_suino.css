@@ -1,23 +1,13 @@
-/* CONTAINER PRINCIPAL */
-.container-form-suino {
-    height: auto;
-    margin: 50px auto;
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.08);
-}
-
 /* TÍTULOS */
-.container-form-suino h3,
-.container-form-suino h4 {
+.card h3,
+.card h4 {
     color: #000000;
     font-weight: 700;
     margin-bottom: 20px;
     text-align: center;
 }
 
-/* TABELAS */
+/* TABELAS GERAIS (afeta todas as .tabela-ficha, mas não alteradas) */
 .tabela-ficha {
     width: 100%;
     border-collapse: collapse;
@@ -27,9 +17,14 @@
     overflow: hidden;
 }
 
+/* TABELA ESPECÍFICA PARA LEITÕES (mais larga) */
+.tabela-larga {
+    width: 1070px; 
+}
+
 .tabela-ficha td,
 .tabela-ficha th {
-    padding: 10px;
+    padding: 5px 5px;
     border: 1px solid #ddd;
 }
 
@@ -41,7 +36,7 @@
     text-align: left;
 }
 
-/* INPUTS GERais */
+/* INPUTS GERAIS */
 .form-control, .form-select {
     background: transparent;
     border: none !important;
@@ -55,36 +50,33 @@
     border-bottom: 2px solid #bfbfbf !important;
 }
 
+#select-sx{
+    width: 63px;
+    font-size: 15.5px;
+}
+
+#mossa{
+    width: 55px;
+}
+
 /* BOTÕES */
-.btn-suino {
-    background-color: #5EB661;
-    border: none;
-    padding: 12px 25px;
-    color: white;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.2s;
-    display: block;
-    margin: 30px auto;
-}
-
-.btn-suino:hover {
-    background-color: #4a9450;
-}
-
-.btn-add-leitao {
-    background-color: #6c757d;
-    color: white;
-    border-radius: 8px;
-    padding: 8px 20px;
-    border: none;
-}
-
 .btn-excluir {
     background-color: #dc3545 !important;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 7px;
+    color: white !important;
+    border: none !important;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 47px;
+    margin-left: 2px;
+}
+
+.btn-excluir:hover {
+    background-color: #c82333 !important; 
+}
+
+.card {
+    margin: 0 auto;
+    max-width: 1200px; /* Limite para estreitar o formulário */
+    overflow: visible; /* Sem rolagem interna */
 }
