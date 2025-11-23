@@ -78,6 +78,8 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="JS/js.js"> </script>
     <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/form_suino.css">
+
 </head>
 <body>
 

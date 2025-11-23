@@ -71,13 +71,9 @@
     margin-bottom: 25px;
   }
 
-  /* ---------------------------
-     TABELA CORRIGIDA
-  ---------------------------- */
-
   table {
     border-collapse: collapse;
-    width: 100%;               /* valor original correto */
+    width: 100%;
     background-color: white;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: 10px;
@@ -91,11 +87,11 @@
       text-align: center;
       font-weight: 600;
       box-shadow: inset -1px 0 0 #146c43;
-      border-right: none;   /* remove para não empurrar largura */
+      border-right: none;
   }
 
   thead th:last-child {
-      box-shadow: none; /* remove linha depois da última coluna */
+      box-shadow: none;
   }
 
   tbody td {

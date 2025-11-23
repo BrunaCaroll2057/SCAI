@@ -16,10 +16,8 @@
 <div class="container-form-suino">
     <h3 class="mb-3">Cadastro de Lote e Leitões</h3>
 
-    <!-- FORMULÁRIO COMBINADO -->
     <form id="form_completo" action="salvar_lote_e_leitoes.php" method="POST">
         
-        <!-- DADOS DO LOTE -->
         <h4 class="mb-3">Dados Gerais do Lote</h4>
         <table class="tabela-ficha">
             <tr><th class="titulo-secao" colspan="4">Dados gerais</th></tr>
@@ -53,7 +51,6 @@
 
         <hr class="my-5">
 
-        <!-- DADOS DOS LEITÕES -->
         <h4 class="mb-3">Dados Individuais dos Leitões</h4>
         <input type="hidden" name="id_lote" value="<?php echo htmlspecialchars($id_lote_hidden); ?>">
 
@@ -99,7 +96,6 @@
 <script>
     let leitoesCount = 1;
 
-    // Função para adicionar novos leitões
     document.getElementById('add_leitao').addEventListener('click', function() {
         leitoesCount++;
         const tableBody = document.getElementById('leitoes_container');
@@ -121,14 +117,12 @@
         tableBody.appendChild(row);
     });
 
-    // Função para excluir a linha completa do leitão
     function excluirLeitao(button) {
         const row = button.closest('tr');
         row.remove();
         atualizarNumeracao();
     }
 
-    // Função para atualizar a numeração dos leitões
     function atualizarNumeracao() {
         const rows = document.querySelectorAll('#leitoes_container tr');
         rows.forEach((row, index) => {

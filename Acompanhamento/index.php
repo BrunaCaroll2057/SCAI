@@ -27,8 +27,8 @@ $id_lote = null;
     <title>SCAI - Sistema de Coordenação de Animais do Instituto</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="JS/js.js"> </script>
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/form_suino.css">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/form_suino.css">
 </head>
 <body class="bg-light">
 

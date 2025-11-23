@@ -86,7 +86,6 @@ header p {
   transition: transform 0.2s ease-in-out, -webkit-transform 0.1s ease-in-out;
 }
 
-/*Duração da transição entre as imagens*/
 .carousel .carousel-item {
     transition-duration: 0.2s;
 }
@@ -255,7 +254,7 @@ header p {
   color: #fff;
   text-align: center;
 }
-/* Paragrafo de texto não aparece em tela menor que 720px */
+
 @media (max-width: 720px) {
   .titulo {
     width: 100%;
@@ -270,19 +269,16 @@ header p {
 }
 
 
-/* Estilização do conteúdo */
 .content {
   padding: 20px;
 }
 
-/* Estilização do conteúdo do footer */
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Estilização da navegação do footer */
 .footer-nav {
   margin-top: 10px;
 }
@@ -344,6 +340,7 @@ button{
   border: 1px solid rgb(0, 0, 0);
   background-color: #fff;
 }
+
 .campo label{
   margin-bottom: 0.2em;
   color: #fff;
@@ -368,8 +365,6 @@ font{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-
-/* Estilo para submenu dentro do dropdown do Bootstrap */
 .dropdown-submenu {
   position: relative;
 }
@@ -395,29 +390,21 @@ font{
   color: #155724 !important;
 }
 
-/* ===========================
-    MENU OFFCANVAS
-=========================== */
-
-/* Fundo sólido do menu */
 .offcanvas {
     background-color: rgb(94, 182, 97) !important;
     color: white !important;
     font-size: 17.4px;
 }
 
-/* Links principais (fora do dropdown) */
 .offcanvas .nav-link {
     color: white !important;
 }
 
-/* Dropdown com fundo verde */
 .offcanvas .dropdown-menu {
     background-color: rgb(94, 182, 97) !important;
     border: none !important;
 }
 
-/* Itens do dropdown com texto branco */
 .offcanvas .dropdown-menu .dropdown-item {
     color: white !important;
     font-size: 16.4px;
@@ -425,7 +412,6 @@ font{
     background-color: transparent;
 }
 
-/* Hover geral nos itens */
 .offcanvas .nav-link:hover,
 .offcanvas .dropdown-menu .dropdown-item:hover {
     background-color: rgba(56, 155, 59, 0.5) !important;
@@ -467,15 +453,12 @@ font{
     filter: invert(100%);
 }
 
-/*  Footer PADRÃO  */
 footer.footer {
   width: 100%;
   
-  /* Layout */
   text-align: center;
   margin-top: 50px;
   padding: 20px 0;
-  /* Cores e estilo */
   background-color: rgb(94, 182, 97) !important;
   color: white !important;
   font-size: 1rem;
@@ -485,7 +468,6 @@ h1, h2, h3, h4, h5 {
   text-align: center;
 }
 
-/* Espaço estrutural abaixo da navbar */
 .content-wrapper {
   padding-top: 5px;
   padding-bottom: 100px; 
@@ -494,8 +476,6 @@ h1, h2, h3, h4, h5 {
   text-align: center;
 }
 
-/* IMAGENS DA PÁGINA sobre.php */
-/* Contêiner que envolve imagem + texto */
 .sobre-container {
     position: relative;
     width: 100%;
@@ -503,7 +483,6 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 20px;
 }
 
-/* Imagem à esquerda */
 #imgsobre1 {
     float: left;
     height: 400px;
@@ -514,7 +493,6 @@ h1, h2, h3, h4, h5 {
     border-radius: 20px;
 }
 
-/* Texto sobre a direita da imagem 1 */
 #txtsobre1 {
     position: relative;
     left: 4%;
@@ -525,7 +503,6 @@ h1, h2, h3, h4, h5 {
     box-sizing: border-box;
 }
 
-/* Imagem à direita */
 #imgsobre2 {
     float: right;
     top: 10%;
@@ -536,7 +513,6 @@ h1, h2, h3, h4, h5 {
     position: relative;
 }
 
-/* Texto sobre a esquerda da imagem 2 */
 #txtsobre2 {
     position: absolute;
     right: 0;
@@ -547,7 +523,6 @@ h1, h2, h3, h4, h5 {
     box-sizing: border-box;
 }
 
-/* Ajuste para os botões dentro da tabela de usuários */
 .table .btn {
     width: auto !important; 
     height: auto !important; 
@@ -556,7 +531,6 @@ h1, h2, h3, h4, h5 {
     font-size: 0.85rem;     
 }
 
-/* Ajuste para os botões do SweetAlert2 */
 .swal2-confirm,
 .swal2-cancel {
     width: auto !important;     
@@ -569,7 +543,6 @@ h1, h2, h3, h4, h5 {
     box-sizing: border-box !important;
 }
 
-/* Estilo da página de visualizar usuário */
 .card {
     border-radius: 15px;
 }
@@ -584,7 +557,6 @@ h1, h2, h3, h4, h5 {
     line-height: 1.6;
 }
 
-/* Botão voltar */
 .btn-secondary {
     background-color: #5EB661;
     border-color: #4aa04a;
@@ -596,7 +568,6 @@ h1, h2, h3, h4, h5 {
     border-color: #3e7a3a;
 }
 
-/* Novo layout flex do usuário */
 .user-card {
     display: flex;
     flex-direction: row;

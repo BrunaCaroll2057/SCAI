@@ -74,6 +74,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     <title>SCAI - Sistema de Coordenação de Animais do Instituto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/form_suino.css">
 </head>
 <body>
 
