@@ -3,7 +3,6 @@ require_once("../Classes/ReproducaoSuino.class.php");
 
   session_start();
 
-// Corrige includes com caminho relativo
     if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
         include __DIR__ . '/../Includes/menuinclude.php';
     }
@@ -12,13 +11,11 @@ require_once("../Classes/ReproducaoSuino.class.php");
     } else {
         $temRodape = false;
     }
-$tipo = $_SESSION['user_tipo'] ?? ''; // se não existir, fica string vazia
+$tipo = $_SESSION['user_tipo'] ?? '';
 
-// Recebe parâmetros de busca
 $busca = isset($_GET['busca']) ? trim($_GET['busca']) : '';
 $tipo  = isset($_GET['tipo'])  ? (int)$_GET['tipo'] : 0;
 
-// **Trecho que não pode ser modificado**
 $lista = ReproducaoSuino::listar($tipo, $busca);
 $itens = '';
 foreach ($lista as $suino) {
@@ -40,7 +37,6 @@ foreach ($lista as $suino) {
     $itens .= $item;
 }
 
-// Faz o menu funcionar e CSS ser carregado
 include __DIR__ . '/listagem_suino.php';
 
 if ($temRodape) include __DIR__ . '/../Includes/rodapeinclude.php';

@@ -87,7 +87,7 @@
         </table>
 
         <button type="button" class="btn btn-secondary mb-3" id="add_leitao">+ Adicionar Leitão</button>
-        <button type="submit" class="btn btn-success mb-3">Salvar Lote e Leitões</button>
+        <button type="submit" class="btn btn-success mb-3">Salvar</button>
 
     </form>
 

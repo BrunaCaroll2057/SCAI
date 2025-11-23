@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <link rel="stylesheet" href="../css/form_suino.css">
 
+
     <title>Cadastro do ciclo reprodutivo - Suínos</title>
 </head>
 <body>
 <?php include __DIR__ . '/../Includes/menuinclude.php'; ?>
-
 <div class="container mt-10 pt-3">
     <div class="card shadow p-4 rounded">
         <h3 class="text-center fw-bold mb-4">Ciclo reprodutivo de cada porca</h3>
@@ -22,7 +22,6 @@
 
                 <table class="tabela-ficha">
 
-                    <!-- ID -->
                     <tr>
                         <th class="titulo-secao" colspan="4">Identificação</th>
                     </tr>
@@ -34,7 +33,6 @@
                         </td>
                     </tr>
 
-                    <!-- Dados principais -->
                     <tr>
                         <th class="titulo-secao" colspan="4">Dados principais</th>
                     </tr>
@@ -64,7 +62,6 @@
                         </td>
                     </tr>
 
-                    <!-- Datas de parto -->
                     <tr>
                         <th class="titulo-secao" colspan="4">Parto</th>
                     </tr>
@@ -81,7 +78,6 @@
                         </td>
                     </tr>
 
-                    <!-- Nascidos -->
                     <tr>
                         <th class="titulo-secao" colspan="4">Nascidos</th>
                     </tr>
@@ -112,7 +108,6 @@
                         </td>
                     </tr>
 
-                    <!-- Desmama -->
                     <tr>
                         <th class="titulo-secao" colspan="4">Desmama</th>
                     </tr>
@@ -131,7 +126,6 @@
 
                 </table>
 
-                <!-- Botões -->
                 <div class="d-flex justify-content-end gap-2 mt-3">
                     <button type="submit" name="acao" value="salvar" class="btn btn-success">Salvar</button>
                     <button type="submit" name="acao" value="excluir" class="btn btn-danger">Excluir</button>

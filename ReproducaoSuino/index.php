@@ -3,17 +3,12 @@ session_start();
 
 require_once("../Classes/ReproducaoSuino.class.php");
 
-// Corrige includes com caminho relativo
-if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
-    include __DIR__ . '/../Includes/menuinclude.php';
-}
 if (file_exists(__DIR__ . '/../Includes/rodapeinclude.php')) {
     $temRodape = true;
 } else {
     $temRodape = false;
 }
 
-// Instancia padrão
 $animal = new ReproducaoSuino();
 
 // Se for POST (salvar/excluir)
@@ -55,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Se for GET (carregar um suino existente)
 elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $id = $_GET['id'] ?? 0;
     if ($id > 0) {
@@ -78,7 +72,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </head>
 <body>
 
-    <form action="index.php" method="post" enctype="multipart/form-data">
+    <form action="<?= HOME ?>ReproducaoSuino/index.php" method="post" enctype="multipart/form-data">
         <?php include __DIR__ . '/form_cad_suino.php'; ?>
     </form>
 

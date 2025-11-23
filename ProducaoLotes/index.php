@@ -3,10 +3,6 @@ session_start();
 
 require_once("../Classes/ProducaoLotes.class.php");
 
-// Corrige includes com caminho relativo
-if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
-    include __DIR__ . '/../Includes/menuinclude.php';
-}
 if (file_exists(__DIR__ . '/../Includes/rodapeinclude.php')) {
     $temRodape = true;
 } else {
@@ -82,8 +78,8 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <?php include __DIR__ . '/form_cad_suino.php'; ?>
     </form>
 
-<?php if ($temRodape) include __DIR__ . '/../Includes/rodapeinclude.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <?php if ($temRodape) include __DIR__ . '/../Includes/rodapeinclude.php'; ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
