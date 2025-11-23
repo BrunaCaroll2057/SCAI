@@ -4,8 +4,6 @@ session_start();
 require_once("../Classes/Database.class.php");
 include_once '../config/config.inc.php';
 
-
-
 // Corrige includes com caminho relativo
 if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
     include __DIR__ . '/../Includes/menuinclude.php';
