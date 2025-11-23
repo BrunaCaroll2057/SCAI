@@ -26,14 +26,14 @@
         }
     </style>
 
-    <title>Cadastro do ciclo reprodutivo - Suínos</title>
+    <title>Cadastro do Acompanhamento Produtivo dos Lotes de Porcas - Suínos</title>
 </head>
 <body>
 <?php include __DIR__ . '/../Includes/menuinclude.php'; ?>
 
 <div class="container mt-10 pt-3">
     <div class="card shadow p-4 rounded">
-        <h3 class="text-center fw-bold mb-4">Ciclo reprodutivo de cada porca</h3>
+        <h3 class="text-center fw-bold mb-4">Acompanhamento Produtivo dos Lotes de Porcas</h3>
 
         <form method="post">
             <fieldset>
@@ -42,7 +42,7 @@
 
                     <!-- ID -->
                     <tr>
-                        <th class="titulo-secao" colspan="4">Identificação</th>
+                        <th class="titulo-secao" colspan="4">N°</th>
                     </tr>
                     <tr>
                         <td colspan="4">
@@ -54,83 +54,73 @@
 
                     <!-- Dados principais -->
                     <tr>
-                        <th class="titulo-secao" colspan="4">Dados principais</th>
+                        <th class="titulo-secao" colspan="4">Cobertura</th>
                     </tr>
                     <tr>
                         <td>
-                            <label class="form-label">N° Porca:</label>
+                            <label class="form-label">N° da Porca:</label>
                             <input type="number" class="form-control" name="nporca" 
                                    value="<?= htmlspecialchars($animal->getNporca()) ?>">
                         </td>
                         <td>
-                            <label class="form-label">Raça:</label>
-                            <input type="text" class="form-control" name="raca" 
-                                   value="<?= htmlspecialchars($animal->getRaca()) ?>">
+                            <label class="form-label">N° do Macho</label>
+                            <input type="text" class="form-control" name="nmacho" 
+                                   value="<?= htmlspecialchars($animal->getNmacho()) ?>">
                         </td>
                         <td colspan="2">
-                            <label class="form-label">Data de Nascimento:</label>
-                            <input type="date" class="form-control" name="dt_nascimento" 
-                                   value="<?= htmlspecialchars($animal->getDt_nascimento()) ?>">
+                            <label class="form-label">Data da Cobertura:</label>
+                            <input type="date" class="form-control" name="dt_cobertura" 
+                                   value="<?= htmlspecialchars($animal->getDt_cobertura()) ?>">
                         </td>
                     </tr>
 
-                    <tr>
-                        <td colspan="4">
-                            <label class="form-label">Macho:</label>
-                            <input type="text" class="form-control" name="macho" 
-                                   value="<?= htmlspecialchars($animal->getMacho()) ?>">
-                        </td>
-                    </tr>
-
-                    <!-- Datas de parto -->
                     <tr>
                         <th class="titulo-secao" colspan="4">Parto</th>
                     </tr>
                     <tr>
                         <td colspan="2">
                             <label class="form-label">Data provável do parto:</label>
-                            <input type="date" class="form-control" name="dt_provparto" 
-                                   value="<?= htmlspecialchars($animal->getDt_provparto()) ?>">
+                            <input type="date" class="form-control" name="dt_provparto" value="<?= htmlspecialchars($animal->getDt_provparto()) ?>">
                         </td>
                         <td colspan="2">
                             <label class="form-label">Data do parto:</label>
-                            <input type="date" class="form-control" name="dt_parto" 
-                                   value="<?= htmlspecialchars($animal->getDt_parto()) ?>">
+                            <input type="date" class="form-control" name="dt_parto" value="<?= htmlspecialchars($animal->getDt_parto()) ?>">
                         </td>
                     </tr>
-
-                    <!-- Nascidos -->
                     <tr>
-                        <th class="titulo-secao" colspan="4">Nascidos</th>
-                    </tr>
-                    <tr>
-                        <td>
+                        <td colspan="2">
                             <label class="form-label">Vivos:</label>
-                            <input type="number" class="form-control" name="vivos" 
-                                   value="<?= htmlspecialchars($animal->getVivos()) ?>">
-                        </td>
-                        <td>
-                            <label class="form-label">Natimortos:</label>
-                            <input type="number" class="form-control" name="natimortos" 
-                                   value="<?= htmlspecialchars($animal->getNatimortos()) ?>">
+                            <input type="number" class="form-control" name="vivos" value="<?= htmlspecialchars($animal->getVivos()) ?>">
                         </td>
                         <td colspan="2">
-                            <label class="form-label">Mumificados:</label>
-                            <input type="number" class="form-control" name="mumificados" 
-                                   value="<?= htmlspecialchars($animal->getMumificados()) ?>">
+                            <label class="form-label">Natimortos:</label>
+                            <input type="number" class="form-control" name="natimorto" value="<?= htmlspecialchars($animal->getNatimorto()) ?>">
                         </td>
                     </tr>
-
                     <tr>
                         <td colspan="4">
-                            <label class="form-label">Causas da morte (na maternidade):</label>
-                            <textarea name="causa" class="form-control" rows="3">
-                                <?= htmlspecialchars($animal->getCausa()) ?>
-                            </textarea>
+                            <label class="form-label">Mumificados:</label>
+                            <input type="number" class="form-control" name="mumia" value="<?= htmlspecialchars($animal->getMumia()) ?>">
                         </td>
                     </tr>
+                    
+                    <tr>
+                        <th class="titulo-secao" colspan="4">Maternidade</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="form-label">Recebimento:</label>
+                            <input type="date" class="form-control" name="recebimento" 
+                                   value="<?= htmlspecialchars($animal->getRecebimento()) ?>">
+                        </td>
+                        <td>
+                            <label class="form-label">Transferido:</label>
+                            <input type="date" class="form-control" name="tranferencia" 
+                                   value="<?= htmlspecialchars($animal->getTransferencia()) ?>">
+                        </td>
 
-                    <!-- Desmama -->
+                    <tr>
+
                     <tr>
                         <th class="titulo-secao" colspan="4">Desmama</th>
                     </tr>
@@ -147,9 +137,13 @@
                         </td>
                     </tr>
 
+                    <td colspan="4">
+                        <label class="form-label">Observação:</label>
+                        <textarea name="obs" class="form-control" rows="3"><?= htmlspecialchars($animal->getObs()) ?></textarea>
+                    </td>                    
+                </tr>
                 </table>
 
-                <!-- Botões -->
                 <div class="d-flex justify-content-end gap-2 mt-3">
                     <button type="submit" name="acao" value="salvar" class="btn btn-success">Salvar</button>
                     <button type="submit" name="acao" value="excluir" class="btn btn-danger">Excluir</button>

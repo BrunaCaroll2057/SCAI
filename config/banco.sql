@@ -182,3 +182,21 @@ CREATE TABLE `leitoes` (
     `venda_animal` DATE,
     FOREIGN KEY (`id_lote`) REFERENCES `lotes`(`id_lote`) 
 );
+
+CREATE TABLE `ProducaoLote` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `nporca` INT NOT NULL DEFAULT 0,
+    `nmacho` INT NOT NULL DEFAULT 0,
+    `dt_cobertura` DATE DEFAULT NULL,
+    `dt_provparto` DATE DEFAULT NULL,
+    `dt_parto` DATE DEFAULT NULL,
+    `vivos` INT NOT NULL DEFAULT 0,
+    `natimorto` INT NOT NULL DEFAULT 0,
+    `mumia` INT NOT NULL DEFAULT 0,
+    `recebimento` DATE DEFAULT NULL,
+    `transferencia` DATE DEFAULT NULL,
+    `dt_desmama` DATE DEFAULT NULL,
+    `ndesmamas` INT NOT NULL DEFAULT 0,
+    `obs` TEXT DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
