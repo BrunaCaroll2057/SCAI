@@ -118,7 +118,7 @@ $leitoes = $leitoes_result->fetchAll(PDO::FETCH_ASSOC);
 
     <br>
         <a href="index.php" class="btn btn-primary">Cadastrar Novo Lote</a>
-        <a href="editar_lote.php?id_lote=<?php echo $id_lote; ?>" class="btn btn-warning">Editar Lote</a>
+        <a href="editar_lotes.php?id_lote=<?php echo $id_lote; ?>" class="btn btn-warning">Editar Lote</a>
     </div>
 
 <?php

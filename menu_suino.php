@@ -94,8 +94,8 @@ session_start();
         <div class="col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Informações da leitegada</h5>
-                    <a href="Maternidade/form_cad_suino.php" class="btn btn-card">Cadastrar</a>
+                    <h5 class="card-title">Acompanhamento Produtivo dos Lotes de Porcas</h5>
+                    <a href="ProducaoLotes/index.php" class="btn btn-card">Cadastrar</a>
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@ session_start();
 </div>
 
 <!-- Título da Lista -->
-<p id="tit_sobre">Lista de Cadastros</p>
+<p id="tit_sobre">Listagem de Cadastros</p>
 
 <!-- Cartões de Listagem -->
 <div class="container text-center">
@@ -122,7 +122,7 @@ session_start();
         <div class="col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Produção dos lotes de porca</h5>
+                    <h5 class="card-title">Acompanhamento da leitegada - nascimento ao abate</h5>
                     <a href="Acompanhamento/listar_lotes.php" class="btn btn-card">Acessar lista</a>
                 </div>
             </div>
@@ -132,8 +132,8 @@ session_start();
         <div class="col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-body">
-                    <h5 class="card-title">Informações da leitegada</h5>
-                    <a href="Maternidade/form_cad_suino.php" class="btn btn-card">Acessar lista</a>
+                    <h5 class="card-title">Acompanhamento Produtivo dos Lotes de Porcas</h5>
+                    <a href="ProducaoLotes/lista_suino.php" class="btn btn-card">Acessar lista</a>
                 </div>
             </div>
         </div>

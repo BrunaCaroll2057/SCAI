@@ -67,15 +67,15 @@ class ReproducaoSuino {
         $this->dt_parto = $dt_parto;
     }
     public function setVivos($vivos){
-        if ($vivos === "") throw new Exception("Erro, a quantidade de vivos deve ser informado!");
+        if ($vivos < 0) throw new Exception("Erro, a quantidade de vivos deve ser informado!");
         $this->vivos = $vivos;
     }
     public function setNatimortos($natimortos){
-        if ($natimortos === "") throw new Exception("Erro, a quantidade de natimortos deve ser informado!");
+        if ($natimortos < 0) throw new Exception("Erro, a quantidade de natimortos deve ser informado!");
         $this->natimortos = $natimortos;
     }
     public function setMumificados($mumificados){
-        if ($mumificados === "") throw new Exception("Erro, a quantidade de mumificados deve ser informado!");
+        if ($mumificados < 0) throw new Exception("Erro, a quantidade de mumificados deve ser informado!");
         $this->mumificados = $mumificados;
     }
     public function setCausa($causa = ''){

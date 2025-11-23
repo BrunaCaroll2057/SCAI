@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once("../Classes/ReproducaoSuino.class.php");
+require_once("../Classes/ProducaoLotes.class.php");
 
 // Corrige includes com caminho relativo
 if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
@@ -14,29 +14,30 @@ if (file_exists(__DIR__ . '/../Includes/rodapeinclude.php')) {
 }
 
 // Instancia padrão
-$animal = new ReproducaoSuino();
+$animal = new ProducaoLotes();
 
 // Se for POST (salvar/excluir)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id           = $_POST['id'] ?? 0;
     $nporca       = $_POST['nporca'] ?? 0;
-    $raca         = $_POST['raca'] ?? '';
-    $dt_nascimento= $_POST['dt_nascimento'] ?? '';
-    $macho        = $_POST['macho'] ?? '';
+    $nmacho       = $_POST['nmacho'] ?? 0;
+    $dt_cobertura = $_POST['dt_cobertura'] ?? '';
     $dt_provparto = $_POST['dt_provparto'] ?? '';
     $dt_parto     = $_POST['dt_parto'] ?? '';
     $vivos        = $_POST['vivos'] ?? 0;
-    $natimortos   = $_POST['natimortos'] ?? 0;
-    $mumificados  = $_POST['mumificados'] ?? 0;
-    $causa        = $_POST['causa'] ?? '';
+    $natimorto    = $_POST['natimorto'] ?? 0;
+    $mumia        = $_POST['mumia'] ?? 0;
+    $recebimento  = $_POST['recebimento'] ?? '';
+    $transferencia = $_POST['tranferencia'] ?? '';
     $dt_desmama   = $_POST['dt_desmama'] ?? '';
     $ndesmamas    = $_POST['ndesmamas'] ?? 0;
+    $obs          = $_POST['obs'] ?? '';
     $acao         = $_POST['acao'] ?? '';
 
-    $animal = new ReproducaoSuino(
-        $id,$nporca,$raca,$dt_nascimento,$macho,
-        $dt_provparto,$dt_parto,$vivos,$natimortos,
-        $mumificados,$causa,$dt_desmama,$ndesmamas
+    $animal = new ProducaoLotes(
+        $id, $nporca, $nmacho, $dt_cobertura, $dt_provparto,
+        $dt_parto, $vivos, $natimorto, $mumia, $recebimento,
+        $transferencia, $dt_desmama, $ndesmamas, $obs  
     );
 
     if ($acao === 'salvar') {
@@ -59,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $id = $_GET['id'] ?? 0;
     if ($id > 0) {
-        $lista = ReproducaoSuino::listar(1, $id);
+        $lista = ProducaoLotes::listar(1, $id);
         if (!empty($lista)) {
             $animal = $lista[0];
         }
