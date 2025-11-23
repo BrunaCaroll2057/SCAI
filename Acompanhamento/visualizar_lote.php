@@ -1,10 +1,16 @@
 <?php
 require_once("../Classes/Database.class.php");
-<<<<<<< HEAD
-=======
-include_once '../Includes/menuinclude.php'; 
->>>>>>> 3f93f7a91bfc810c8d4757835407daa982aebcac
 include_once '../config/config.inc.php'; 
+
+// Corrige includes com caminho relativo
+if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
+    include __DIR__ . '/../Includes/menuinclude.php';
+}
+if (file_exists(__DIR__ . '/../Includes/rodapeinclude.php')) {
+    $temRodape = true;
+} else {
+    $temRodape = false;
+}
 
 $id_lote = $_GET['id_lote'] ?? null;
 
@@ -49,9 +55,6 @@ $leitoes = $leitoes_result->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-<?php
-   include __DIR__ . '/Includes/menuinclude.php';
-?>
 
 <div class="container my-5">
     <h3 class="mb-3">Dados do Lote Cadastrado</h3>
@@ -117,5 +120,10 @@ $leitoes = $leitoes_result->fetchAll(PDO::FETCH_ASSOC);
         <a href="index.php" class="btn btn-primary">Cadastrar Novo Lote</a>
         <a href="editar_lote.php?id_lote=<?php echo $id_lote; ?>" class="btn btn-warning">Editar Lote</a>
     </div>
+
+<?php
+    if ($temRodape) include __DIR__ . '/../Includes/rodapeinclude.php';
+?>
+
 </body>
 </html>

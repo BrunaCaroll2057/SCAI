@@ -25,7 +25,7 @@
   include __DIR__ . '/Includes/menuinclude.php';
 
   if ($tipo === 'admin') {
-    // Conteúdo exclusivo para admin
+    // Conteúdo exclusivo para admin  
     include 'admin_dashboard.php';
   } elseif ($tipo === 'funcionario') {
       // Conteúdo exclusivo para funcionário

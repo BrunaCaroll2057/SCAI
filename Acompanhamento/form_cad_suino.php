@@ -4,44 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .form-control, .form-select {
-            border: none !important;
-            border-bottom: 2px solid #bfbfbf !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-        }
-        .form-control:focus, .form-select:focus {
-            border-bottom: 2px solid #0d6efd !important;
-        }
-        .tabela-ficha {
-            width: 100%;
-            border: 1px solid #bfbfbf;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        .titulo-secao {
-            background-color: #e9ecef;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-align: center;
-        }
-        .btn-excluir {
-            margin-top: 10px;
-            background-color: #dc3545;
-            color: white;
-            border: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/form_suino.css">
 </head>
 <body class="bg-light">
 
 <?php
-    // Garantindo que o id_lote seja obtido corretamente
     $id_lote_hidden = $_GET['id'] ?? '';
 ?>
 
-<div class="container my-5">
+<div class="container-form-suino">
     <h3 class="mb-3">Cadastro de Lote e Leitões</h3>
 
     <!-- FORMULÁRIO COMBINADO -->

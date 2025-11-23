@@ -1,6 +1,7 @@
 <?php
   include_once __DIR__ . '/../config/config.inc.php';
 ?>
+
 <nav class="navbar navbar-dark fixed-top shadow">
   <div class="container-fluid" style="height: 70px;">
     <a class="navbar-brand"  href="<?=HOME?>index.php" style="font-size: 22px;">
@@ -22,51 +23,58 @@
   if (isset($_SESSION['user_id'])) {
       $tipo = $_SESSION['user_tipo'] ?? '';
 
-      if ($tipo === 'admin') {
-          echo '
+    if ($tipo === 'admin') {
+        echo '
             <li class="nav-item">
-              <a class="profile-icon" href="home.php">
-                  <i class="bi bi-person"></i>
-              </a>
+                <a class="profile-icon" href="' . HOME . 'home.php">
+                    <i class="bi bi-person"></i>
+                </a>
             </li>
-            <li class="nav-item"><hr><a class="nav-link active" href="'.HOME.'index.php">Home</a><hr></li>
+            <li class="nav-item"><hr><a class="nav-link active" href="' . HOME . 'index.php">Home</a><hr></li>
             
             <li class="nav-item dropdown">
-              <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>
-              <ul class="dropdown-menu" style="text-align: center;">
-                <li><a class="dropdown-item" href="/scaii/menu_suino.php">Suínos</a><hr></li>
-                <li><a class="dropdown-item" href="/scaii/menu_bovino.php">Bovinos</a><hr></li>
-                <li><a class="dropdown-item" href="/scaii/menu_ovino.php">Ovinos</a><hr></li>
-                <li><a class="dropdown-item" href="/scaii/menu_ave.php">Aves</a><hr></li>
-                <li><a class="dropdown-item" href="/scaii/menu_coelho.php">Coelhos</a></li>
-              </ul>
-              <hr>
+                <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>
+                <ul class="dropdown-menu" style="text-align: center;">
+                    <li><a class="dropdown-item" href="' . HOME . 'menu_suino.php">Suínos</a><hr></li>
+                    <li><a class="dropdown-item" href="' . HOME . 'menu_bovino.php">Bovinos</a><hr></li>
+                    <li><a class="dropdown-item" href="' . HOME . 'menu_ovino.php">Ovinos</a><hr></li>
+                    <li><a class="dropdown-item" href="' . HOME . 'menu_ave.php">Aves</a><hr></li>
+                    <li><a class="dropdown-item" href="' . HOME . 'menu_coelho.php">Coelhos</a></li>
+                </ul>
+                <hr>
             </li>
               
-            <li class="nav-item"><a class="nav-link" href="aprovacoes.php">Aprovar Registros</a><hr></li>
-            <li class="nav-item"><a class="nav-link" href="listar_usuarios.php">Controle de Usuários</a><hr></li>
-            <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a><hr></li>
-            <li class="nav-item"><a class="nav-link" href="home.php?logout=' . $_SESSION['user_id'] . '">Logout</a><hr></li>
-          ';
+            <li class="nav-item"><a class="nav-link" href="' . HOME . 'aprovacoes.php">Aprovar Registros</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="' . HOME . 'listar_usuarios.php">Controle de Usuários</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="' . HOME . 'sobre.php">Sobre</a><hr></li>
+            <li class="nav-item"><a class="nav-link" href="' . HOME . 'home.php?logout=' . $_SESSION['user_id'] . '">Logout</a><hr></li>
+        ';
       } elseif ($tipo === 'funcionario') {
           echo '
-            <li class="nav-item"><a class="nav-link" href="home.php"><hr><b>PERFIL</b></a><hr></li>
-            <li class="nav-item"><hr><a class="nav-link active" href="index.php">Home</a><hr></li>
-            
-            <li class="nav-item dropdown">
-              <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>
-              <ul class="dropdown-menu" style="text-align: center;">
-                <li><a class="dropdown-item" href="/scaii/menu_bovino.php">Bovinos</a><hr></li>
-                <li><a class="dropdown-item" href="/scaii/menu_suino.php">Suínos</a><hr></li>
-                <li><a class="dropdown-item" href="/scaii/menu_ovino.php">Ovinos</a><hr></li>
-                <li><a class="dropdown-item" href="/scaii/menu_ave.php">Aves</a><hr></li>
-                <li><a class="dropdown-item" href="/scaii/menu_coelho.php">Coelhos</a></li>
-              </ul>
-              <hr>
-            </li>
-            
-            <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a><hr></li>
-            <li class="nav-item"><a class="nav-link" href="home.php?logout=' . $_SESSION['user_id'] . '">Logout</a><hr></li>
+              <li class="nav-item">
+                <a class="profile-icon" href="' . HOME . 'home.php">
+                  <i class="bi bi-person"></i>
+                </a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="' . HOME . 'home.php"><hr><b>PERFIL</b></a><hr></li>
+              <li class="nav-item"><hr><a class="nav-link active" href="' . HOME . 'index.php">Home</a><hr></li>
+              
+              <li class="nav-item dropdown">
+                  <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>
+                  <ul class="dropdown-menu" style="text-align: center;">
+                      <li><a class="dropdown-item" href="' . HOME . 'menu_bovino.php">Bovinos</a><hr></li>
+                      <li><a class="dropdown-item" href="' . HOME . 'menu_suino.php">Suínos</a><hr></li>
+                      <li><a class="dropdown-item" href="' . HOME . 'menu_ovino.php">Ovinos</a><hr></li>
+                      <li><a class="dropdown-item" href="' . HOME . 'menu_ave.php">Aves</a><hr></li>
+                      <li><a class="dropdown-item" href="' . HOME . 'menu_coelho.php">Coelhos</a></li>
+                  </ul>
+                  <hr>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="' . HOME . 'sobre.php">Sobre</a><hr></li>
+              <li class="nav-item">
+                <a class="nav-link" href="' . HOME . 'home.php?logout=' . $_SESSION['user_id'] . '">Logout</a>
+                <hr>
+              </li>
           ';
       } else {
           // Usuários comuns não logados: não exibe menu (ou pode exibir menu público)

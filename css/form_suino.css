@@ -1,0 +1,91 @@
+/* CONTAINER PRINCIPAL */
+.container-form-suino {
+    max-width: 1100px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.08);
+}
+
+/* TÍTULOS */
+.container-form-suino h3,
+.container-form-suino h4 {
+    color: #5EB661;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* TABELAS */
+.tabela-ficha {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    background: #fafafa;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabela-ficha td,
+.tabela-ficha th {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* CABEÇALHOS */
+.titulo-secao {
+    background-color: #5EB661;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 10px;
+}
+
+/* INPUTS GERais */
+.form-control, .form-select {
+    background: transparent;
+    border: none !important;
+    border-bottom: 2px solid #bfbfbf !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 6px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-bottom: 2px solid #4a9450 !important;
+}
+
+/* BOTÕES */
+.btn-suino {
+    background-color: #5EB661;
+    border: none;
+    padding: 12px 25px;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: block;
+    margin: 30px auto;
+}
+
+.btn-suino:hover {
+    background-color: #4a9450;
+}
+
+.btn-add-leitao {
+    background-color: #6c757d;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 20px;
+    border: none;
+}
+
+.btn-excluir {
+    background-color: #dc3545 !important;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+}

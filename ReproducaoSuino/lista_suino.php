@@ -1,13 +1,28 @@
 <?php
 require_once("../Classes/ReproducaoSuino.class.php");
 
+  session_start();
+
+// Corrige includes com caminho relativo
+    if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
+        include __DIR__ . '/../Includes/menuinclude.php';
+    }
+    if (file_exists(__DIR__ . '/../Includes/rodapeinclude.php')) {
+        $temRodape = true;
+    } else {
+        $temRodape = false;
+    }
+$tipo = $_SESSION['user_tipo'] ?? ''; // se não existir, fica string vazia
+
+// Recebe parâmetros de busca
 $busca = isset($_GET['busca']) ? trim($_GET['busca']) : '';
 $tipo  = isset($_GET['tipo'])  ? (int)$_GET['tipo'] : 0;
 
+// **Trecho que não pode ser modificado**
 $lista = ReproducaoSuino::listar($tipo, $busca);
 $itens = '';
 foreach ($lista as $suino) {
-    $item = file_get_contents(__DIR__ . '/itens_listagem.suino.html');
+    $item = file_get_contents( 'itens_listagem.suino.html');
     $item = str_replace('{id}',          $suino->getId(),          $item);
     $item = str_replace('{nporca}',      $suino->getNporca(),      $item);
     $item = str_replace('{raca}',        $suino->getRaca(),        $item);
@@ -24,7 +39,10 @@ foreach ($lista as $suino) {
 
     $itens .= $item;
 }
-$listagem = file_get_contents('listagem_suino.html');
-$listagem = str_replace('{itens}', $itens, $listagem);
-print($listagem);
+
+// Faz o menu funcionar e CSS ser carregado
+include __DIR__ . '/listagem_suino.php';
+
+if ($temRodape) include __DIR__ . '/../Includes/rodapeinclude.php';
+
 ?>

@@ -1,6 +1,6 @@
 <?php
 include "../config/config.inc.php";
-include "../Classes/Database.class.php"; // Ajuste o caminho se necessário
+include "../Classes/Database.class.php"; 
 
 // Recebendo os dados do formulário
 $porca = $_POST['porca'] ?? '';
@@ -16,7 +16,7 @@ $venda_lote = !empty($_POST['venda_lote']) ? $_POST['venda_lote'] : null;
 
 $id_lote = isset($_POST['id_lote']) && $_POST['id_lote'] !== '' && is_numeric($_POST['id_lote']) ? $_POST['id_lote'] : null;
 
-// Se o id_lote for nulo, significa que estamos criando um novo lote
+// Se o id_lote for nulo, significa: criando um novo lote
 if ($id_lote === null) {
     // Inserindo os dados do lote
     $sql_lote = "INSERT INTO lotes (porca, lote, vivos, mortos, mumia, tmaternidade, parto_lote, desmame_lote, screche_lote, venda_lote)
@@ -37,7 +37,7 @@ if ($id_lote === null) {
     Database::executar($sql_lote, $parametros_lote);
 
     // Recuperando o id_lote do último lote inserido
-    $id_lote = Database::lastInsertId(); // Usando o método público
+    $id_lote = Database::lastInsertId(); 
 }
 
 // Inserindo os leitões
@@ -69,5 +69,5 @@ foreach ($leitoes as $index => $mossa) {
 
 // Redirecionar para uma página de visualização, passando o id_lote
 header("Location: visualizar_lote.php?id_lote=" . $id_lote);
-exit(); // Sempre use exit após header para evitar execução adicional
+exit(); 
 ?>

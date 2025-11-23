@@ -1,7 +1,20 @@
 <?php
-// Inclusão dos arquivos necessários
+session_start();
+
 require_once("../Classes/Database.class.php");
 include_once '../config/config.inc.php';
+
+
+
+// Corrige includes com caminho relativo
+if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
+    include __DIR__ . '/../Includes/menuinclude.php';
+}
+if (file_exists(__DIR__ . '/../Includes/rodapeinclude.php')) {
+    $temRodape = true;
+} else {
+    $temRodape = false;
+}
 
 // Consultar todos os lotes
 $sql_lotes = "SELECT id_lote, porca, lote, vivos, mortos, mumia FROM lotes ORDER BY id_lote ASC";
@@ -25,7 +38,7 @@ $lotes = $lotes_result->fetchAll(PDO::FETCH_ASSOC);
     <title>SCAI - Sistema de Coordenação de Animais do Instituto</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="JS/js.js"> </script>
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="../css/estilo.css">
     <script>
         function confirmarExclusao(id) {
             if (confirm("Tem certeza que deseja excluir este lote? Isso também excluirá todos os leitões associados e reordenará os IDs dos lotes restantes.")) {
@@ -36,9 +49,6 @@ $lotes = $lotes_result->fetchAll(PDO::FETCH_ASSOC);
 
 </head>
 <body>
-<?php 
-   include __DIR__ . '/Includes/menuinclude.php';
-?>
 
 <div class="container my-5">
     <h3 class="mb-3">Lista de Lotes de Porca</h3>
@@ -82,5 +92,10 @@ $lotes = $lotes_result->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<?php
+    if ($temRodape) include __DIR__ . '/../Includes/rodapeinclude.php';
+?>
+
 </body>
 </html>
