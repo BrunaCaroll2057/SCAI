@@ -5,26 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <style>
-        .tabela-ficha {
-            width: 100%;
-            border: 1px solid #bfbfbf;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        .tabela-ficha td, 
-        .tabela-ficha th {
-            border: 1px solid #bfbfbf;
-            padding: 8px;
-        }
-        .titulo-secao {
-            background-color: #e9ecef;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-align: left;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/form_suino.css">
 
     <title>Cadastro do ciclo reprodutivo - Suínos</title>
 </head>

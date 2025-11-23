@@ -1,6 +1,7 @@
 <?php
 require_once("../Classes/ProducaoLotes.class.php");
 
+
 $busca = isset($_GET['busca']) ? trim($_GET['busca']) : '';
 $tipo  = isset($_GET['tipo'])  ? (int)$_GET['tipo'] : 0;
 
