@@ -1,0 +1,63 @@
+/* ===== RESETAR Bootstrap apenas para esta tabela ===== */
+.tabela-suino *,
+.tabela-suino *::before,
+.tabela-suino *::after {
+    box-sizing: border-box !important;
+}
+
+/* ===== CONFIGURAÇÕES PRINCIPAIS DA TABELA ===== */
+.tabela-suino {
+    width: auto !important;              /* deixa largura livre */
+    table-layout: fixed !important;      /* OBRIGA respeitar larguras */
+    border-collapse: collapse !important;
+    margin: 0 auto !important;
+
+    /* Bordas arredondadas */
+    border-radius: 12px !important;
+    overflow: hidden !important;         /* evita que cantos internos fiquem retos */
+    border: 1px solid #198754 !important; /* borda visível igual cabeçalho */
+}
+
+/* ===== CABEÇALHO ===== */
+.tabela-suino thead th {
+    background-color: #198754 !important;
+    color: #fff !important;
+    padding: 6px 4px !important;
+    white-space: nowrap !important;      /* impede quebra */
+    text-align: center !important;
+}
+
+/* ===== CÉLULAS ===== */
+.tabela-suino td {
+    padding: 6px 4px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;         /* evita estourar */
+    text-overflow: ellipsis !important;
+}
+
+/* ======= LARGURAS AJUSTADAS ======= */
+.col-cobertura    { width: 150px !important; }
+.col-provparto    { width: 180px !important; }
+.col-parto        { width: 150px !important; }
+.col-dtdesmama    { width: 150px !important; }
+
+.col-nporca       { width: 50px !important; }
+.col-nmacho       { width: 50px !important; }
+.col-vivos        { width: 45px !important; }
+.col-natimortos   { width: 60px !important; }
+.col-mumificados  { width: 60px !important; }
+.col-ndesmama     { width: 60px !important; }
+
+.col-obs          { width: 180px !important; }
+
+/* ===== REDUZIR A TABELA TODA PARA CABER NA TELA ===== */
+.tabela-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    overflow-x: visible !important;
+    margin: 0 auto !important;
+    transform: scale(0.90);
+    transform-origin: top center;
+}

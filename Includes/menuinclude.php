@@ -56,7 +56,6 @@
                   <i class="bi bi-person"></i>
                 </a>
               </li>
-              <li class="nav-item"><a class="nav-link" href="' . HOME . 'home.php"><hr><b>PERFIL</b></a><hr></li>
               <li class="nav-item"><hr><a class="nav-link active" href="' . HOME . 'index.php">Home</a><hr></li>
               
               <li class="nav-item dropdown">

@@ -12,7 +12,9 @@
     <title>Cadastro do ciclo reprodutivo - Suínos</title>
 </head>
 <body>
+
 <?php include __DIR__ . '/../Includes/menuinclude.php'; ?>
+
 <div class="container mt-10 pt-3">
     <div class="card shadow p-4 rounded">
         <h3 class="text-center fw-bold mb-4">Ciclo reprodutivo de cada porca</h3>

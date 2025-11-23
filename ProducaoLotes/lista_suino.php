@@ -1,6 +1,17 @@
 <?php
 require_once("../Classes/ProducaoLotes.class.php");
 
+  session_start();
+
+    if (file_exists(__DIR__ . '/../Includes/menuinclude.php')) {
+        include __DIR__ . '/../Includes/menuinclude.php';
+    }
+    if (file_exists(__DIR__ . '/../Includes/rodapeinclude.php')) {
+        $temRodape = true;
+    } else {
+        $temRodape = false;
+    }
+$tipo = $_SESSION['user_tipo'] ?? '';
 
 $busca = isset($_GET['busca']) ? trim($_GET['busca']) : '';
 $tipo  = isset($_GET['tipo'])  ? (int)$_GET['tipo'] : 0;
@@ -25,7 +36,15 @@ foreach ($lista as $suino) {
     $item = str_replace('{obs}',   $suino->getObs(),$item);
     $itens .= $item;
 }
-$listagem = file_get_contents('listagem_suino.html');
+
+ob_start();
+include 'listagem_suino.php';
+$listagem = ob_get_clean();
+
 $listagem = str_replace('{itens}', $itens, $listagem);
-print($listagem);
+
+echo $listagem;
+
+if ($temRodape) include __DIR__ . '/../Includes/rodapeinclude.php';
+
 ?>

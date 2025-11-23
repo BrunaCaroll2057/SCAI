@@ -15,7 +15,7 @@
 
 <div class="container mt-5">
     <div class="card shadow p-4 rounded">
-        <h3 class="mb-3 text-center">Cadastro de Lote e Leitões</h3>  <!-- Título movido para dentro da card e centralizado -->
+        <h3 class="mb-3 text-center">Cadastro de Lote e Leitões</h3>
 
         <form id="form_completo" action="salvar_lote_e_leitoes.php" method="POST">
             
@@ -23,30 +23,30 @@
             <table class="tabela-ficha">
                 <tr><th class="titulo-secao" colspan="4">Dados gerais</th></tr>
                 <tr>
-                    <td>Porca:</td><td><input type="text" name="porca" class="form-control" required></td>
-                    <td>Lote:</td><td><input type="text" name="lote" class="form-control" required></td>
+                    <td>Porca:</td><td><input type="text" name="porca" class="form-control"></td>  <!-- Removido required -->
+                    <td>Lote:</td><td><input type="text" name="lote" class="form-control"></td>
                 </tr>
             </table>
 
             <table class="tabela-ficha">
                 <tr><th class="titulo-secao" colspan="6">Nascidos</th></tr>
                 <tr>
-                    <td>Vivos:</td><td><input type="number" name="vivos" class="form-control" required></td>
-                    <td>Mortos:</td><td><input type="number" name="mortos" class="form-control" required></td>
-                    <td>Múmia:</td><td><input type="number" name="mumia" class="form-control" required></td>
+                    <td>Vivos:</td><td><input type="number" name="vivos" class="form-control"></td>
+                    <td>Mortos:</td><td><input type="number" name="mortos" class="form-control"></td>
+                    <td>Múmia:</td><td><input type="number" name="mumia" class="form-control"></td>
                 </tr>
             </table>
 
             <table class="tabela-ficha">
                 <tr><th class="titulo-secao" colspan="6">Datas</th></tr>
                 <tr>
-                    <td>Trans. Maternidade:</td><td><input type="date" name="tmaternidade" class="form-control" required></td>
-                    <td>Parto:</td><td><input type="date" name="parto_lote" class="form-control" required></td>
-                    <td>Desmame:</td><td><input type="date" name="desmame_lote" class="form-control" required></td>
+                    <td>Trans. Maternidade:</td><td><input type="date" name="tmaternidade" class="form-control"></td>
+                    <td>Parto:</td><td><input type="date" name="parto_lote" class="form-control"></td>
+                    <td>Desmame:</td><td><input type="date" name="desmame_lote" class="form-control"></td>
                 </tr>
                 <tr>
-                    <td>Saída de creche:</td><td><input type="date" name="screche_lote" class="form-control" required></td>
-                    <td>Venda:</td><td><input type="date" name="venda_lote" class="form-control" required></td>
+                    <td>Saída de creche:</td><td><input type="date" name="screche_lote" class="form-control"></td>
+                    <td>Venda:</td><td><input type="date" name="venda_lote" class="form-control"></td>
                 </tr>
             </table>
 
@@ -59,7 +59,7 @@
                 <thead>
                     <tr>
                         <th class="titulo-secao">Nº</th>
-                        <th class="titulo-secao" id="mossa">Mossa</th>
+                        <th class="titulo-secao">Mossa</th>  <!-- Removido id duplicado -->
                         <th class="titulo-secao">Sexo</th>
                         <th class="titulo-secao">Observação</th>
                         <th class="titulo-secao">Nascimento</th>
@@ -72,8 +72,8 @@
                 <tbody id="leitoes_container">
                     <tr>
                         <td>1</td>
-                        <td><input type="text" name="mossa[]" class="form-control" id="mossa"></td>
-                        <td><select name="sexo[]" class="form-select" id="select-sx">
+                        <td><input type="text" name="mossa[]" class="form-control"></td>  <!-- Removido id duplicado -->
+                        <td><select name="sexo[]" class="form-select">  <!-- Removido id duplicado -->
                             <option value="Macho">Macho</option>
                             <option value="Fêmea">Fêmea</option>
                         </select></td>

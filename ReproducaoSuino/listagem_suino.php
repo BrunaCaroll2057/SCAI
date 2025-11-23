@@ -190,7 +190,7 @@
       </tbody>
     </table>
 
-    <a href="../index.php" class="btn btn-success mt-3">Voltar à Página Principal</a>
+    <a href="../menu_suino.php" class="btn btn-success mt-3">Voltar ao Menu</a>
 </div>
 
 </body>

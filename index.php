@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  $tipo = $_SESSION['user_tipo'] ?? ''; // se não existir, fica string vazia
+  $tipo = $_SESSION['user_tipo'] ?? '';
 
 ?>
 
@@ -25,13 +25,13 @@
   include __DIR__ . '/Includes/menuinclude.php';
 
   if ($tipo === 'admin') {
-    // Conteúdo exclusivo para admin  
+    // Mensagem exclusiva para conta de admin  
     include 'admin_dashboard.php';
   } elseif ($tipo === 'funcionario') {
-      // Conteúdo exclusivo para funcionário
+      // Mensagem exclusiva para conta de funcionário
       include 'funcionario_dashboard.php';
   } else {
-      // Conteúdo para visitantes
+      // Mensagem para visitantes - sem login
       include 'public_home.php';
   }
 
@@ -78,11 +78,11 @@
   <!--   Controladores | Botões -->
     <a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only"> Previous </span>
+      <span class="sr-only"> Anterior </span>
     </a>
     <a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only"> Next </span>
+      <span class="sr-only"> Próximo </span>
     </a> 
   </div> 
   <!-- Fim do carrossel -->
@@ -136,7 +136,7 @@
   <h2 id="tit_sobre">Confira também:</h2>
 
   <br>
-  <div style="margin-left: 140px;">
+  <div style="margin-left: 70px;">
   <div class="container text-center">
     <div class="row align-items-center">
       <div class="col">
