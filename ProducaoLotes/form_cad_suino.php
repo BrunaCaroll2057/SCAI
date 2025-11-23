@@ -12,7 +12,7 @@
     <title>Cadastro do Acompanhamento Produtivo dos Lotes de Porcas - Suínos</title>
 </head>
 <body>
-    <?php include __DIR__ . '/../Includes/menuinclude.php'; ?>
+<?php include __DIR__ . '/../Includes/menuinclude.php'; ?>
 
 <div class="container mt-10 pt-3">
     <div class="card shadow p-4 rounded">
