@@ -61,8 +61,8 @@
               <li class="nav-item dropdown">
                   <a class="dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar Animal</a>
                   <ul class="dropdown-menu" style="text-align: center;">
-                      <li><a class="dropdown-item" href="' . HOME . 'menu_bovino.php">Bovinos</a><hr></li>
                       <li><a class="dropdown-item" href="' . HOME . 'menu_suino.php">Suínos</a><hr></li>
+                      <li><a class="dropdown-item" href="' . HOME . 'menu_bovino.php">Bovinos</a><hr></li>
                       <li><a class="dropdown-item" href="' . HOME . 'menu_ovino.php">Ovinos</a><hr></li>
                       <li><a class="dropdown-item" href="' . HOME . 'menu_ave.php">Aves</a><hr></li>
                       <li><a class="dropdown-item" href="' . HOME . 'menu_coelho.php">Coelhos</a></li>
