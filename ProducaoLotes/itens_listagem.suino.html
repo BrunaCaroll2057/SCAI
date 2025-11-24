@@ -5,6 +5,17 @@
             <i class="bi bi-pencil-square"></i>
         </a>
     </td>
+    <td>
+        {lote}
+        <form action="media_parto.php" method="GET" style="display:inline-block; margin-left:8px;">
+            <input type="hidden" name="id" value="{id}">
+            <input type="hidden" name="lote" value="{lote}">
+<button type="submit" class="btn btn-sm btn-primary px-1 py-1" title="Calcular a média deste parto">
+    Média
+</button>
+
+        </form>
+    </td>
     <td>{nporca}</td>
     <td>{nmacho}</td>
     <td>{dt_cobertura}</td>

@@ -200,3 +200,8 @@ CREATE TABLE `ProducaoLote` (
     `obs` TEXT DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+select * from producaolote;
+
+alter table `producaolote`
+add column lote int;

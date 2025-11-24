@@ -21,6 +21,7 @@ $itens = '';
 foreach ($lista as $suino) {
     $item = file_get_contents(__DIR__ . '/itens_listagem.suino.html');
     $item = str_replace('{id}',          $suino->getId(),          $item);
+    $item = str_replace('{lote}', $suino->getLote(), $item);
     $item = str_replace('{nporca}',      $suino->getNporca(),$item);
     $item = str_replace('{nmacho}',        $suino->getnMacho(),$item);
     $item = str_replace('{dt_cobertura}',$suino->getDt_cobertura(),$item);

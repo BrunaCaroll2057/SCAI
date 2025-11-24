@@ -15,6 +15,7 @@ $animal = new ProducaoLotes();
 // Se for POST (salvar/excluir)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id           = $_POST['id'] ?? 0;
+    $lote       = $_POST['lote'] ?? 0;
     $nporca       = $_POST['nporca'] ?? 0;
     $nmacho       = $_POST['nmacho'] ?? 0;
     $dt_cobertura = $_POST['dt_cobertura'] ?? '';
@@ -24,14 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $natimorto    = $_POST['natimorto'] ?? 0;
     $mumia        = $_POST['mumia'] ?? 0;
     $recebimento  = $_POST['recebimento'] ?? '';
-    $transferencia = $_POST['tranferencia'] ?? '';
+    $transferencia = $_POST['transferencia'] ?? '';
     $dt_desmama   = $_POST['dt_desmama'] ?? '';
     $ndesmamas    = $_POST['ndesmamas'] ?? 0;
     $obs          = $_POST['obs'] ?? '';
     $acao         = $_POST['acao'] ?? '';
 
     $animal = new ProducaoLotes(
-        $id, $nporca, $nmacho, $dt_cobertura, $dt_provparto,
+        $id, $lote, $nporca, $nmacho, $dt_cobertura, $dt_provparto,
         $dt_parto, $vivos, $natimorto, $mumia, $recebimento,
         $transferencia, $dt_desmama, $ndesmamas, $obs  
     );

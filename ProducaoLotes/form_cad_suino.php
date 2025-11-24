@@ -12,7 +12,9 @@
     <title>Cadastro do Acompanhamento Produtivo dos Lotes de Porcas - Suínos</title>
 </head>
 <body>
-<?php include __DIR__ . '/../Includes/menuinclude.php'; ?>
+<?php 
+    include __DIR__ . '/../Includes/menuinclude.php'; 
+?>
 
 <div class="container mt-10 pt-3">
     <div class="card shadow p-4 rounded">
@@ -32,6 +34,16 @@
                             <label class="form-label">ID:</label>
                             <input type="text" class="form-control" name="id" 
                                    value="<?= htmlspecialchars($animal->getId()) ?>" readonly>
+                        </td>
+                    </tr>
+
+                    <tr> 
+                        <th class="titulo-secao" colspan="4">Lote</th>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <label class="form-label">Nº do Lote:</label>
+                            <input type="number" class="form-control" name="lote" value="<?= htmlspecialchars($animal->getLote()) ?>">
                         </td>
                     </tr>
 
@@ -98,7 +110,7 @@
                         </td>
                         <td>
                             <label class="form-label">Transferido:</label>
-                            <input type="date" class="form-control" name="tranferencia" 
+                            <input type="date" class="form-control" name="transferencia" 
                                    value="<?= htmlspecialchars($animal->getTransferencia()) ?>">
                         </td>
 

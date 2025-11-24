@@ -5,6 +5,7 @@ class ProducaoLotes {
     private static $table = 'ProducaoLote';
 
     private $id;
+    private $lote;
     private $nporca;
     private $nmacho;
     private $dt_cobertura;
@@ -20,10 +21,11 @@ class ProducaoLotes {
     private $obs;
 
     // Construtor
-    public function __construct($id = 0, $nporca = 0, $nmacho = 0, $dt_cobertura = '', $dt_provparto = '',
+    public function __construct($id = 0, $lote = 0, $nporca = 0, $nmacho = 0, $dt_cobertura = '', $dt_provparto = '',
                                 $dt_parto = '', $vivos = 0, $natimorto = 0,
                                 $mumia = 0, $recebimento = '', $transferencia = '', $dt_desmama = '', $ndesmamas = 0, $obs = '') {
         $this->id = $id;
+        $this->lote = $lote;
         $this->nporca = $nporca;
         $this->nmacho = $nmacho;
         $this->dt_cobertura = $dt_cobertura;
@@ -44,6 +46,13 @@ class ProducaoLotes {
     public function setId($id) {
         if ($id < 0) throw new Exception("Erro, a ID deve ser maior que 0!");
         $this->id = $id;
+    }
+    public function setLote($lote) {
+        if ($lote < 0) throw new Exception("Erro, o lote deve ser informado!");
+        $this->lote = $lote;
+    }
+    public function getLote(): int {
+        return (int)$this->lote;
     }
     public function setNporca($nporca) {
         if ($nporca < 0) throw new Exception("Erro, o N° da porca deve ser informado!");
@@ -96,6 +105,10 @@ class ProducaoLotes {
     public function setObs($obs = '') {
         $this->obs = $obs;
     }
+    private function dateOrNull($date) {
+    return ($date === '' || $date === null) ? null : $date;
+}
+
 
     // Getters
     public function getId(): int { return (int) $this->id; }
@@ -115,7 +128,7 @@ class ProducaoLotes {
 
     // __toString (corrigido para consistência e removido $causa inexistente)
     public function __toString(): string {
-        return "ProducaoLotes: {$this->id} - {$this->nporca} - Nmacho: {$this->nmacho} - Data de cobertura: {$this->dt_cobertura} 
+        return "ProducaoLotes: {$this->id} - {$this->lote} - Nporca: {$this->nporca} - Nmacho: {$this->nmacho} - Data de cobertura: {$this->dt_cobertura} 
                                              - Data provável do parto: {$this->dt_provparto} - Data do parto: {$this->dt_parto} 
                                              - Vivos: {$this->vivos} - Natimorto: {$this->natimorto} 
                                              - Mumia: {$this->mumia} - Recebimento: {$this->recebimento} - Transferencia: {$this->transferencia} 
@@ -126,24 +139,25 @@ class ProducaoLotes {
     public function inserir(): bool {
         $table = self::$table;
         $sql = "INSERT INTO `{$table}` (
-            nporca, nmacho, dt_cobertura, dt_provparto, dt_parto, vivos,
+            lote, nporca, nmacho, dt_cobertura, dt_provparto, dt_parto, vivos,
             natimorto, mumia, recebimento, transferencia, dt_desmama, ndesmamas, obs
         ) VALUES (
-            :nporca, :nmacho, :dt_cobertura, :dt_provparto, :dt_parto, :vivos,
+            :lote, :nporca, :nmacho, :dt_cobertura, :dt_provparto, :dt_parto, :vivos,
             :natimorto, :mumia, :recebimento, :transferencia, :dt_desmama, :ndesmamas, :obs
         )";
         $parametros = [
+            ':lote' => $this->getLote(),
             ':nporca' => $this->getNporca(),
             ':nmacho' => $this->getNmacho(),
-            ':dt_cobertura' => $this->getDt_cobertura(),
-            ':dt_provparto' => $this->getDt_provparto(),
-            ':dt_parto' => $this->getDt_parto(),
+            ':dt_cobertura' => $this->dateOrNull($this->getDt_cobertura()),
+            ':dt_provparto' => $this->dateOrNull($this->getDt_provparto()),
+            ':dt_parto' => $this->dateOrNull($this->getDt_parto()),
             ':vivos' => $this->getVivos(),
             ':natimorto' => $this->getNatimorto(),
             ':mumia' => $this->getMumia(),
-            ':recebimento' => $this->getRecebimento(),
-            ':transferencia' => $this->getTransferencia(),
-            ':dt_desmama' => $this->getDt_desmama(),
+            ':recebimento' => $this->dateOrNull($this->getRecebimento()),
+            ':transferencia' => $this->dateOrNull($this->getTransferencia()),
+            ':dt_desmama' => $this->dateOrNull($this->getDt_desmama()),
             ':ndesmamas' => $this->getNdesmamas(),
             ':obs' => $this->getObs(),
         ];
@@ -154,7 +168,8 @@ class ProducaoLotes {
     public function alterar(): bool {
         $table = self::$table;
         $sql = "UPDATE `{$table}`
-                SET nporca = :nporca,
+                SET lote = :lote,
+                    nporca = :nporca,
                     nmacho = :nmacho,
                     dt_cobertura = :dt_cobertura,
                     dt_provparto = :dt_provparto,
@@ -170,17 +185,18 @@ class ProducaoLotes {
                 WHERE id = :id";
         $parametros = [
             ':id' => $this->getId(),
+            ':lote' => $this->getLote(),
             ':nporca' => $this->getNporca(),
             ':nmacho' => $this->getNmacho(),
-            ':dt_cobertura' => $this->getDt_cobertura(),
-            ':dt_provparto' => $this->getDt_provparto(),
-            ':dt_parto' => $this->getDt_parto(),
+            ':dt_cobertura' => $this->dateOrNull($this->getDt_cobertura()),
+            ':dt_provparto' => $this->dateOrNull($this->getDt_provparto()),
+            ':dt_parto' => $this->dateOrNull($this->getDt_parto()),
             ':vivos' => $this->getVivos(),
             ':natimorto' => $this->getNatimorto(),
             ':mumia' => $this->getMumia(),
-            ':recebimento' => $this->getRecebimento(),
-            ':transferencia' => $this->getTransferencia(),
-            ':dt_desmama' => $this->getDt_desmama(),
+            ':recebimento' => $this->dateOrNull($this->getRecebimento()),
+            ':transferencia' => $this->dateOrNull($this->getTransferencia()),
+            ':dt_desmama' => $this->dateOrNull($this->getDt_desmama()),
             ':ndesmamas' => $this->getNdesmamas(),
             ':obs' => $this->getObs()
         ];
@@ -197,7 +213,7 @@ class ProducaoLotes {
 
     public static function listar($tipo = 0, $busca = ''): array {
         $table = self::$table;
-        $sql = "SELECT id, nporca, nmacho, dt_cobertura, dt_provparto, dt_parto, vivos, natimorto, mumia, recebimento, transferencia, dt_desmama, ndesmamas, obs FROM `{$table}`";  // Adicionado transferencia explicitamente
+        $sql = "SELECT id, lote, nporca, nmacho, dt_cobertura, dt_provparto, dt_parto, vivos, natimorto, mumia, recebimento, transferencia, dt_desmama, ndesmamas, obs FROM `{$table}`";  // Adicionado transferencia explicitamente
         $parametros = [];
 
         if ($tipo > 0 && $busca !== '') {
@@ -207,54 +223,58 @@ class ProducaoLotes {
                     $parametros[':busca'] = (int)$busca;
                     break;
                 case 2:
-                    $sql .= " WHERE nporca LIKE :busca";
+                    $sql .= " WHERE lote LIKE :busca";
                     $parametros[':busca'] = "%$busca%";
                     break;
                 case 3:
-                    $sql .= " WHERE nmacho LIKE :busca";
+                    $sql .= " WHERE nporca LIKE :busca";
                     $parametros[':busca'] = "%$busca%";
                     break;
                 case 4:
+                    $sql .= " WHERE nmacho LIKE :busca";
+                    $parametros[':busca'] = "%$busca%";
+                    break;
+                case 5:
                     $sql .= " WHERE dt_cobertura = :busca";
                     $parametros[':busca'] = $busca;
                     break;
-                case 5:
+                case 6:
                     $sql .= " WHERE dt_provparto = :busca";
                     $parametros[':busca'] = $busca;
                     break;
-                case 6:
+                case 7:
                     $sql .= " WHERE dt_parto = :busca";
                     $parametros[':busca'] = $busca;
                     break;
-                case 7:
+                case 8:
                     $sql .= " WHERE vivos = :busca";
                     $parametros[':busca'] = (int)$busca;
                     break;
-                case 8:
+                case 9:
                     $sql .= " WHERE natimorto = :busca";
                     $parametros[':busca'] = (int)$busca;
                     break;
-                case 9:
+                case 10:
                     $sql .= " WHERE mumia = :busca";
                     $parametros[':busca'] = (int)$busca;
                     break;
-                case 10:
+                case 11:
                     $sql .= " WHERE recebimento LIKE :busca";
                     $parametros[':busca'] = "%$busca%";
                     break;
-                case 11:
+                case 12:
                     $sql .= " WHERE transferencia LIKE :busca";
                     $parametros[':busca'] = "%$busca%";
                     break;
-                case 12:
+                case 13:
                     $sql .= " WHERE dt_desmama = :busca";
                     $parametros[':busca'] = $busca;
                     break;
-                case 13:
+                case 14:
                     $sql .= " WHERE ndesmamas = :busca";
                     $parametros[':busca'] = (int)$busca;
                     break;
-                case 14:
+                case 15:
                     $sql .= " WHERE obs LIKE :busca";
                     $parametros[':busca'] = "%$busca%";
                     break;
@@ -269,6 +289,7 @@ class ProducaoLotes {
             foreach ($rows as $row) {
                 $objetos[] = new ProducaoLotes(
                     $row['id'] ?? 0,
+                    $row['lote'] ?? 0,
                     $row['nporca'] ?? 0,
                     $row['nmacho'] ?? 0,
                     $row['dt_cobertura'] ?? '',

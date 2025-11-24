@@ -28,18 +28,19 @@
             <select name="tipo" id="tipo" class="form-select d-inline-block" style="width:auto;">
                 <option value="0">Selecione</option>
                 <option value="1">ID</option>
-                <option value="2">N° Porca</option>
-                <option value="3">N° Macho</option>
-                <option value="4">Data de cobertura</option>
-                <option value="5">Data provável do parto</option>
-                <option value="6">Data do parto</option>
-                <option value="7">Vivos</option>
-                <option value="8">Natimortos</option>
-                <option value="9">Mumificados</option>
-                <option value="10">Recebimento</option>
-                <option value="11">Transferência</option>
-                <option value="12">Data da desmama</option>
-                <option value="13">N° de desmamas</option>
+                <option value="2">Lote</option>
+                <option value="3">N° Porca</option>
+                <option value="4">N° Macho</option>
+                <option value="5">Data de cobertura</option>
+                <option value="6">Data provável do parto</option>
+                <option value="7">Data do parto</option>
+                <option value="8">Vivos</option>
+                <option value="9">Natimortos</option>
+                <option value="10">Mumificados</option>
+                <option value="11">Recebimento</option>
+                <option value="12">Transferência</option>
+                <option value="13">Data da desmama</option>
+                <option value="14">N° de desmamas</option>
             </select>
 
             <button type="submit" class="btn btn-success ms-3">Buscar</button>
@@ -55,6 +56,7 @@
         <thead class="thead-verde">
             <tr>
               <th class="col-id">ID</th>
+              <th class="col-lote">Lote</th>
               <th class="col-nporca">N° Porca</th>
               <th class="col-nmacho">N° Macho</th>
               <th class="col-cobertura">Data de Cobertura</th>
